@@ -2,5 +2,8 @@
 __pycache__/
 .env
 
-pdf_file/
+pdf_files/
 *.pdf
+
+csv_files/
+*.csv
