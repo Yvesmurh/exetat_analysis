@@ -2,6 +2,8 @@ import os
 import pdfplumber
 import json
 
+
+# TODo : This look duplicate, have it somewhere and reuse it.
 def main ():
     """ this one match with the style_2 of pdf very well so far"""
     
@@ -44,7 +46,7 @@ def main ():
     print("ALL FILES PROCESSED!")
     print(f"{'='*60}")
 
-
+### Thhis is also duplicate , import it and reuse
 def process_single_pdf(pdf_path: str, school_json_path: str, student_json_path: str):
     """Process a single PDF file and export to JSON"""
     
@@ -138,6 +140,7 @@ def export_student_json(data: dict, filename: str):
 
 
 def extract_header(page) -> dict:
+    #TODO This is also duplicate, have it somewhere and reuses it.
     """
     Extract text from the header and footer sections.
     
@@ -167,8 +170,10 @@ def extract_body(page) -> str:
     """
     Extract text from the body section by dividing it into three vertical parts.
     This helps maintain proper text extraction from multi-column PDF layouts.
+
     
     """
+    # TODO: Again this is duplicate, create a function, that takes parameters, which are head_weight, footstart start percentage and then reuse.
     width = page.width
     height = page.height
     
@@ -208,6 +213,8 @@ def extract_year_from_footer(footer_text: str) -> str:
     Extract the year from footer text by looking for 4 digits between 
     "EXAMEN D'ETAT" and "http".
     """
+    # TODO This is also duplicate.
+    # also use Regex Patter matching to make it robust
     if not footer_text:
         return ""
     
@@ -252,6 +259,8 @@ def school_data(sections: dict) -> dict:
     Extract school data from the extracted text sections
     Returns organized school information including header data and school_details datas...
     """
+    # Todo: Create Regex
+    # TODO: The function are duplicated.
     result = {
         "school_option": "",
         "school_province": "",
@@ -480,6 +489,8 @@ def parse_student_line(line: str, school_code: str) -> dict:
     """
     Parse a single student line with multiple format variations:
     """
+    # TODO: Again, duplicate code create a function adn reuse it.
+    # TODO: Use Regex to make it more robust
     try:
         # Split the line into parts - handle multiple spaces
         parts = [part for part in line.split() if part.strip()]

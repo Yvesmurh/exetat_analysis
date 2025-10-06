@@ -1,7 +1,6 @@
 import os
 import pdfplumber
 import json
-
 def main():
     """ Process multiple PDF files and save data to JSON format """
 
