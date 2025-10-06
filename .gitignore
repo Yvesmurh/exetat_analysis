@@ -1,0 +1,12 @@
+
+json_files/
+*.json
+
+__pycache__/
+.env
+
+pdf_files/
+*.pdf
+
+csv_files/
+*.csv
