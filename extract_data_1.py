@@ -1,21 +1,21 @@
 import os
 import pdfplumber
 import json
+import re 
+from src.exetat_pak.pdf_parser import list_pdf_in_folder
+from src.exetat_pak.files_utils import create_directory
+
+
 def main():
     """ Process multiple PDF files and save data to JSON format """
 
-    pdf_folder = "pdf_files/text"
-    output_folder = "json_files"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    pdf_folder = os.path.join(base_dir, "pdf_files", "style_2")
+    output_folder = os.path.join(base_dir, "json_files")
     
-    # Create output folder if it doesn't exist
-    os.makedirs(output_folder, exist_ok=True)
+    output_path = create_directory(directory_name = output_folder )
     
-    # Get all PDF files in the folder
-    pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith('.pdf')]
-    
-    if not pdf_files:
-        print(f"No PDF files found in {pdf_folder}")
-        return
+    pdf_files = list_pdf_in_folder(pdf_folder)
     
     print(f"Found {len(pdf_files)} PDF files to process\n")
     
@@ -25,16 +25,16 @@ def main():
         print(f"Processing PDF {pdf_index}/{len(pdf_files)}: {pdf_filename}")
         print(f"{'='*60}")
         
-        pdf_path = os.path.join(pdf_folder, pdf_filename)
+        pdf_path = str(pdf_filename)
         
         # Create output filenames based on PDF name (remove .pdf extension)
-        base_name = os.path.splitext(pdf_filename)[0]
+        base_name = pdf_filename.stem  
         school_json = os.path.join(output_folder, f"{base_name}_schools_data.json")
         student_json = os.path.join(output_folder, f"{base_name}_students_data.json")
         
         # Process this PDF
         try:
-            process_single_pdf(pdf_path, school_json, student_json)
+            process_single_pdf(pdf_path, school_json, student_json, pdf_folder)
         except Exception as e:
             print(f"ERROR: Failed to process {pdf_filename}: {e}")
             continue
@@ -44,7 +44,7 @@ def main():
     print(f"{'='*60}")
 
 
-def process_single_pdf(pdf_path: str, school_json_path: str, student_json_path: str):
+def process_single_pdf(pdf_path: str, school_json_path: str, student_json_path: str, pdf_folder: str):
     """Process a single PDF file and export to JSON"""
     
     # Initialize combined data structures
@@ -72,8 +72,8 @@ def process_single_pdf(pdf_path: str, school_json_path: str, student_json_path: 
                 page = pdf.pages[page_num]
                 
                 # Extract header/footer and body separately
-                header_footer = extract_header(page)
-                body_text = extract_body(page)
+                header_footer = extract_header(page, path = pdf_folder, header_adjustement= 0.05 )
+                body_text = extract_body(page, path = pdf_folder, header_adjustement = 0.05)
                 
                 # Combine extracted sections
                 extracted_result = {
@@ -135,18 +135,23 @@ def export_student_json(data: dict, filename: str):
     with open(filename, 'w', encoding='utf-8') as jsonfile:
         json.dump(data, jsonfile, ensure_ascii=False, indent=4)
 
-
-def extract_header(page) -> dict:
+def extract_header(page, path : str, header_adjustement : float) -> dict:
+    #TODO This is also duplicate, have it somewhere and reuses it.
     """
     Extract text from the header and footer sections.
     
     """
     width = page.width
     height = page.height
+
+    if path.endswith("pdf_files/style_2") or path.endswith("pdf_files\\style_2"):
+        header_adjustement = 0.09
+
+    footer_adjustement = 1.0 - header_adjustement
     
     # Define header and footer bounding box 
-    header_bbox = (0, 0, width, height * 0.05)
-    footer_bbox = (0, height * 0.93, width, height)
+    header_bbox = (0, 0,width, height* header_adjustement) #this mean thu ende tu anziye mwazo ku x, y iko 0 kisha thu ende thu ku top 10% ya height ya page
+    footer_bbox = (0, height * footer_adjustement, width, height)
     
     # Extract header text with layout preserved
     header = page.within_bbox(header_bbox).extract_text(layout=True)
@@ -162,42 +167,52 @@ def extract_header(page) -> dict:
     }
 
 
-def extract_body(page) -> str:
+def extract_body(page, path : str , header_adjustement: float ) -> str:
     """
     Extract text from the body section by dividing it into three vertical parts.
     This helps maintain proper text extraction from multi-column PDF layouts.
+
     
-    Args:
-        page: pdfplumber page object
-        
-    Returns:
-        str: Cleaned combined text from all three body sections
     """
+    # TODO: Again this is duplicate, create a function, that takes parameters, which are head_weight, footstart start percentage and then reuse.
     width = page.width
     height = page.height
+
+
+    if path.endswith("pdf_files/style_2") or path.endswith("pdf_files\\style_2"):
+        header_adjustement = 0.09
+
+    footer_adjustement = 1- header_adjustement
     
     # Define body boundaries (between header and footer)
-    header_height = height * 0.05
-    footer_start = height * 0.95
-    
-    body_top = header_height
+    header = height * header_adjustement
+    footer_start = height* footer_adjustement
+
+    body_top = header 
     body_bottom = footer_start
-    
-    # Divide body width into three parts
-    part_width = width / 3.0
-    
+    #which mean tuna anziya mwazo ya page ti ku bottom kisha tuna tosha amo header
+
+
+    part_width = width / 3
+
     # Define bounding boxes for three vertical sections with slight overlap
     body_part1_bbox = (0, body_top, part_width * 1.1, body_bottom)
     body_part2_bbox = (part_width * 1.1, body_top, 2 * part_width, body_bottom)
     body_part3_bbox = (1.93 * part_width, body_top, width, body_bottom)
-    
-    # Extract text from each section
-    part1_text = page.within_bbox(body_part1_bbox).extract_text(layout=True) or ""
-    part2_text = page.within_bbox(body_part2_bbox).extract_text(layout=True) or ""
-    part3_text = page.within_bbox(body_part3_bbox).extract_text(layout=True) or ""
+
+    if path.endswith("pdf_files/style_2") or path.endswith("pdf_files\\style_2"):
+        body_part1_bbox = (0, body_top, part_width * 1.08, body_bottom)
+        body_part2_bbox = (part_width * 1.05 , body_top, 1.94* part_width, body_bottom)
+        body_part3_bbox = (1.90* part_width , body_top, width, body_bottom)
+        
+
+    body_part1 = page.within_bbox(body_part1_bbox).extract_text(layout=True)
+    body_part2 = page.within_bbox(body_part2_bbox).extract_text(layout=True)
+    body_part3 = page.within_bbox(body_part3_bbox).extract_text(layout=True)
+
     
     # Combine all parts
-    body = part1_text + part2_text + part3_text
+    body = body_part1 + body_part2 + body_part3
     
     # Clean and return combined body text
     body_text = (body or "").replace('\x00', '')
@@ -213,47 +228,27 @@ def extract_year_from_footer(footer_text: str) -> str:
     if not footer_text:
         return ""
     
-    # Normalize the text by removing spaces around "EXAMEN D'ETAT" for easier matching
-    footer_normalized = footer_text.replace(" ", "")
-    
-    # Look for "EXAMEND'ETAT" (or variations) and "http"
-    # Handle different apostrophe variations: ' ' ´
-    start_marker = None
-    if "EXAMEND'ETAT" in footer_normalized:
-        start_marker = "EXAMEND'ETAT"
-    elif "EXAMEND'ETAT" in footer_normalized:
-        start_marker = "EXAMEND'ETAT"
-    elif "EXAMEND'ETAT" in footer_normalized:
-        start_marker = "EXAMEND'ETAT"
-    elif "EXAMEND´ETAT" in footer_normalized:
-        start_marker = "EXAMEND´ETAT"
-    
-    if not start_marker or "http" not in footer_normalized:
-        return ""
-    
-    # Split by the markers
-    after_examen = footer_normalized.split(start_marker)[1]
-    before_http = after_examen.split("http")[0]
-    
-    # The text between should be something like: "-2021" or "2021" or "-2021-" etc.
-    year_section = before_http.strip("-").strip()
-    
-    # Find 4 consecutive digits in the section
-    i = 0
-    while i <= len(year_section) - 4:
-        potential_year = year_section[i:i+4]
-        if potential_year.isdigit():
-            return potential_year
-        i += 1
+    # First try to find a 4-digit year surrounded by dashes or spaces
+    year_pattern = r'[-\s](20\d{2})[-\s]'
+    match = re.search(year_pattern, footer_text)
+    if match:
+        return match.group(1)
     
     return ""
-
+    # Fallback: just look for any 4 digits starting with 20
+    simple_year = re.search(r'20\d{2}', footer_text)
+    if simple_year:
+        return simple_year.group(0)
+    
+    return ""
 
 def school_data(sections: dict) -> dict:
     """
     Extract school data from the extracted text sections
-    Returns organized school information including header data, year from footer, and school details
+    Returns organized school information including header data and school_details datas...
     """
+    # Todo: Create Regex
+    # TODO: The function are duplicated.
     result = {
         "school_option": "",
         "school_province": "",
@@ -263,7 +258,7 @@ def school_data(sections: dict) -> dict:
     # Extract year from footer
     footer_text = sections.get("footer", "")
     year = extract_year_from_footer(footer_text)
-    
+
     # Extract header information
     header_text = sections.get("header", "")
     page_option = ""
@@ -271,46 +266,48 @@ def school_data(sections: dict) -> dict:
     
     if header_text:
         # Extract option - handle multiple format variations
-        if "Option:" in header_text or "Option :" in header_text:
-            # Split on "Option:" or "Option :"
-            if "Option:" in header_text:
-                option_part = header_text.split("Option:")[1]
-            else:
-                option_part = header_text.split("Option :")[1]
+        option_keywords = ["OPTION:", "OPTION :", "Option:", "Option :"]
+        option_part = ""
+    
+        for keyword in option_keywords:
+            if keyword in header_text:
+                option_part = header_text.split(keyword)[1]
             
-            # Remove everything after "- Code" (with various spacing)
-            if "- Code:" in option_part:
-                option_part = option_part.split("- Code:")[0].strip()
-            elif "- Code :" in option_part:
-                option_part = option_part.split("- Code :")[0].strip()
-            elif "-Code:" in option_part:
-                option_part = option_part.split("-Code:")[0].strip()
-            elif "-Code :" in option_part:
-                option_part = option_part.split("-Code :")[0].strip()
+                # First, remove everything after PROVINCE keyword (case insensitive)
+                province_delimiters = ["PROVINCE:", "PROVINCE :", "Province:", "Province :"]
+                for prov_delim in province_delimiters:
+                    if prov_delim in option_part:
+                        option_part = option_part.split(prov_delim)[0].strip()
+                        break
             
-            result["school_option"] = option_part.strip()
-            page_option = option_part.strip()
-        
+                # Then remove everything after CODE if still present
+                code_delimiters = ["- CODE:", "- CODE :", "- Code:", "- Code :", "-CODE:", "-CODE :", "-Code:", "-Code :", "CODE:", "CODE :", "Code:", "Code :"]
+                for delimiter in code_delimiters:
+                    if delimiter in option_part:
+                        option_part = option_part.split(delimiter)[0].strip()
+                        break
+            
+                result["school_option"] = option_part.strip()
+                page_option = option_part.strip()
+                break
         # Extract province - handle multiple format variations
-        if "Province:" in header_text or "Province :" in header_text:
-            # Split on "Province:" or "Province :"
-            if "Province:" in header_text:
-                province_part = header_text.split("Province:")[1]
-            else:
-                province_part = header_text.split("Province :")[1]
-            
-            # Remove everything after "- Code" (with various spacing)
-            if "- Code:" in province_part:
-                province_part = province_part.split("- Code:")[0].strip()
-            elif "- Code :" in province_part:
-                province_part = province_part.split("- Code :")[0].strip()
-            elif "-Code:" in province_part:
-                province_part = province_part.split("-Code:")[0].strip()
-            elif "-Code :" in province_part:
-                province_part = province_part.split("-Code :")[0].strip()
-            
-            result["school_province"] = province_part.strip()
-            page_province = province_part.strip()
+        province_keywords = ["PROVINCE:", "PROVINCE :", "Province:", "Province :"]
+        province_part = ""
+
+        for keyword in province_keywords:
+            if keyword in header_text:
+                province_part = header_text.split(keyword)[1]
+                
+                # Remove everything after "- CODE" or "CODE" (with various spacing)
+                delimiters = ["- CODE:", "- CODE :", "- Code:", "- Code :", "-CODE:", "-CODE :", "-Code:", "-Code :", "CODE:", "CODE :", "Code:", "Code :"]
+                for delimiter in delimiters:
+                    if delimiter in province_part:
+                        province_part = province_part.split(delimiter)[0].strip()
+                        break
+                
+                result["school_province"] = province_part.strip()
+                page_province = province_part.strip()
+                break
     
     # Process the combined body text to extract school data
     body_text = sections.get("body", "")
@@ -368,7 +365,7 @@ def school_data(sections: dict) -> dict:
                     "school_reussites": reussites_clean,
                     "school_option": page_option,
                     "school_province": page_province,
-                    "year": year 
+                    "year": year
                 }
                 
                 result["schools"].append(school_info)
@@ -376,17 +373,13 @@ def school_data(sections: dict) -> dict:
         i += 1
     
     return result
-
-
+    
 def student_data(sections: dict) -> dict: 
-    """
-    Extract student data from the extracted text sections.
-    Includes year from footer and option from header.
+    """Extracted data from the extracted data function and then use it to range student data
     """
     result = {
         "students_by_school": []
     }
-    
     # Extract year from footer
     footer_text = sections.get("footer", "")
     year = extract_year_from_footer(footer_text)
@@ -394,26 +387,33 @@ def student_data(sections: dict) -> dict:
     # Extract option from header
     header_text = sections.get("header", "")
     page_option = ""
-    
+
     if header_text:
         # Extract option - handle multiple format variations
-        if "Option:" in header_text or "Option :" in header_text:
-            if "Option:" in header_text:
-                option_part = header_text.split("Option:")[1]
-            else:
-                option_part = header_text.split("Option :")[1]
+        option_keywords = ["OPTION:", "OPTION :", "Option:", "Option :"]
+        option_part = ""
+    
+        for keyword in option_keywords:
+            if keyword in header_text:
+                option_part = header_text.split(keyword)[1]
             
-            # Remove everything after "- Code" (with various spacing)
-            if "- Code:" in option_part:
-                option_part = option_part.split("- Code:")[0].strip()
-            elif "- Code :" in option_part:
-                option_part = option_part.split("- Code :")[0].strip()
-            elif "-Code:" in option_part:
-                option_part = option_part.split("-Code:")[0].strip()
-            elif "-Code :" in option_part:
-                option_part = option_part.split("-Code :")[0].strip()
+                # First, remove everything after PROVINCE keyword (case insensitive)
+                province_delimiters = ["PROVINCE:", "PROVINCE :", "Province:", "Province :"]
+                for prov_delim in province_delimiters:
+                    if prov_delim in option_part:
+                        option_part = option_part.split(prov_delim)[0].strip()
+                        break
             
-            page_option = option_part.strip()
+                # Then remove everything after CODE if still present
+                code_delimiters = ["- CODE:", "- CODE :", "- Code:", "- Code :", "-CODE:", "-CODE :", "-Code:", "-Code :", "CODE:", "CODE :", "Code:", "Code :"]
+                for delimiter in code_delimiters:
+                    if delimiter in option_part:
+                        option_part = option_part.split(delimiter)[0].strip()
+                        break
+            
+                result["school_option"] = option_part.strip()
+                page_option = option_part.strip()
+                break
     
     # Process the combined body text to extract student data
     body_text = sections.get("body", "")
@@ -444,8 +444,8 @@ def student_data(sections: dict) -> dict:
                 school_students = {
                     "school_name": school_name,
                     "school_code": school_code,
-                    "year": year,           # Add year from footer
-                    "option": page_option,  # Add option from header
+                    "year":year,
+                    "option":page_option,
                     "students": []
                 }
                 
@@ -473,16 +473,11 @@ def student_data(sections: dict) -> dict:
     
     return result
 
-
 def parse_student_line(line: str, school_code: str) -> dict:
     """
     Parse a single student line with multiple format variations:
-    Format 1: "1 ACHIZAMARANGI  M50"
-    Format 2: "1 BULONZA MUKABA FRANCINE F 55" 
-    Format 3: "39 USHINDI ISSA JUSTIN M 54"
-    Returns: {"student_code": "67001/201/01/6/1", "place": "1", "name": "ACHIZAMARANGI", "sexe": "M", "point": "50"}
     """
-
+    # TODO: Again, duplicate code create a function adn reuse it.
     try:
         # Split the line into parts - handle multiple spaces
         parts = [part for part in line.split() if part.strip()]
@@ -493,20 +488,20 @@ def parse_student_line(line: str, school_code: str) -> dict:
         rank = parts[0]  # First part is the ranking number
         
         # Create student_code by combining school_code and rank
-        student_code = f"{school_code}/{rank}"
+        student_code = f"{school_code}/ {rank}"
         
         # Look for gender and score pattern
         # The score part can be separate (Format 2) or combined (Format 1)
-        sexe = ""
-        pourcentage = ""
+        gender = ""
+        score = ""
         name_parts = []
         
         # Check if the last part is just a number (separate score)
         if parts[-1].isdigit():
             # Format 2: separate gender and score
-            pourcentage = parts[-1]  # Last part is score
+            score = parts[-1]  # Last part is score
             if len(parts) >= 3:
-                sexe = parts[-2]  # Second to last is gender
+                gender = parts[-2]  # Second to last is gender
                 name_parts = parts[1:-2]  # Everything between rank and gender
         else:
             # Format 1: combined gender+score (like "M50", "F55")
@@ -514,11 +509,11 @@ def parse_student_line(line: str, school_code: str) -> dict:
             
             # Extract gender (first character) and score (remaining characters)
             if len(gender_score) >= 2:
-                sexe = gender_score[0]  # M or F
-                pourcentage = gender_score[1:]  # Everything after gender
+                gender = gender_score[0]  # M or F
+                score = gender_score[1:]  # Everything after gender
             else:
-                sexe = gender_score if gender_score.isalpha() else ""
-                pourcentage = gender_score if gender_score.isdigit() else ""
+                gender = gender_score if gender_score.isalpha() else ""
+                score = gender_score if gender_score.isdigit() else ""
             
             # Everything between rank and gender_score is the name
             name_parts = parts[1:-1]  # All parts except first (rank) and last (gender+score)
@@ -526,16 +521,15 @@ def parse_student_line(line: str, school_code: str) -> dict:
         # Join name parts
         name = " ".join(name_parts)
         
-        return { 
+        return {
             "name": name,
-            "student_code": student_code,
-            "sexe": sexe,
-            "pourcentage": pourcentage
+            "student_code": student_code,  
+            "sexe": gender,
+            "pourcentage": score
         }
         
     except (IndexError, ValueError):
-        return None  # 
-
+        return None  
 
 if __name__ == "__main__":
     main()
