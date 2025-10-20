@@ -1,4 +1,7 @@
 
+src/db/
+*.db
+
 json_files/
 *.json
 
