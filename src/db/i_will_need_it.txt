@@ -1,0 +1,1695 @@
+ Database and tables created successfully!
+
+Inserting school JSON data...
+Inserted 755 schools from: Palmares_definitif_HAUT-LOMAMI_2017_72_schools_data.json
+Progress: 1/416 files processed
+Inserted 419 schools from: Palmares_KATANGA-3-73_2013_schools_data.json
+Progress: 2/416 files processed
+Inserted 4465 schools from: Palmares-2012_Technique_TOUS_schools_data.json
+Progress: 3/416 files processed
+Inserted 581 schools from: Palmares_definitif_TANGANYIKA_2017_73_schools_data.json
+Progress: 4/416 files processed
+Inserted 646 schools from: Palmares_BAS-CONGO-1-21_2013_schools_data.json
+Progress: 5/416 files processed
+Inserted 2293 schools from: Palmares_Kongo_Central_2018_schools_data.json
+Progress: 6/416 files processed
+Inserted 265 schools from: Palmares_76_HAUT-KATANGA-2_schools_data.json
+Progress: 7/416 files processed
+Inserted 1769 schools from: Palmares_63_SUD-KIVU_2016_schools_data.json
+Progress: 8/416 files processed
+Inserted 1007 schools from: Palmares_2021_KWILU-1_schools_data.json
+Progress: 9/416 files processed
+Inserted 1194 schools from: Palmares_Lomami_2018_schools_data.json
+Progress: 10/416 files processed
+Inserted 898 schools from: Palmares_KASAI-ORIENTAL-3-93_2015_schools_data.json
+Progress: 11/416 files processed
+Inserted 1099 schools from: Palmares_definitif_TSHOPO_2017_51_schools_data.json
+Progress: 12/416 files processed
+Inserted 380 schools from: Palmares_2021_Nord-Ubangi-1_schools_data.json
+Progress: 13/416 files processed
+Inserted 455 schools from: Palmares_2021_Sankuru-2_schools_data.json
+Progress: 14/416 files processed
+Inserted 628 schools from: Palmares_KASAI-ORIENTAL-2-92_2015_schools_data.json
+Progress: 15/416 files processed
+Inserted 1030 schools from: Palmares_Katanga_2012_schools_data.json
+Progress: 16/416 files processed
+Inserted 161 schools from: Palmares_PROVINCE-ORIENTALE-3_53_2010_schools_data.json
+Progress: 17/416 files processed
+Inserted 395 schools from: Palmares_67_SUD-KIVU-3_schools_data.json
+Progress: 18/416 files processed
+Inserted 469 schools from: Palmares_2011_JUNACYP_schools_data.json
+Progress: 19/416 files processed
+Inserted 284 schools from: Palmares_40_NORD-UBANGI-2_schools_data.json
+Progress: 20/416 files processed
+Inserted 289 schools from: Palmares_78_LUALABA-2_schools_data.json
+Progress: 21/416 files processed
+Inserted 1061 schools from: Palmares_Bandundu-1_31_2010_schools_data.json
+Progress: 22/416 files processed
+Inserted 1914 schools from: Palmares_Katanga_2009_schools_data.json
+Progress: 23/416 files processed
+Inserted 509 schools from: Palmares_Bas_Congo-2_22_2010_schools_data.json
+Progress: 24/416 files processed
+Inserted 98 schools from: Palmares_PROVINCE-ORIENTALE-4-54_2015_schools_data.json
+Progress: 25/416 files processed
+Inserted 1543 schools from: Palmares_Kasai_2018_schools_data.json
+Progress: 26/416 files processed
+Inserted 240 schools from: Palmares_2021_HAUT-UELE-1_schools_data.json
+Progress: 27/416 files processed
+Inserted 447 schools from: Palmares_2021_Maniema-2_schools_data.json
+Progress: 28/416 files processed
+Inserted 386 schools from: Palmares_Nord_Ubangi_2018_schools_data.json
+Progress: 29/416 files processed
+Inserted 377 schools from: Palmares_2021_Haut_Lomami-2_schools_data.json
+Progress: 30/416 files processed
+Inserted 189 schools from: Palmares_EQUATEUR-5-45_2013_schools_data.json
+Progress: 31/416 files processed
+Inserted 369 schools from: Palmares_2021_Equateur-2_schools_data.json
+Progress: 32/416 files processed
+Moved problematic file to: missing_data/Palmares_KINSHASA-EST_2008_schools_data.json_20251020_113805_no_schools_data.json
+Progress: 33/416 files processed
+Failed to process school data from Palmares_KINSHASA-EST_2008_schools_data.json
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_Maniema_2009_schools_data.json: invalid literal for int() with base 10: 'Zéro - Cause : FRAUDE MASSIVE'
+Moved problematic file to: missing_data/Palmares_Maniema_2009_schools_data.json_20251020_113805_error.json
+Progress: 34/416 files processed
+Failed to process school data from Palmares_Maniema_2009_schools_data.json
+Inserted 556 schools from: Palmares_PROVINCE-ORIENTALE-1-51_2013_schools_data.json
+Progress: 35/416 files processed
+Inserted 363 schools from: Palmares_2021_Tanganyika-2_schools_data.json
+Progress: 36/416 files processed
+Inserted 1316 schools from: Palmares_KINSHASA-EST-11_2013_schools_data.json
+Progress: 37/416 files processed
+Inserted 1871 schools from: Palmares_2021_Kwilu-3_schools_data.json
+Progress: 38/416 files processed
+Inserted 1632 schools from: Palmares_2011_Kasai_Oriental_schools_data.json
+Progress: 39/416 files processed
+Inserted 153 schools from: Palmares_Equateur-5_45_2010_schools_data.json
+Progress: 40/416 files processed
+Inserted 588 schools from: Palmares_2021_MANIEMA-1_schools_data.json
+Progress: 41/416 files processed
+Inserted 1260 schools from: Palmares_82_KASAI_2016_schools_data.json
+Progress: 42/416 files processed
+Inserted 722 schools from: Palmares_52_ITURI-1_schools_data.json
+Progress: 43/416 files processed
+Inserted 328 schools from: Palmares_53_HAUT-UELE-1_schools_data.json
+Progress: 44/416 files processed
+Inserted 1016 schools from: Palmares_Bas-Congo_2009_schools_data.json
+Progress: 45/416 files processed
+Inserted 5544 schools from: Palmares_Kinshasa_2016_schools_data.json
+Progress: 46/416 files processed
+Inserted 2573 schools from: Palmares_definitif_KINSHASA-EST_2017_11_Definitif_schools_data.json
+Progress: 47/416 files processed
+Inserted 437 schools from: Palmares_2022_SUD-UBANGI-1_Code-42_schools_data.json
+Progress: 48/416 files processed
+Inserted 1077 schools from: Palmares_84_KASAI-2_schools_data.json
+Progress: 49/416 files processed
+Inserted 1276 schools from: Palmares_KINSHASA-CENTRE-12_2015_schools_data.json
+Progress: 50/416 files processed
+Inserted 317 schools from: Palmares_Katanga-3_73_2010_schools_data.json
+Progress: 51/416 files processed
+Inserted 479 schools from: Palmares_2021_Sud-Ubangi-2_schools_data.json
+Progress: 52/416 files processed
+Inserted 1120 schools from: Palmares_definitif_LOMAMI2017_93_schools_data.json
+Progress: 53/416 files processed
+Inserted 831 schools from: Palmares_Equateur_2018_schools_data.json
+Progress: 54/416 files processed
+Inserted 818 schools from: Palmares_66_NORD-KIVU-3_schools_data.json
+Progress: 55/416 files processed
+Inserted 2 schools from: Palmares_2020_74_-Lualaba-corrige-922a_schools_data.json
+Progress: 56/416 files processed
+Inserted 304 schools from: Palmares_KATANGA-4-74_2013_schools_data.json
+Progress: 57/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_PROVINCE-ORIENTALE_2008_schools_data.json: invalid literal for int() with base 10: '53 Participants : 55'
+Moved problematic file to: missing_data/Palmares_PROVINCE-ORIENTALE_2008_schools_data.json_20251020_113806_error.json
+Progress: 58/416 files processed
+Failed to process school data from Palmares_PROVINCE-ORIENTALE_2008_schools_data.json
+Inserted 552 schools from: Palmares_2022_NORD-KIVU-3_Code-66_schools_data.json
+Progress: 59/416 files processed
+Inserted 124 schools from: Palmares_definitif_BAS-UELE_2017_54_schools_data.json
+Progress: 60/416 files processed
+Inserted 311 schools from: Palmares_Tshuapa_2018_schools_data.json
+Progress: 61/416 files processed
+Inserted 270 schools from: Palmares_EQUATEUR-4-44_2013_schools_data.json
+Progress: 62/416 files processed
+Inserted 1005 schools from: Palmares_2011_Prov_Orientale_schools_data.json
+Progress: 63/416 files processed
+Inserted 964 schools from: Palmares_51_TSHOPO-1_schools_data.json
+Progress: 64/416 files processed
+Inserted 510 schools from: Palmares_2022_SANKURU-1_Code-92_schools_data.json
+Progress: 65/416 files processed
+Inserted 642 schools from: Palmares_Kasai-Occ-2_82_2010_schools_data.json
+Progress: 66/416 files processed
+Inserted 1210 schools from: Palmares_Kasai-Oriental_2009_schools_data.json
+Progress: 67/416 files processed
+Inserted 126 schools from: Palmares_2022_KASAI-ORIENTAL-2_Code-94_schools_data.json
+Progress: 68/416 files processed
+Inserted 2007 schools from: Palmares_KINSHASA-EST_11_2015_schools_data.json
+Progress: 69/416 files processed
+Inserted 352 schools from: Palmares_Kasai-Orient-1_91_2010_schools_data.json
+Progress: 70/416 files processed
+Inserted 897 schools from: Palmares_2023_65_SUD-KIVU-2_schools_data.json
+Progress: 71/416 files processed
+Inserted 1230 schools from: Palmares_definitif_NORD-KIVU-2-_2017_62_schools_data.json
+Progress: 72/416 files processed
+Inserted 510 schools from: Palmares_2022_KASAI-CENTRAL-2_Code-83_schools_data.json
+Progress: 73/416 files processed
+Inserted 739 schools from: Palmares_KASAI-ORIENTAL-2-92_2013_schools_data.json
+Progress: 74/416 files processed
+Inserted 394 schools from: Palmares_2021_KASAI-CENTRAL-2_schools_data.json
+Progress: 75/416 files processed
+Inserted 27253 schools from: Palmares_Global_2015_schools_data.json
+Progress: 76/416 files processed
+Inserted 6 schools from: Palmares-2020_junacyc_Lualaba-corrige-919_schools_data.json
+Progress: 77/416 files processed
+Inserted 733 schools from: Palmares_KATANGA-2-72_2015_schools_data.json
+Progress: 78/416 files processed
+Inserted 842 schools from: Palmares_2022_KASAI-CENTRAL-1_Code-81_schools_data.json
+Progress: 79/416 files processed
+Inserted 266 schools from: Palmares_56_ITURI-2_schools_data.json
+Progress: 80/416 files processed
+Inserted 872 schools from: Palmares_NORD-KIVU-2-62_2013_schools_data.json
+Progress: 81/416 files processed
+Inserted 385 schools from: Palmares_74_LUALABA_2016_schools_data.json
+Progress: 82/416 files processed
+Inserted 1194 schools from: Palmares_Kasai_Central_2018_schools_data.json
+Progress: 83/416 files processed
+Inserted 292 schools from: Palmares_definitif_TSHUAPA_2017_43_schools_data.json
+Progress: 84/416 files processed
+Inserted 1401 schools from: Palmares_KATANGA-1-71_2013_schools_data.json
+Progress: 85/416 files processed
+Inserted 3767 schools from: Palmares_2021_HAUT-KATANGA-1_schools_data.json
+Progress: 86/416 files processed
+Inserted 1058 schools from: Palmares_2011_Sud_Kivu_schools_data.json
+Progress: 87/416 files processed
+Inserted 153 schools from: Palmares_Bas_Uele_2018_schools_data.json
+Progress: 88/416 files processed
+Inserted 411 schools from: Palmares_KASAI-ORIENTAL-1-91_2013_schools_data.json
+Progress: 89/416 files processed
+Inserted 898 schools from: Palmares_definitif_KONGO-CENTRAL-2_2017_22_schools_data.json
+Progress: 90/416 files processed
+Inserted 1311 schools from: Palmares_82_KASAI-1_schools_data.json
+Progress: 91/416 files processed
+Inserted 432 schools from: Palmares_2022_KONGO-CENTRAL-3_Code-23_schools_data.json
+Progress: 92/416 files processed
+Inserted 517 schools from: Palmares_EQUATEUR-1-41_2013_schools_data.json
+Progress: 93/416 files processed
+Inserted 1192 schools from: Palmares_15_KINSHASA-PLATEAU_schools_data.json
+Progress: 94/416 files processed
+Inserted 830 schools from: Palmares_definitif_ITURI_2017_52_schools_data.json
+Progress: 95/416 files processed
+Inserted 2322 schools from: Palmares_2011_Katanga_schools_data.json
+Progress: 96/416 files processed
+Inserted 529 schools from: Palmares_91_KASAI-ORIENTAL_2016_schools_data.json
+Progress: 97/416 files processed
+Inserted 175 schools from: Palmares_2022_TSHUAPA-1_Code-43_schools_data.json
+Progress: 98/416 files processed
+Inserted 1832 schools from: Palmares_2022_KONGO-CENTRAL-1-_Code-21_schools_data.json
+Progress: 99/416 files processed
+Inserted 1055 schools from: Palmares_Sud_Kivu_2012_schools_data.json
+Progress: 100/416 files processed
+Inserted 843 schools from: Palmares_definitif_MANIEMA_2017_64_schools_data.json
+Progress: 101/416 files processed
+Inserted 587 schools from: Palmares_Kasai-Occ-1_81_2010_schools_data.json
+Progress: 102/416 files processed
+Inserted 122 schools from: Palmares_54_BAS-UELE_2016_schools_data.json
+Progress: 103/416 files processed
+Inserted 1473 schools from: Palmares_2021_LOMAMI_schools_data.json
+Progress: 104/416 files processed
+Inserted 343 schools from: Palmares_KATANGA-4-74_2015_schools_data.json
+Progress: 105/416 files processed
+Inserted 198 schools from: Palmares_PROVINCE-ORIENTALE-3-53_2015_schools_data.json
+Progress: 106/416 files processed
+Inserted 891 schools from: Palmares_2022_LOMAMI_Code-93_schools_data.json
+Progress: 107/416 files processed
+Inserted 1011 schools from: Palmares_21_KONGO-CENTRAL-1_2016_schools_data.json
+Progress: 108/416 files processed
+Inserted 1223 schools from: Palmares_definitif_KWANGO_2017_33_schools_data.json
+Progress: 109/416 files processed
+Inserted 260 schools from: Palmares_definitif_HAUT-UELE_2017_53_schools_data.json
+Progress: 110/416 files processed
+Inserted 1108 schools from: Palmares_KASAI-OCCIDENTAL-2-82_2015_schools_data.json
+Progress: 111/416 files processed
+Inserted 181 schools from: Palmares_2022_BAS-UELE_Code-54_schools_data.json
+Progress: 112/416 files processed
+Inserted 1697 schools from: PALMARES_-2021_KINSHASA-LUKUNGA_schools_data.json
+Progress: 113/416 files processed
+Inserted 1007 schools from: Palmares_NORD-KIVU-1-61_2015_schools_data.json
+Progress: 114/416 files processed
+Inserted 693 schools from: Palmares_PROVINCE-ORIENTALE-2-52_2015_schools_data.json
+Progress: 115/416 files processed
+Inserted 853 schools from: Palmares_2021_NORD-KIVU-3_schools_data.json
+Progress: 116/416 files processed
+Inserted 395 schools from: Palmares_definitif_MONGALA_2017_44_schools_data.json
+Progress: 117/416 files processed
+Inserted 3679 schools from: Palmares-2023_34_KWILU-2_schools_data.json
+Progress: 118/416 files processed
+Inserted 198 schools from: Palmares_Katanga-4_74_2010_schools_data.json
+Progress: 119/416 files processed
+Inserted 148 schools from: Palmares_2022_HAUT-UELE-2_Code-58_schools_data.json
+Progress: 120/416 files processed
+Inserted 380 schools from: PALMARES_-2021_KONGO-CENTRAL-3_schools_data.json
+Progress: 121/416 files processed
+Inserted 458 schools from: Palmares_Katanga-2_72_2010_schools_data.json
+Progress: 122/416 files processed
+Inserted 1108 schools from: Palmares_62_NORD-KIVU-2_2016_schools_data.json
+Progress: 123/416 files processed
+Inserted 972 schools from: Palmares_NORD-KIVU-2-62_2015_schools_data.json
+Progress: 124/416 files processed
+Inserted 1129 schools from: Palmares_Nord-Kivu_2009_schools_data.json
+Progress: 125/416 files processed
+Inserted 2538 schools from: Palmares-2023_35_KWILU-3_schools_data.json
+Progress: 126/416 files processed
+Inserted 469 schools from: Palmares_definitif_LUALABA_2017_74_schools_data.json
+Progress: 127/416 files processed
+Inserted 605 schools from: Palmares_2022_TSHOPO-2_Code-55_schools_data.json
+Progress: 128/416 files processed
+Inserted 151 schools from: Palmares_2022_ITURI-3_Code-57_schools_data.json
+Progress: 129/416 files processed
+Inserted 1074 schools from: Palmares_2021_Kwango-1_schools_data.json
+Progress: 130/416 files processed
+Inserted 155 schools from: Palmares_2021_HAUT-UELE-2_schools_data.json
+Progress: 131/416 files processed
+Inserted 397 schools from: Palmares_37_MAI-NDOMBE-2_schools_data.json
+Progress: 132/416 files processed
+Inserted 808 schools from: Palmares_52_ITURI_2016_schools_data.json
+Progress: 133/416 files processed
+Inserted 1143 schools from: Palmares_definitif_KONGO-CENTRAL1_2017_21_schools_data.json
+Progress: 134/416 files processed
+Inserted 699 schools from: Palmares_definitif_EQUATEUR_2017_41_schools_data.json
+Progress: 135/416 files processed
+Inserted 2541 schools from: Palmares_definitif_HAUT-KATANGA_2017_71_schools_data.json
+Progress: 136/416 files processed
+Inserted 315 schools from: Palmares_Equateur-1_41_2010_schools_data.json
+Progress: 137/416 files processed
+Inserted 694 schools from: Palmares_KASAI-OCCIDENTAL-1-81_2013_schools_data.json
+Progress: 138/416 files processed
+Inserted 520 schools from: Palmares_KATANGA-3-73_2015_schools_data.json
+Progress: 139/416 files processed
+Inserted 929 schools from: Palmares_Haut_Lomami_2018_schools_data.json
+Progress: 140/416 files processed
+Inserted 819 schools from: Palmares_2022_KWILU-1_Code-32_schools_data.json
+Progress: 141/416 files processed
+Inserted 1158 schools from: Palmares_Equateur_2012_schools_data.json
+Progress: 142/416 files processed
+Inserted 1183 schools from: PALMARES_-2021_KINSHASA-FUNA_schools_data.json
+Progress: 143/416 files processed
+Inserted 1780 schools from: PALMARES_-2021_KINSHASA-TSHANGU_schools_data.json
+Progress: 144/416 files processed
+Inserted 842 schools from: Palmares_Sud-Kivu_2009_schools_data.json
+Progress: 145/416 files processed
+Inserted 1025 schools from: Palmares_93_LOMAMI-1_schools_data.json
+Progress: 146/416 files processed
+Inserted 2238 schools from: Palmares_Sud_Kivu_2018_schools_data.json
+Progress: 147/416 files processed
+Inserted 12 schools from: Palmares_HORS-FRONTIER_2008_schools_data.json
+Progress: 148/416 files processed
+Inserted 621 schools from: Palmares_2022_LOMAMI-2_Code-96_schools_data.json
+Progress: 149/416 files processed
+Inserted 1042 schools from: Palmares_93_LOMAMI_2016_schools_data.json
+Progress: 150/416 files processed
+Inserted 543 schools from: Palmares_Lualaba_2018_schools_data.json
+Progress: 151/416 files processed
+Inserted 1254 schools from: Palmares_KINSHASA-EST_11_2010_schools_data.json
+Progress: 152/416 files processed
+Inserted 262 schools from: Palmares_54_BAS-UELE_schools_data.json
+Progress: 153/416 files processed
+Inserted 609 schools from: Palmares_definitif_KASAI-ORIENTAL_2017_91_schools_data.json
+Progress: 154/416 files processed
+Inserted 1323 schools from: Palmares_definitif_NORD-KIVU-1_2017_61_schools_data.json
+Progress: 155/416 files processed
+Inserted 717 schools from: Palmares_2022_NORD-KIVU-1_Code-61_schools_data.json
+Progress: 156/416 files processed
+Inserted 575 schools from: Palmares_83_KASAI-CENTRAL-2_schools_data.json
+Progress: 157/416 files processed
+Inserted 375 schools from: Palmares_2022_TANGANYIKA-1_Code-73_schools_data.json
+Progress: 158/416 files processed
+Inserted 595 schools from: Palmares_2021_Tshopo-2_schools_data.json
+Progress: 159/416 files processed
+Inserted 554 schools from: Palmares_PROVINCE-ORIENTALE-2-52_2013_schools_data.json
+Progress: 160/416 files processed
+Inserted 1089 schools from: Palmares_2022_KINSHASA-FUNA_Code-12_schools_data.json
+Progress: 161/416 files processed
+Inserted 581 schools from: Palmares_68_MANIEMA-2_schools_data.json
+Progress: 162/416 files processed
+Inserted 1005 schools from: Palmares_2022_KINSHASA-PLATEAU_Code-15_schools_data.json
+Progress: 163/416 files processed
+Inserted 405 schools from: Palmares_EQUATEUR-4-44_2015_schools_data.json
+Progress: 164/416 files processed
+Inserted 242 schools from: Palmares_53_HAUT-UELE_2016_schools_data.json
+Progress: 165/416 files processed
+Inserted 174 schools from: Palmares_2022_HAUT-UELE-1_Code-53_schools_data.json
+Progress: 166/416 files processed
+Inserted 27 schools from: Palmares_HORS-FRONTIERES_01_2010_schools_data.json
+Progress: 167/416 files processed
+Inserted 432 schools from: Palmares_EQUATEUR-2-42_2013_schools_data.json
+Progress: 168/416 files processed
+Inserted 310 schools from: Palmares_2021_TANGANYIKA-1_schools_data.json
+Progress: 169/416 files processed
+Inserted 2548 schools from: Palmares_Kinsahsa_2009_schools_data.json
+Progress: 170/416 files processed
+Inserted 696 schools from: Palmares_Junacyc_2012_schools_data.json
+Progress: 171/416 files processed
+Inserted 753 schools from: Palmares_BANDUNDU-3-33_2013_schools_data.json
+Progress: 172/416 files processed
+Inserted 731 schools from: Palmares_2021_Haut_Lomami-1_schools_data.json
+Progress: 173/416 files processed
+Inserted 380 schools from: Palmares_2022_EQUATEUR-2_Code-46_schools_data.json
+Progress: 174/416 files processed
+Inserted 479 schools from: Palmares_Mongala_2018_schools_data.json
+Progress: 175/416 files processed
+Inserted 434 schools from: Palmares_77_TANGANYIKA-2_schools_data.json
+Progress: 176/416 files processed
+Inserted 745 schools from: PALMARES_-2021_MAI-NDOMBE-1_schools_data.json
+Progress: 177/416 files processed
+Inserted 730 schools from: Palmares_BAS-CONGO-2-22_2015_schools_data.json
+Progress: 178/416 files processed
+Inserted 264 schools from: Palmares_57_ITURI-3_schools_data.json
+Progress: 179/416 files processed
+Inserted 3015 schools from: Palmares_Haut_Katanga_2018_schools_data.json
+Progress: 180/416 files processed
+Inserted 1128 schools from: Palmares_Nord_Kivu_2012_schools_data.json
+Progress: 181/416 files processed
+Inserted 948 schools from: Palmares_51_TSHOPO_2016_schools_data.json
+Progress: 182/416 files processed
+Inserted 802 schools from: Palmares_Sud_Ubangi_2018_schools_data.json
+Progress: 183/416 files processed
+Inserted 302 schools from: Palmares_2022_NORD-UBANGI-1_Code-45_schools_data.json
+Progress: 184/416 files processed
+Inserted 869 schools from: Palmares_2021_KASAI-CENTRAL-1_schools_data.json
+Progress: 185/416 files processed
+Inserted 51 schools from: Palmares_2011_Hors_Frontieres_schools_data.json
+Progress: 186/416 files processed
+Inserted 231 schools from: Palmares_2021_HAUT-KATANGA-2_schools_data.json
+Progress: 187/416 files processed
+Inserted 860 schools from: Palmares_definitif_SANKURU_2017_92_schools_data.json
+Progress: 188/416 files processed
+Inserted 2460 schools from: Palmares_BANDUNDU-2-32_2013_schools_data.json
+Progress: 189/416 files processed
+Inserted 605 schools from: Palmares_definitif_SUD-UBANGI_2017_42_schools_data.json
+Progress: 190/416 files processed
+Inserted 249 schools from: Palmares_2022_SUD-KIVU-3_Code-67_schools_data.json
+Progress: 191/416 files processed
+Inserted 644 schools from: PALMARES_-2021_KONGO-CENTRAL-2_schools_data.json
+Progress: 192/416 files processed
+Inserted 272 schools from: Palmares_Haut_Uele_2018_schools_data.json
+Progress: 193/416 files processed
+Inserted 235 schools from: Palmares_EQUATEUR-3-43_2015_schools_data.json
+Progress: 194/416 files processed
+Inserted 1223 schools from: Palmares_Katanga1_2012_schools_data.json
+Progress: 195/416 files processed
+Inserted 2564 schools from: Palmares_BANDUNDU-2-32_2015_schools_data.json
+Progress: 196/416 files processed
+Inserted 684 schools from: Palmares_2022_KWANGO-2_Code-36_schools_data.json
+Progress: 197/416 files processed
+Inserted 625 schools from: Palmares_Bas_Congo-1_21_2010_schools_data.json
+Progress: 198/416 files processed
+Inserted 255 schools from: Palmares_2022_HAUT-KATANGA-2_Code-76_schools_data.json
+Progress: 199/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_SUD-KIVU_2008_schools_data.json: invalid literal for int() with base 10: 'F 57 Participants : 12'
+Moved problematic file to: missing_data/Palmares_SUD-KIVU_2008_schools_data.json_20251020_113808_error.json
+Progress: 200/416 files processed
+Failed to process school data from Palmares_SUD-KIVU_2008_schools_data.json
+Inserted 2385 schools from: Palmares_2022_KWILU-3_Code-35_schools_data.json
+Progress: 201/416 files processed
+Inserted 801 schools from: Palmares_2022_TSHOPO-1_Code-51_schools_data.json
+Progress: 202/416 files processed
+Inserted 840 schools from: Palmares_2021_Kasai-2_schools_data.json
+Progress: 203/416 files processed
+Inserted 77 schools from: Palmares_PROVINCE-ORIENTALE-4-54_2013_schools_data.json
+Progress: 204/416 files processed
+Inserted 523 schools from: Palmares_NORD-KIVU-1_61_2010_schools_data.json
+Progress: 205/416 files processed
+Inserted 931 schools from: Palmares_BAS-CONGO-1-21_2015_schools_data.json
+Progress: 206/416 files processed
+Inserted 771 schools from: Palmares_31_MAINDOMBE_2016_schools_data.json
+Progress: 207/416 files processed
+Inserted 540 schools from: Palmares_73_TANGANYIKA_2016_schools_data.json
+Progress: 208/416 files processed
+Inserted 294 schools from: Palmares_EQUATEUR-5-45_2015_schools_data.json
+Progress: 209/416 files processed
+Inserted 1949 schools from: Palmares_KATANGA-1-71_2015_schools_data.json
+Progress: 210/416 files processed
+Inserted 402 schools from: Palmares_31_MAI-NDOMBE-1_schools_data.json
+Progress: 211/416 files processed
+Inserted 2204 schools from: Palmares_71_HAUT-KATANGA_2016_schools_data.json
+Progress: 212/416 files processed
+Inserted 1356 schools from: Palmares_2022_KWANGO-1_Code-33_schools_data.json
+Progress: 213/416 files processed
+Inserted 1140 schools from: Palmares_33_KWANGO_2016_schools_data.json
+Progress: 214/416 files processed
+Inserted 156 schools from: Palmares_2021_ITURI-3_schools_data.json
+Progress: 215/416 files processed
+Inserted 512 schools from: Palmares_KASAI-ORIENTAL-1-91_2015_schools_data.json
+Progress: 216/416 files processed
+Inserted 525 schools from: Palmares_2021_LUALABA-1_schools_data.json
+Progress: 217/416 files processed
+Inserted 24 schools from: Palmares_HORS-FRONTIERE-01_2013_schools_data.json
+Progress: 218/416 files processed
+Inserted 2129 schools from: Palmares_2022_KINSHASA-LUKUNGA_Code-13_schools_data.json
+Progress: 219/416 files processed
+Inserted 1230 schools from: Palmares-2023_32_KWILU-1_schools_data.json
+Progress: 220/416 files processed
+Inserted 1475 schools from: Palmares_Kasai_Or_2012_schools_data.json
+Progress: 221/416 files processed
+Inserted 258 schools from: Palmares_2022_LUALABA-2_Code-78_schools_data.json
+Progress: 222/416 files processed
+Inserted 380 schools from: Palmares_PROVINCE-ORIENTALE-2_52_2010_schools_data.json
+Progress: 223/416 files processed
+Inserted 686 schools from: Palmares_38_MAI-NDOMBE-3_schools_data.json
+Progress: 224/416 files processed
+Inserted 807 schools from: Palmares_36_KWANGO-2_schools_data.json
+Progress: 225/416 files processed
+Inserted 1264 schools from: Palmares_BANDUNDU-1-31_2015_schools_data.json
+Progress: 226/416 files processed
+Inserted 850 schools from: Palmares_NORD-KIVU-1-61_2013_schools_data.json
+Progress: 227/416 files processed
+Inserted 1232 schools from: Palmares_Tshopo_2018_schools_data.json
+Progress: 228/416 files processed
+Inserted 768 schools from: PALMARES_-2021_KINSHASA-PLATEAU_schools_data.json
+Progress: 229/416 files processed
+Inserted 1508 schools from: Palmares_2021_NORD-KIVU-2_schools_data.json
+Progress: 230/416 files processed
+Inserted 1015 schools from: Palmares_81_KASAI-CENTRAL_2016_schools_data.json
+Progress: 231/416 files processed
+Inserted 183 schools from: Palmares_2021_Mongala-2_schools_data.json
+Progress: 232/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_MANIEMA_2008_schools_data.json: invalid literal for int() with base 10: '1 Participants : 25'
+Moved problematic file to: missing_data/Palmares_MANIEMA_2008_schools_data.json_20251020_113808_error.json
+Progress: 233/416 files processed
+Failed to process school data from Palmares_MANIEMA_2008_schools_data.json
+Inserted 810 schools from: Palmares_2022_HAUT-LOMAMI-1_Code-72_schools_data.json
+Progress: 234/416 files processed
+Inserted 1858 schools from: Palmares_63_SUD-KIVU-1_schools_data.json
+Progress: 235/416 files processed
+Inserted 500 schools from: Palmares_EQUATEUR-2-42_2015_schools_data.json
+Progress: 236/416 files processed
+Inserted 1234 schools from: Palmares_61_NORD-KIVU-1_2016_schools_data.json
+Progress: 237/416 files processed
+Inserted 10 schools from: Palmares_definitif_HORS-FRONTIERE_2017_0X_schools_data.json
+Progress: 238/416 files processed
+Inserted 705 schools from: Palmares_2021_Sankuru-1_schools_data.json
+Progress: 239/416 files processed
+Inserted 940 schools from: Palmares_KASAI-OCCIDENTAL-1-81_2015_schools_data.json
+Progress: 240/416 files processed
+Inserted 3424 schools from: Palmares_Bandundu_2012_schools_data.json
+Progress: 241/416 files processed
+Inserted 1574 schools from: Palmares_Kasai_Occ_2012_schools_data.json
+Progress: 242/416 files processed
+Inserted 819 schools from: Palmares_74_LUALABA-1_schools_data.json
+Progress: 243/416 files processed
+Inserted 1018 schools from: Palmares_2022_-KASAI-2_Code-84_schools_data.json
+Progress: 244/416 files processed
+Inserted 795 schools from: Palmares_64_MANIEMA_2016_schools_data.json
+Progress: 245/416 files processed
+Inserted 903 schools from: Palmares_2022_SUD-KIVU-1_Code-63_schools_data.json
+Progress: 246/416 files processed
+Inserted 600 schools from: Palmares_95_SANKURU-2_schools_data.json
+Progress: 247/416 files processed
+Inserted 383 schools from: Palmares_2022_MANIEMA-2_Code-68-1_schools_data.json
+Progress: 248/416 files processed
+Inserted 790 schools from: Palmares_Province-Orientale_2009_schools_data.json
+Progress: 249/416 files processed
+Inserted 586 schools from: Palmares_42_SUD-UBANGI_2016_schools_data.json
+Progress: 250/416 files processed
+Inserted 410 schools from: Palmares_75_HAUT-LOMAMI-2_schools_data.json
+Progress: 251/416 files processed
+Inserted 6573 schools from: Palmares_Kinshasa_2018_schools_data.json
+Progress: 252/416 files processed
+Inserted 269 schools from: Palmares_2021_SUD-KIVU-3_schools_data.json
+Progress: 253/416 files processed
+Inserted 356 schools from: Palmares_2022_TANGANYIKA-2_Code-77_schools_data.json
+Progress: 254/416 files processed
+Inserted 657 schools from: Palmares_Kasai-Orient-3_93_2010_schools_data.json
+Progress: 255/416 files processed
+Inserted 1980 schools from: Palmares_62_NORD-KIVU-2_schools_data.json
+Progress: 256/416 files processed
+Inserted 162 schools from: Palmares_PROVINCE-ORIENTALE-3-53_2013_schools_data.json
+Progress: 257/416 files processed
+Inserted 434 schools from: Palmares_2022_SUD-UBANGI-2_Code-47_schools_data.json
+Progress: 258/416 files processed
+Inserted 379 schools from: Palmares_PROVINCE-ORIENTALE-1_51_2010_schools_data.json
+Progress: 259/416 files processed
+Inserted 623 schools from: Palmares_2022_ITURI-1_Code-52_schools_data.json
+Progress: 260/416 files processed
+Inserted 4609 schools from: Palmares_2011_Bandundu_schools_data.json
+Progress: 261/416 files processed
+Inserted 883 schools from: Palmares_41_EQUATEUR-1_schools_data.json
+Progress: 262/416 files processed
+Inserted 1215 schools from: Palmares_Equateur_2009_schools_data.json
+Progress: 263/416 files processed
+Inserted 814 schools from: Palmares_definitif_MAINDOMBE_2017_31_schools_data.json
+Progress: 264/416 files processed
+Inserted 496 schools from: Palmares_23_KONGO-CENTRAL-3_schools_data.json
+Progress: 265/416 files processed
+Inserted 697 schools from: Palmares_Bandundu-3_33_2010_schools_data.json
+Progress: 266/416 files processed
+Inserted 1359 schools from: Palmares_2011_Nord_Kivu_schools_data.json
+Progress: 267/416 files processed
+Inserted 676 schools from: Palmares_2021_SUD-KIVU-2_schools_data.json
+Progress: 268/416 files processed
+Inserted 11 schools from: Palmares_2020_HORS-FRONTIERES_SS_schools_data.json
+Progress: 269/416 files processed
+Inserted 4017 schools from: Palmares_definitif_KWILU_2017_32_schools_data.json
+Progress: 270/416 files processed
+Inserted 309 schools from: Palmares_2022_MONGALA-1_Code-44_schools_data.json
+Progress: 271/416 files processed
+Inserted 788 schools from: Palmares_2021_KASAI-ORIENTAL-1_schools_data.json
+Progress: 272/416 files processed
+Inserted 1380 schools from: Palmares_2022_NORD-KIVU-2_Code-62-1_schools_data.json
+Progress: 273/416 files processed
+Inserted 176 schools from: Palmares_2022_ITURI-2_Code-56_schools_data.json
+Progress: 274/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_KASAI-OCC_2008_schools_data.json: invalid literal for int() with base 10: '52 Participants : 2'
+Moved problematic file to: missing_data/Palmares_KASAI-OCC_2008_schools_data.json_20251020_113809_error.json
+Progress: 275/416 files processed
+Failed to process school data from Palmares_KASAI-OCC_2008_schools_data.json
+Inserted 564 schools from: Palmares_2022_SANKURU-2_Code-95_schools_data.json
+Progress: 276/416 files processed
+Inserted 680 schools from: Palmares_72_HAUT-LOMAMI_2016_schools_data.json
+Progress: 277/416 files processed
+Inserted 801 schools from: Palmares_22_KONGO-CENTRAL-2_2016_schools_data.json
+Progress: 278/416 files processed
+Inserted 878 schools from: Palmares_Sud_Kivu_63_2010_schools_data.json
+Progress: 279/416 files processed
+Inserted 1054 schools from: Palmares_22_KONGO-CENTRAL-2_schools_data.json
+Progress: 280/416 files processed
+Inserted 206 schools from: Palmares_2022_MONGALA-2_Code-49_schools_data.json
+Progress: 281/416 files processed
+Inserted 769 schools from: Palmares_MANIEMA-64_2015_schools_data.json
+Progress: 282/416 files processed
+Inserted 703 schools from: Palmares_2021_Tshopo-1_schools_data.json
+Progress: 283/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_KASAI-OR_2008_schools_data.json: invalid literal for int() with base 10: '6 Participants : 37'
+Moved problematic file to: missing_data/Palmares_KASAI-OR_2008_schools_data.json_20251020_113809_error.json
+Progress: 284/416 files processed
+Failed to process school data from Palmares_KASAI-OR_2008_schools_data.json
+Inserted 422 schools from: Palmares_46_EQUATEUR-2_schools_data.json
+Progress: 285/416 files processed
+Inserted 46416 schools from: Palmares_2022_GLOBAL_schools_data.json
+Progress: 286/416 files processed
+Inserted 1404 schools from: Palmares_2011_Kasai_Occidental_schools_data.json
+Progress: 287/416 files processed
+Inserted 920 schools from: Palmares_Maniema_2018_schools_data.json
+Progress: 288/416 files processed
+Inserted 269 schools from: Palmares_58_HAUT-UELE-2_schools_data.json
+Progress: 289/416 files processed
+Inserted 650 schools from: Palmares_2022_KONGO-CENTRAL-2_Code-22_schools_data.json
+Progress: 290/416 files processed
+Inserted 2229 schools from: Palmares_14_KINSHASA-TSHANGU_schools_data.json
+Progress: 291/416 files processed
+Inserted 901 schools from: Palmares_KASAI-OCCIDENTAL-2-82_2013_schools_data.json
+Progress: 292/416 files processed
+Inserted 115 schools from: Palmares_2021_Kasai_Oriental-2_schools_data.json
+Progress: 293/416 files processed
+Inserted 1184 schools from: Palmares_BANDUNDU-1-31_2013_schools_data.json
+Progress: 294/416 files processed
+Inserted 2085 schools from: Palmares_21_KONGO-CENTRAL-1_schools_data.json
+Progress: 295/416 files processed
+Inserted 183 schools from: Palmares_94_KASAI-ORIENTAL-2_schools_data.json
+Progress: 296/416 files processed
+Inserted 835 schools from: Palmares_Maindombe_2018_schools_data.json
+Progress: 297/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_EQUATEUR_2008_schools_data.json: invalid literal for int() with base 10: '50 Participants : 9'
+Moved problematic file to: missing_data/Palmares_EQUATEUR_2008_schools_data.json_20251020_113810_error.json
+Progress: 298/416 files processed
+Failed to process school data from Palmares_EQUATEUR_2008_schools_data.json
+Inserted 527 schools from: Palmares_2022_SUD-KIVU-2_Code-65_schools_data.json
+Progress: 299/416 files processed
+Inserted 1027 schools from: Palmares_Sankuru_2018_schools_data.json
+Progress: 300/416 files processed
+Inserted 874 schools from: Palmares_72_HAUT-LOMAMI-1_schools_data.json
+Progress: 301/416 files processed
+Inserted 1055 schools from: Palmares_definitif_KASAI_2017_82_schools_data.json
+Progress: 302/416 files processed
+Inserted 624 schools from: Palmares_96_LOMAMI-2_schools_data.json
+Progress: 303/416 files processed
+Inserted 1183 schools from: Palmares_81_KASAI-CENTRAL-1_schools_data.json
+Progress: 304/416 files processed
+Inserted 244 schools from: Palmares_EQUATEUR-3-43_2013_schools_data.json
+Progress: 305/416 files processed
+Inserted 444 schools from: Palmares_2022_MANIEMA-1_Code-64_schools_data.json
+Progress: 306/416 files processed
+Inserted 389 schools from: Palmares_BAS-CONGO-2-22_2013_schools_data.json
+Progress: 307/416 files processed
+Inserted 398 schools from: Palmares_2022_HAUT-LOMAMI-2_Code-75_schools_data.json
+Progress: 308/416 files processed
+Inserted 691 schools from: Palmares_KASAI-ORIENTAL-3-93_2013_schools_data.json
+Progress: 309/416 files processed
+Inserted 338 schools from: Palmares_definitif_NORD-UBANGI_2017_45_schools_data.json
+Progress: 310/416 files processed
+Inserted 1002 schools from: Palmares_Orientale_2012_schools_data.json
+Progress: 311/416 files processed
+Inserted 355 schools from: Palmares_2022_MAI-NDOMBE-1_Code-31_schools_data.json
+Progress: 312/416 files processed
+Inserted 3 schools from: Palmares_recours_2012_schools_data.json
+Progress: 313/416 files processed
+Inserted 1232 schools from: Palmares_12_KINSHASA-FUNA_schools_data.json
+Progress: 314/416 files processed
+Inserted 1676 schools from: PALMARES_-2021_KINSHASA-MONT-AMBA_schools_data.json
+Progress: 315/416 files processed
+Inserted 935 schools from: Palmares_2021_NORD-KIVU-1_schools_data.json
+Progress: 316/416 files processed
+Inserted 1042 schools from: Palmares_KINSHASA-CENTRE-12_2013_schools_data.json
+Progress: 317/416 files processed
+Inserted 4555 schools from: Palmares_2022_-HAUT-KATANGA-1_Code-71_schools_data.json
+Progress: 318/416 files processed
+Inserted 417 schools from: Palmares_Maniema_64_2010_schools_data.json
+Progress: 319/416 files processed
+Inserted 216 schools from: Palmares_2022_TSHUAPA-2_Code-48_schools_data.json
+Progress: 320/416 files processed
+Inserted 196 schools from: Palmares_2021_Tshuapa-2_schools_data.json
+Progress: 321/416 files processed
+Inserted 1173 schools from: Palmares_Katanga-1_71_2010_schools_data.json
+Progress: 322/416 files processed
+Inserted 1078 schools from: Palmares_Kasai-Occidental_2009_schools_data.json
+Progress: 323/416 files processed
+Inserted 1014 schools from: Palmares_Bas_Congo_2012_schools_data.json
+Progress: 324/416 files processed
+Inserted 1063 schools from: Palmares_2021_Kasai-1_schools_data.json
+Progress: 325/416 files processed
+Inserted 623 schools from: Palmares_jUNACYC_2015_schools_data.json
+Progress: 326/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_KINSHASA-OUEST_13_2010_schools_data.json: invalid literal for int() with base 10: '6 Participants : 6'
+Moved problematic file to: missing_data/Palmares_KINSHASA-OUEST_13_2010_schools_data.json_20251020_113810_error.json
+Progress: 327/416 files processed
+Failed to process school data from Palmares_KINSHASA-OUEST_13_2010_schools_data.json
+Inserted 299 schools from: Palmares_48_TSHUAPA-2_schools_data.json
+Progress: 328/416 files processed
+Inserted 234 schools from: Palmares_2021_LUALABA-2_schools_data.json
+Progress: 329/416 files processed
+Inserted 255 schools from: Palmares_Equateur-4_44_2010_schools_data.json
+Progress: 330/416 files processed
+Inserted 886 schools from: Palmares_definitif_KASAI-CENTRAL_2017_81_schools_data.json
+Progress: 331/416 files processed
+Inserted 378 schools from: Palmares_44_MONGALA_2016_schools_data.json
+Progress: 332/416 files processed
+Inserted 4423 schools from: Palmares_Kwilu_2018_schools_data.json
+Progress: 333/416 files processed
+Inserted 1427 schools from: Palmares_definitif_KINSHASA-CENTRE_2017_12_schools_data.json
+Progress: 334/416 files processed
+Inserted 748 schools from: Palmares_92_SANKURU-1_schools_data.json
+Progress: 335/416 files processed
+Inserted 10 schools from: Palmares_Hors_Frontiere_2018_schools_data.json
+Progress: 336/416 files processed
+Inserted 624 schools from: Palmares_2022_JUNACYC_schools_data.json
+Progress: 337/416 files processed
+Inserted 788 schools from: Palmares_KINSHASA-CENTRE_12_2010_schools_data.json
+Progress: 338/416 files processed
+Inserted 2865 schools from: Palmares_Nord_Kivu_2018_schools_data.json
+Progress: 339/416 files processed
+Inserted 1399 schools from: Palmares_Kwango_2018_schools_data.json
+Progress: 340/416 files processed
+Inserted 460 schools from: Palmares_Kasai-Orient-2_92_2010_schools_data.json
+Progress: 341/416 files processed
+Inserted 275 schools from: Palmares_49_MONGALA-2_schools_data.json
+Progress: 342/416 files processed
+Inserted 554 schools from: Palmares_KATANGA-2-72_2013_schools_data.json
+Progress: 343/416 files processed
+Inserted 475 schools from: Palmares_73_TANGANYIKA-1_schools_data.json
+Progress: 344/416 files processed
+Inserted 618 schools from: Palmares_47_SUD-UBANGI-2_schools_data.json
+Progress: 345/416 files processed
+Inserted 616 schools from: Palmares_41_EQUATEUR_2016_schools_data.json
+Progress: 346/416 files processed
+Inserted 932 schools from: Palmares_91_KASAI-ORIENTAL-1_schools_data.json
+Progress: 347/416 files processed
+Inserted 1766 schools from: Palmares_definitif_KINSHASA-OUEST_2017_13_schools_data.json
+Progress: 348/416 files processed
+Inserted 12 schools from: Palmares_2022_HORS-FRONTIERE_Code-01_schools_data.json
+Progress: 349/416 files processed
+Inserted 682 schools from: Palmares_42_SUD-UBANGI-1_schools_data.json
+Progress: 350/416 files processed
+Inserted 33 schools from: Palmares_Hors_Frontiere_2012_schools_data.json
+Progress: 351/416 files processed
+Inserted 153 schools from: Palmares_Equateur-3_43_2010_schools_data.json
+Progress: 352/416 files processed
+Inserted 932 schools from: Palmares_Ituri_2018_schools_data.json
+Progress: 353/416 files processed
+Inserted 1144 schools from: Palmares_KINSHASA-OUEST-13_2013_schools_data.json
+Progress: 354/416 files processed
+Inserted 548 schools from: Palmares_MANIEMA-64_2013_schools_data.json
+Progress: 355/416 files processed
+Inserted 552 schools from: Palmares_44_MONGALA-1_schools_data.json
+Progress: 356/416 files processed
+Inserted 413 schools from: Palmares_2022_MAI-NDOMBE-2_Code-37_schools_data.json
+Progress: 357/416 files processed
+Inserted 138 schools from: Palmares_2021_BAS-UELE_schools_data.json
+Progress: 358/416 files processed
+Moved problematic file to: missing_data/Palmares_KINSHASA-OUEST_2008_schools_data.json_20251020_113811_no_schools_data.json
+Progress: 359/416 files processed
+Failed to process school data from Palmares_KINSHASA-OUEST_2008_schools_data.json
+Inserted 772 schools from: Palmares_PROVINCE-ORIENTALE-1-51_2015_schools_data.json
+Progress: 360/416 files processed
+Inserted 834 schools from: Palmares_2022_KASAI-ORIENTAL-1_Code-91_schools_data.json
+Progress: 361/416 files processed
+Inserted 676 schools from: Palmares_Tanganyika_2018_schools_data.json
+Progress: 362/416 files processed
+Inserted 267 schools from: Palmares_Equateur-2_42_2010_schools_data.json
+Progress: 363/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_KIN_2008_schools_data.json: invalid literal for int() with base 10: 'F 52'
+Moved problematic file to: missing_data/Palmares_KIN_2008_schools_data.json_20251020_113811_error.json
+Progress: 364/416 files processed
+Failed to process school data from Palmares_KIN_2008_schools_data.json
+Moved problematic file to: missing_data/Palmares_KINSHASA-CENTRE_2008_schools_data.json_20251020_113811_no_schools_data.json
+Progress: 365/416 files processed
+Failed to process school data from Palmares_KINSHASA-CENTRE_2008_schools_data.json
+Inserted 675 schools from: Palmares_EQUATEUR-1-41_2015_schools_data.json
+Progress: 366/416 files processed
+Inserted 810 schools from: Palmares_55_TSHOPO-2_schools_data.json
+Progress: 367/416 files processed
+Inserted 753 schools from: Palmares_2022_EQUATEUR-1_Code-41_schools_data.json
+Progress: 368/416 files processed
+Inserted 43424 schools from: PALMARES_2021_GLOBAL_schools_data.json
+Progress: 369/416 files processed
+Inserted 3344 schools from: Palmares_32_KWILU_2016_schools_data.json
+Progress: 370/416 files processed
+Inserted 665 schools from: Palmares_2021_Kwango-2_schools_data.json
+Progress: 371/416 files processed
+Inserted 1155 schools from: Palmares_2022_KASAI-1_Code-82_schools_data.json
+Progress: 372/416 files processed
+Inserted 757 schools from: Palmares_64_MANIEMA-1_schools_data.json
+Progress: 373/416 files processed
+Inserted 1584 schools from: Palmares_2021_Sud-kivu-1_schools_data.json
+Progress: 374/416 files processed
+Inserted 18 schools from: Palmares_Hors-Frontieres_2009_schools_data.json
+Progress: 375/416 files processed
+Inserted 589 schools from: Palmares_2021_ITURI-1_schools_data.json
+Progress: 376/416 files processed
+Inserted 2623 schools from: Palmares_Kinshasa_2012_schools_data.json
+Progress: 377/416 files processed
+Inserted 2901 schools from: Palmares_2022_KWILU-2_Code-34_schools_data.json
+Progress: 378/416 files processed
+Inserted 717 schools from: Palmares_Kasai_Oriental_2018_schools_data.json
+Progress: 379/416 files processed
+Inserted 1642 schools from: Palmares_SUD-KIVU-63_2015_schools_data.json
+Progress: 380/416 files processed
+Inserted 1930 schools from: Palmares_definitif_SUD-KIVU_2017_63_schools_data.json
+Progress: 381/416 files processed
+Inserted 533 schools from: Palmares_2011_Maniema_schools_data.json
+Progress: 382/416 files processed
+Inserted 712 schools from: Palmares_2021_Equateur-1_schools_data.json
+Progress: 383/416 files processed
+Inserted 38 schools from: Palmares_HF_2016_schools_data.json
+Progress: 384/416 files processed
+Inserted 1578 schools from: Palmares_2022_KINSHASA-MONT-AMBA_Code-11_schools_data.json
+Progress: 385/416 files processed
+Inserted 45645 schools from: journal_exetat_2020_schools_data.json
+Progress: 386/416 files processed
+Inserted 607 schools from: Palmares_2022_MAI-NDOMBE-3_Code-38_schools_data.json
+Progress: 387/416 files processed
+Inserted 318 schools from: Palmares_45_NORD-UBANGI_2016_schools_data.json
+Progress: 388/416 files processed
+Inserted 314 schools from: Palmares_45_NORD-UBANGI-1_schools_data.json
+Progress: 389/416 files processed
+Inserted 2059 schools from: Palmares_2022_KINSHASA-TSHANGU_Code-14_schools_data.json
+Progress: 390/416 files processed
+Inserted 709 schools from: Palmares_NORD-KIVU-2_62_2010_schools_data.json
+Progress: 391/416 files processed
+Inserted 1428 schools from: Palmares_KINSHASA-OUEST-13_2015_schools_data.json
+Progress: 392/416 files processed
+Inserted 606 schools from: Palmares_JUNACYC-2020_Final_schools_data.json
+Progress: 393/416 files processed
+Inserted 633 schools from: Palmares_2021_Sud-Ubangi-1_schools_data.json
+Progress: 394/416 files processed
+Inserted 225 schools from: Palmares_2021_ITURI-2_schools_data.json
+Progress: 395/416 files processed
+Inserted 3586 schools from: Palmares_Bandundu_2009_schools_data.json
+Progress: 396/416 files processed
+Inserted 5271 schools from: Palmares_71_HAUT-KATANGA-1_schools_data.json
+Progress: 397/416 files processed
+Inserted 514 schools from: Palmares_Maniema_2012_schools_data.json
+Progress: 398/416 files processed
+Inserted 232 schools from: Palmares_43_TSHUAPA-1_schools_data.json
+Progress: 399/416 files processed
+Inserted 1525 schools from: Palmares_2011_Equateur_schools_data.json
+Progress: 400/416 files processed
+Inserted 676 schools from: Palmares_2022_LUALABA-1_Code-74_schools_data.json
+Progress: 401/416 files processed
+Inserted 1820 schools from: Palmares_11_KINSHASA-MONT-AMBA_schools_data.json
+Progress: 402/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_NORD-KIVU_2008_schools_data.json: invalid literal for int() with base 10: 'F 53 Participants : 43'
+Moved problematic file to: missing_data/Palmares_NORD-KIVU_2008_schools_data.json_20251020_113812_error.json
+Progress: 403/416 files processed
+Failed to process school data from Palmares_NORD-KIVU_2008_schools_data.json
+Inserted 1217 schools from: Palmares_2011_Bas_Congo_schools_data.json
+Progress: 404/416 files processed
+Inserted 271 schools from: Palmares_43_TSHUAPA_2016_schools_data.json
+Progress: 405/416 files processed
+Inserted 1400 schools from: PALMARES_-2021_KONGO-CENTRAL-1_schools_data.json
+Progress: 406/416 files processed
+Inserted 127 schools from: Palmares_2022_NORD-UBANGI-2_Code-40_schools_data.json
+Progress: 407/416 files processed
+Error processing /home/yves-s-computer/Exetat_analysis/src/db/../../json_files/Palmares_Bandundu-2_32_2010_schools_data.json: invalid literal for int() with base 10: '4 Participants : 18'
+Moved problematic file to: missing_data/Palmares_Bandundu-2_32_2010_schools_data.json_20251020_113812_error.json
+Progress: 408/416 files processed
+Failed to process school data from Palmares_Bandundu-2_32_2010_schools_data.json
+Inserted 709 schools from: Palmares_Junacyc_2013_schools_data.json
+Progress: 409/416 files processed
+Inserted 25207 schools from: Palmares_2014_Global_schools_data.json
+Progress: 410/416 files processed
+Inserted 1287 schools from: Palmares_SUD-KIVU-63_2013_schools_data.json
+Progress: 411/416 files processed
+Inserted 352 schools from: Palmares_2021_Mongala-1_schools_data.json
+Progress: 412/416 files processed
+Inserted 2403 schools from: Palmares_13_KINSHASA-LUKUNGA_schools_data.json
+Progress: 413/416 files processed
+Inserted 3267 schools from: Palmares_2011_Kinshasa_schools_data.json
+Progress: 414/416 files processed
+Inserted 1162 schools from: Palmares_BANDUNDU-3-33_2015_schools_data.json
+Progress: 415/416 files processed
+Inserted 794 schools from: Palmares_61_NORD-KIVU-1_schools_data.json
+Progress: 416/416 files processed
+
+Inserting student JSON data...
+Inserted 21107 students from: Palmares_2011_Sud_Kivu_students_data.json
+Progress: 1/415 files processed
+Inserted 2556 students from: Palmares_2022_MONGALA-2_Code-49_students_data.json
+Progress: 2/415 files processed
+Inserted 33791 students from: Palmares_2011_Katanga_students_data.json
+Progress: 3/415 files processed
+Inserted 5896 students from: Palmares_42_SUD-UBANGI-1_students_data.json
+Progress: 4/415 files processed
+Inserted 2379 students from: Palmares_PROVINCE-ORIENTALE-3-53_2015_students_data.json
+Progress: 5/415 files processed
+Inserted 2964 students from: Palmares_2022_TSHUAPA-1_Code-43_students_data.json
+Progress: 6/415 files processed
+Inserted 12411 students from: Palmares_Kwango_2018_students_data.json
+Progress: 7/415 files processed
+Inserted 39585 students from: Palmares_Kwilu_2018_students_data.json
+Progress: 8/415 files processed
+Inserted 22111 students from: Palmares_definitif_KINSHASA-OUEST_2017_13_students_data.json
+Progress: 9/415 files processed
+Inserted 11260 students from: Palmares_definitif_ITURI_2017_52_students_data.json
+Progress: 10/415 files processed
+Inserted 2257 students from: Palmares_2022_SUD-KIVU-3_Code-67_students_data.json
+Progress: 11/415 files processed
+Inserted 55 students from: Palmares-2020_junacyc_Lualaba-corrige-919_students_data.json
+Progress: 12/415 files processed
+Inserted 8568 students from: Palmares_2021_NORD-KIVU-1_students_data.json
+Progress: 13/415 files processed
+Inserted 56014 students from: Palmares_2022_-HAUT-KATANGA-1_Code-71_students_data.json
+Progress: 14/415 files processed
+Inserted 9145 students from: Palmares_definitif_KASAI-CENTRAL_2017_81_students_data.json
+Progress: 15/415 files processed
+Inserted 14748 students from: Palmares_2021_Kwilu-3_students_data.json
+Progress: 16/415 files processed
+Inserted 6361 students from: Palmares_2022_KWANGO-2_Code-36_students_data.json
+Progress: 17/415 files processed
+Inserted 40343 students from: Palmares_2021_HAUT-KATANGA-1_students_data.json
+Progress: 18/415 files processed
+Inserted 427 students from: Palmares_KASAI-OCC_2008_students_data.json
+Progress: 19/415 files processed
+Inserted 20206 students from: Palmares_62_NORD-KIVU-2_students_data.json
+Progress: 20/415 files processed
+Inserted 14435 students from: Palmares_2011_Bas_Congo_students_data.json
+Progress: 21/415 files processed
+Inserted 7241 students from: Palmares_KASAI-ORIENTAL-2-92_2013_students_data.json
+Progress: 22/415 files processed
+Inserted 27872 students from: Palmares_definitif_SUD-KIVU_2017_63_students_data.json
+Progress: 23/415 files processed
+Inserted 11519 students from: Palmares_BANDUNDU-1-31_2015_students_data.json
+Progress: 24/415 files processed
+Inserted 2920 students from: Palmares_EQUATEUR-4-44_2013_students_data.json
+Progress: 25/415 files processed
+Inserted 9431 students from: Palmares_Tanganyika_2018_students_data.json
+Progress: 26/415 files processed
+Inserted 10132 students from: Palmares_33_KWANGO_2016_students_data.json
+Progress: 27/415 files processed
+Inserted 7521 students from: Palmares_BAS-CONGO-2-22_2015_students_data.json
+Progress: 28/415 files processed
+Inserted 14027 students from: Palmares_2022_-KASAI-2_Code-84_students_data.json
+Progress: 29/415 files processed
+Inserted 5159 students from: Palmares_2022_SUD-KIVU-2_Code-65_students_data.json
+Progress: 30/415 files processed
+Inserted 12110 students from: Palmares_82_KASAI_2016_students_data.json
+Progress: 31/415 files processed
+Inserted 5849 students from: Palmares_2022_MAI-NDOMBE-2_Code-37_students_data.json
+Progress: 32/415 files processed
+Inserted 14278 students from: Palmares_2022_KASAI-CENTRAL-1_Code-81_students_data.json
+Progress: 33/415 files processed
+Inserted 10002 students from: Palmares_definitif_KWANGO_2017_33_students_data.json
+Progress: 34/415 files processed
+Inserted 9920 students from: Palmares_Equateur_2018_students_data.json
+Progress: 35/415 files processed
+Inserted 2457 students from: Palmares_EQUATEUR-3-43_2015_students_data.json
+Progress: 36/415 files processed
+Inserted 18078 students from: Palmares_definitif_NORD-KIVU-1_2017_61_students_data.json
+Progress: 37/415 files processed
+Inserted 387 students from: Palmares_NORD-KIVU_2008_students_data.json
+Progress: 38/415 files processed
+Inserted 4081 students from: Palmares_78_LUALABA-2_students_data.json
+Progress: 39/415 files processed
+Inserted 459805 students from: PALMARES_2021_GLOBAL_students_data.json
+Progress: 40/415 files processed
+Inserted 13904 students from: Palmares_2022_KWANGO-1_Code-33_students_data.json
+Progress: 41/415 files processed
+Inserted 41041 students from: Palmares_Haut_Katanga_2018_students_data.json
+Progress: 42/415 files processed
+Inserted 35748 students from: Palmares-2023_34_KWILU-2_students_data.json
+Progress: 43/415 files processed
+Inserted 4175 students from: Palmares_67_SUD-KIVU-3_students_data.json
+Progress: 44/415 files processed
+Inserted 8229 students from: Palmares_2021_Tshopo-1_students_data.json
+Progress: 45/415 files processed
+Inserted 14908 students from: Palmares_2011_Prov_Orientale_students_data.json
+Progress: 46/415 files processed
+Inserted 11586 students from: Palmares_2021_Kasai-2_students_data.json
+Progress: 47/415 files processed
+Inserted 4303 students from: Palmares_Equateur-4_44_2010_students_data.json
+Progress: 48/415 files processed
+Inserted 9438 students from: Palmares_Kasai-Occ-2_82_2010_students_data.json
+Progress: 49/415 files processed
+Inserted 11935 students from: Palmares_2022_LOMAMI_Code-93_students_data.json
+Progress: 50/415 files processed
+Inserted 10777 students from: PALMARES_-2021_KONGO-CENTRAL-1_students_data.json
+Progress: 51/415 files processed
+Inserted 10219 students from: Palmares_52_ITURI_2016_students_data.json
+Progress: 52/415 files processed
+Inserted 22003 students from: Palmares_2011_Equateur_students_data.json
+Progress: 53/415 files processed
+Inserted 12321 students from: Palmares_93_LOMAMI_2016_students_data.json
+Progress: 54/415 files processed
+Inserted 3020 students from: Palmares_43_TSHUAPA_2016_students_data.json
+Progress: 55/415 files processed
+Inserted 1693 students from: Palmares_2021_BAS-UELE_students_data.json
+Progress: 56/415 files processed
+Inserted 15983 students from: Palmares_91_KASAI-ORIENTAL-1_students_data.json
+Progress: 57/415 files processed
+Inserted 6958 students from: Palmares_2022_TANGANYIKA-1_Code-73_students_data.json
+Progress: 58/415 files processed
+Inserted 4629 students from: Palmares_EQUATEUR-4-44_2015_students_data.json
+Progress: 59/415 files processed
+Inserted 971 students from: Palmares_2022_NORD-UBANGI-2_Code-40_students_data.json
+Progress: 60/415 files processed
+Inserted 3457 students from: Palmares_2021_TANGANYIKA-1_students_data.json
+Progress: 61/415 files processed
+Inserted 7365 students from: Palmares_2022_MAI-NDOMBE-3_Code-38_students_data.json
+Progress: 62/415 files processed
+Inserted 8956 students from: Palmares_2021_KWILU-1_students_data.json
+Progress: 63/415 files processed
+Inserted 8793 students from: Palmares_definitif_KONGO-CENTRAL-2_2017_22_students_data.json
+Progress: 64/415 files processed
+Inserted 5055 students from: Palmares_2022_TSHOPO-2_Code-55_students_data.json
+Progress: 65/415 files processed
+Inserted 7872 students from: Palmares_Maniema_2012_students_data.json
+Progress: 66/415 files processed
+Inserted 19777 students from: Palmares_Katanga_2012_students_data.json
+Progress: 67/415 files processed
+Inserted 1455 students from: Palmares_2021_ITURI-3_students_data.json
+Progress: 68/415 files processed
+Inserted 4304 students from: Palmares_2021_Sud-Ubangi-1_students_data.json
+Progress: 69/415 files processed
+Inserted 10959 students from: Palmares_KASAI-OCCIDENTAL-2-82_2013_students_data.json
+Progress: 70/415 files processed
+Moved problematic file to: missing_data/Palmares_KINSHASA-CENTRE_2008_students_data.json_20251020_113822_no_students_data.json
+Progress: 71/415 files processed
+Failed to process student data from Palmares_KINSHASA-CENTRE_2008_students_data.json
+Inserted 14916 students from: Palmares_62_NORD-KIVU-2_2016_students_data.json
+Progress: 72/415 files processed
+Inserted 10018 students from: Palmares_2022_HAUT-LOMAMI-1_Code-72_students_data.json
+Progress: 73/415 files processed
+Inserted 27772 students from: Palmares_2022_KWILU-2_Code-34_students_data.json
+Progress: 74/415 files processed
+Inserted 7092 students from: Palmares_68_MANIEMA-2_students_data.json
+Progress: 75/415 files processed
+Inserted 4511 students from: Palmares_2022_MANIEMA-1_Code-64_students_data.json
+Progress: 76/415 files processed
+Inserted 2874 students from: Palmares_45_NORD-UBANGI-1_students_data.json
+Progress: 77/415 files processed
+Inserted 8217 students from: Palmares_55_TSHOPO-2_students_data.json
+Progress: 78/415 files processed
+Inserted 6814 students from: Palmares_definitif_SUD-UBANGI_2017_42_students_data.json
+Progress: 79/415 files processed
+Inserted 3387 students from: Palmares_KATANGA-4-74_2013_students_data.json
+Progress: 80/415 files processed
+Inserted 5169 students from: Palmares_EQUATEUR-2-42_2015_students_data.json
+Progress: 81/415 files processed
+Inserted 8108 students from: Palmares_64_MANIEMA-1_students_data.json
+Progress: 82/415 files processed
+Inserted 11891 students from: Palmares_definitif_KONGO-CENTRAL1_2017_21_students_data.json
+Progress: 83/415 files processed
+Inserted 5280 students from: Palmares_KASAI-ORIENTAL-3-93_2013_students_data.json
+Progress: 84/415 files processed
+Inserted 24245 students from: Palmares_Kasai_Occ_2012_students_data.json
+Progress: 85/415 files processed
+Inserted 19921 students from: Palmares_BANDUNDU-2-32_2013_students_data.json
+Progress: 86/415 files processed
+Inserted 4030 students from: Palmares_2022_MANIEMA-2_Code-68-1_students_data.json
+Progress: 87/415 files processed
+Inserted 15407 students from: Palmares_Lomami_2018_students_data.json
+Progress: 88/415 files processed
+Inserted 3699 students from: Palmares_2011_JUNACYP_students_data.json
+Progress: 89/415 files processed
+Inserted 9091 students from: Palmares_2022_EQUATEUR-1_Code-41_students_data.json
+Progress: 90/415 files processed
+Inserted 4452 students from: Palmares_43_TSHUAPA-1_students_data.json
+Progress: 91/415 files processed
+Inserted 52658 students from: Palmares_Kinsahsa_2009_students_data.json
+Progress: 92/415 files processed
+Inserted 7850 students from: Palmares_EQUATEUR-1-41_2015_students_data.json
+Progress: 93/415 files processed
+Inserted 1823 students from: Palmares_KIN_2008_students_data.json
+Progress: 94/415 files processed
+Inserted 2534 students from: Palmares_94_KASAI-ORIENTAL-2_students_data.json
+Progress: 95/415 files processed
+Inserted 2124 students from: Palmares_2021_SUD-KIVU-3_students_data.json
+Progress: 96/415 files processed
+Inserted 12839 students from: Palmares_definitif_LOMAMI2017_93_students_data.json
+Progress: 97/415 files processed
+Inserted 2634 students from: Palmares_Equateur-2_42_2010_students_data.json
+Progress: 98/415 files processed
+Inserted 15178 students from: Palmares_Equateur_2012_students_data.json
+Progress: 99/415 files processed
+Inserted 11294 students from: Palmares_2022_KASAI-1_Code-82_students_data.json
+Progress: 100/415 files processed
+Inserted 2895 students from: Palmares_2021_Tshuapa-2_students_data.json
+Progress: 101/415 files processed
+Inserted 15867 students from: Palmares_definitif_NORD-KIVU-2-_2017_62_students_data.json
+Progress: 102/415 files processed
+Inserted 13557 students from: Palmares_22_KONGO-CENTRAL-2_students_data.json
+Progress: 103/415 files processed
+Inserted 9689 students from: Palmares_definitif_KASAI-ORIENTAL_2017_91_students_data.json
+Progress: 104/415 files processed
+Inserted 9713 students from: Palmares_KATANGA-2-72_2015_students_data.json
+Progress: 105/415 files processed
+Inserted 7552 students from: Palmares_41_EQUATEUR_2016_students_data.json
+Progress: 106/415 files processed
+Inserted 10304 students from: Palmares_BANDUNDU-3-33_2015_students_data.json
+Progress: 107/415 files processed
+Inserted 311 students from: Palmares_Hors_Frontiere_2012_students_data.json
+Progress: 108/415 files processed
+Inserted 4980 students from: Palmares_Bas_Congo-2_22_2010_students_data.json
+Progress: 109/415 files processed
+Inserted 229 students from: Palmares_HORS-FRONTIERE-01_2013_students_data.json
+Progress: 110/415 files processed
+Inserted 19256 students from: Palmares_KINSHASA-OUEST-13_2015_students_data.json
+Progress: 111/415 files processed
+Inserted 3333 students from: Palmares_2022_SANKURU-1_Code-92_students_data.json
+Progress: 112/415 files processed
+Inserted 8239 students from: Palmares_definitif_EQUATEUR_2017_41_students_data.json
+Progress: 113/415 files processed
+Inserted 7000 students from: Palmares_definitif_TANGANYIKA_2017_73_students_data.json
+Progress: 114/415 files processed
+Inserted 13859 students from: Palmares-2023_32_KWILU-1_students_data.json
+Progress: 115/415 files processed
+Inserted 20727 students from: Palmares_12_KINSHASA-FUNA_students_data.json
+Progress: 116/415 files processed
+Inserted 7093 students from: Palmares_44_MONGALA-1_students_data.json
+Progress: 117/415 files processed
+Inserted 4604 students from: Palmares_MANIEMA-64_2013_students_data.json
+Progress: 118/415 files processed
+Inserted 430 students from: Palmares_SUD-KIVU_2008_students_data.json
+Progress: 119/415 files processed
+Inserted 18431 students from: Palmares_Nord_Kivu_2012_students_data.json
+Progress: 120/415 files processed
+Inserted 8993 students from: Palmares_Sud_Ubangi_2018_students_data.json
+Progress: 121/415 files processed
+Inserted 16055 students from: Palmares_Kasai-Oriental_2009_students_data.json
+Progress: 122/415 files processed
+Inserted 5557 students from: Palmares_Equateur-1_41_2010_students_data.json
+Progress: 123/415 files processed
+Inserted 3739 students from: Palmares_EQUATEUR-2-42_2013_students_data.json
+Progress: 124/415 files processed
+Inserted 22945 students from: Palmares_definitif_KINSHASA-CENTRE_2017_12_students_data.json
+Progress: 125/415 files processed
+Inserted 18185 students from: Palmares_SUD-KIVU-63_2013_students_data.json
+Progress: 126/415 files processed
+Inserted 2508 students from: Palmares_EQUATEUR-3-43_2013_students_data.json
+Progress: 127/415 files processed
+Inserted 3434 students from: Palmares_2022_EQUATEUR-2_Code-46_students_data.json
+Progress: 128/415 files processed
+Inserted 2228 students from: Palmares_EQUATEUR-5-45_2013_students_data.json
+Progress: 129/415 files processed
+Inserted 3005 students from: Palmares_53_HAUT-UELE_2016_students_data.json
+Progress: 130/415 files processed
+Inserted 8041 students from: Palmares_31_MAINDOMBE_2016_students_data.json
+Progress: 131/415 files processed
+Inserted 2503 students from: Palmares_40_NORD-UBANGI-2_students_data.json
+Progress: 132/415 files processed
+Inserted 1400 students from: Palmares_2021_Kasai_Oriental-2_students_data.json
+Progress: 133/415 files processed
+Inserted 10208 students from: Palmares_2021_Kasai-1_students_data.json
+Progress: 134/415 files processed
+Inserted 2244 students from: Palmares_2021_ITURI-2_students_data.json
+Progress: 135/415 files processed
+Inserted 6984 students from: Palmares_2022_KWILU-1_Code-32_students_data.json
+Progress: 136/415 files processed
+Inserted 3509 students from: Palmares_Haut_Uele_2018_students_data.json
+Progress: 137/415 files processed
+Inserted 15900 students from: Palmares_Kasai_2018_students_data.json
+Progress: 138/415 files processed
+Inserted 15189 students from: Palmares_Equateur_2009_students_data.json
+Progress: 139/415 files processed
+Inserted 28436 students from: Palmares_11_KINSHASA-MONT-AMBA_students_data.json
+Progress: 140/415 files processed
+Inserted 15748 students from: Palmares_NORD-KIVU-1-61_2015_students_data.json
+Progress: 141/415 files processed
+Inserted 6883 students from: Palmares_Lualaba_2018_students_data.json
+Progress: 142/415 files processed
+Inserted 4320 students from: Palmares_2022_JUNACYC_students_data.json
+Progress: 143/415 files processed
+Inserted 3685 students from: Palmares_53_HAUT-UELE-1_students_data.json
+Progress: 144/415 files processed
+Inserted 25173 students from: Palmares_21_KONGO-CENTRAL-1_students_data.json
+Progress: 145/415 files processed
+Inserted 8920 students from: Palmares_KASAI-OCCIDENTAL-1-81_2013_students_data.json
+Progress: 146/415 files processed
+Inserted 5514 students from: Palmares_definitif_LUALABA_2017_74_students_data.json
+Progress: 147/415 files processed
+Inserted 9236 students from: Palmares_PROVINCE-ORIENTALE-1-51_2015_students_data.json
+Progress: 148/415 files processed
+Inserted 8161 students from: Palmares_64_MANIEMA_2016_students_data.json
+Progress: 149/415 files processed
+Inserted 3833 students from: Palmares_2022_SUD-UBANGI-2_Code-47_students_data.json
+Progress: 150/415 files processed
+Inserted 1154 students from: Palmares_2022_HAUT-UELE-2_Code-58_students_data.json
+Progress: 151/415 files processed
+Inserted 1588 students from: Palmares_2022_KASAI-ORIENTAL-2_Code-94_students_data.json
+Progress: 152/415 files processed
+Inserted 10105 students from: Palmares_Sankuru_2018_students_data.json
+Progress: 153/415 files processed
+Inserted 26843 students from: Palmares_KINSHASA-EST_11_2015_students_data.json
+Progress: 154/415 files processed
+Inserted 33946 students from: Palmares_Sud_Kivu_2018_students_data.json
+Progress: 155/415 files processed
+Inserted 12684 students from: Palmares_74_LUALABA-1_students_data.json
+Progress: 156/415 files processed
+Inserted 9913 students from: Palmares_Maindombe_2018_students_data.json
+Progress: 157/415 files processed
+Inserted 6145 students from: Palmares_2021_KASAI-CENTRAL-2_students_data.json
+Progress: 158/415 files processed
+Inserted 5604 students from: Palmares_31_MAI-NDOMBE-1_students_data.json
+Progress: 159/415 files processed
+Inserted 4083 students from: PALMARES_-2021_KONGO-CENTRAL-3_students_data.json
+Progress: 160/415 files processed
+Inserted 2822 students from: Palmares_definitif_TSHUAPA_2017_43_students_data.json
+Progress: 161/415 files processed
+Inserted 5562 students from: Palmares_Mongala_2018_students_data.json
+Progress: 162/415 files processed
+Inserted 4737 students from: Palmares_KATANGA-4-74_2015_students_data.json
+Progress: 163/415 files processed
+Inserted 13861 students from: Palmares_NORD-KIVU-2-62_2015_students_data.json
+Progress: 164/415 files processed
+Inserted 33854 students from: Palmares_Bandundu_2012_students_data.json
+Progress: 165/415 files processed
+Inserted 13432 students from: Palmares_Kasai_Oriental_2018_students_data.json
+Progress: 166/415 files processed
+Inserted 4044 students from: Palmares_2022_SUD-UBANGI-1_Code-42_students_data.json
+Progress: 167/415 files processed
+Inserted 7501 students from: Palmares_KATANGA-3-73_2015_students_data.json
+Progress: 168/415 files processed
+Inserted 12750 students from: Palmares_definitif_TSHOPO_2017_51_students_data.json
+Progress: 169/415 files processed
+Inserted 13929 students from: Palmares_51_TSHOPO-1_students_data.json
+Progress: 170/415 files processed
+Inserted 2952 students from: Palmares_Equateur-3_43_2010_students_data.json
+Progress: 171/415 files processed
+Inserted 6263 students from: Palmares_95_SANKURU-2_students_data.json
+Progress: 172/415 files processed
+Inserted 30924 students from: Palmares_13_KINSHASA-LUKUNGA_students_data.json
+Progress: 173/415 files processed
+Inserted 21650 students from: Palmares_2011_Kasai_Occidental_students_data.json
+Progress: 174/415 files processed
+Inserted 50910 students from: Palmares-2012_Technique_TOUS_students_data.json
+Progress: 175/415 files processed
+Inserted 27411 students from: Palmares_63_SUD-KIVU-1_students_data.json
+Progress: 176/415 files processed
+Inserted 2407 students from: Palmares_2022_BAS-UELE_Code-54_students_data.json
+Progress: 177/415 files processed
+Inserted 89080 students from: Palmares_Kinshasa_2018_students_data.json
+Progress: 178/415 files processed
+Inserted 1728 students from: Palmares_definitif_BAS-UELE_2017_54_students_data.json
+Progress: 179/415 files processed
+Inserted 135 students from: Palmares_MANIEMA_2008_students_data.json
+Progress: 180/415 files processed
+Inserted 301546 students from: Palmares_2014_Global_students_data.json
+Progress: 181/415 files processed
+Inserted 5138 students from: Palmares_2021_Tanganyika-2_students_data.json
+Progress: 182/415 files processed
+Inserted 9939 students from: Palmares_Province-Orientale_2009_students_data.json
+Progress: 183/415 files processed
+Moved problematic file to: missing_data/Palmares_KINSHASA-EST_2008_students_data.json_20251020_113832_no_students_data.json
+Progress: 184/415 files processed
+Failed to process student data from Palmares_KINSHASA-EST_2008_students_data.json
+Inserted 8448 students from: Palmares_91_KASAI-ORIENTAL_2016_students_data.json
+Progress: 185/415 files processed
+Inserted 7620 students from: Palmares_2022_ITURI-1_Code-52_students_data.json
+Progress: 186/415 files processed
+Inserted 86110 students from: Palmares_Kinshasa_2016_students_data.json
+Progress: 187/415 files processed
+Inserted 20002 students from: Palmares_81_KASAI-CENTRAL-1_students_data.json
+Progress: 188/415 files processed
+Inserted 3733 students from: Palmares_Nord_Ubangi_2018_students_data.json
+Progress: 189/415 files processed
+Inserted 335619 students from: Palmares_Global_2015_students_data.json
+Progress: 190/415 files processed
+Inserted 24652 students from: Palmares_Kongo_Central_2018_students_data.json
+Progress: 191/415 files processed
+Inserted 8384 students from: Palmares_66_NORD-KIVU-3_students_data.json
+Progress: 192/415 files processed
+Inserted 24775 students from: Palmares_BANDUNDU-2-32_2015_students_data.json
+Progress: 193/415 files processed
+Inserted 7976 students from: PALMARES_-2021_KINSHASA-PLATEAU_students_data.json
+Progress: 194/415 files processed
+Inserted 25343 students from: Palmares_63_SUD-KIVU_2016_students_data.json
+Progress: 195/415 files processed
+Inserted 29453 students from: Palmares_14_KINSHASA-TSHANGU_students_data.json
+Progress: 196/415 files processed
+Moved problematic file to: missing_data/Palmares_KINSHASA-OUEST_2008_students_data.json_20251020_113837_no_students_data.json
+Progress: 197/415 files processed
+Failed to process student data from Palmares_KINSHASA-OUEST_2008_students_data.json
+Inserted 3329 students from: Palmares_2022_HAUT-KATANGA-2_Code-76_students_data.json
+Progress: 198/415 files processed
+Inserted 1171 students from: Palmares_PROVINCE-ORIENTALE-4-54_2015_students_data.json
+Progress: 199/415 files processed
+Inserted 591 students from: Palmares_2011_Hors_Frontieres_students_data.json
+Progress: 200/415 files processed
+Inserted 4099 students from: Palmares_PROVINCE-ORIENTALE-2_52_2010_students_data.json
+Progress: 201/415 files processed
+Inserted 2043 students from: Palmares_Equateur-5_45_2010_students_data.json
+Progress: 202/415 files processed
+Inserted 22110 students from: Palmares_2011_Nord_Kivu_students_data.json
+Progress: 203/415 files processed
+Inserted 25387 students from: Palmares_KATANGA-1-71_2015_students_data.json
+Progress: 204/415 files processed
+Inserted 5035 students from: Palmares_2021_MANIEMA-1_students_data.json
+Progress: 205/415 files processed
+Inserted 8871 students from: Palmares_definitif_MAINDOMBE_2017_31_students_data.json
+Progress: 206/415 files processed
+Inserted 3344 students from: Palmares_2021_Nord-Ubangi-1_students_data.json
+Progress: 207/415 files processed
+Inserted 11224 students from: Palmares_definitif_HAUT-LOMAMI_2017_72_students_data.json
+Progress: 208/415 files processed
+Inserted 1687 students from: Palmares_2022_ITURI-2_Code-56_students_data.json
+Progress: 209/415 files processed
+Inserted 4931 students from: Palmares_PROVINCE-ORIENTALE_2008_students_data.json
+Progress: 210/415 files processed
+Inserted 4621 students from: Palmares_2021_Tshopo-2_students_data.json
+Progress: 211/415 files processed
+Inserted 11298 students from: Palmares_Maniema_2018_students_data.json
+Progress: 212/415 files processed
+Inserted 10879 students from: Palmares_72_HAUT-LOMAMI-1_students_data.json
+Progress: 213/415 files processed
+Inserted 15070 students from: Palmares_KINSHASA-OUEST-13_2013_students_data.json
+Progress: 214/415 files processed
+Inserted 13053 students from: Palmares_15_KINSHASA-PLATEAU_students_data.json
+Progress: 215/415 files processed
+Inserted 28131 students from: Palmares_2022_KINSHASA-TSHANGU_Code-14_students_data.json
+Progress: 216/415 files processed
+Inserted 3391 students from: Palmares_2021_LUALABA-2_students_data.json
+Progress: 217/415 files processed
+Inserted 1880 students from: Palmares_PROVINCE-ORIENTALE-3-53_2013_students_data.json
+Progress: 218/415 files processed
+Inserted 9947 students from: Palmares_Bandundu-3_33_2010_students_data.json
+Progress: 219/415 files processed
+Inserted 17645 students from: Palmares_Nord-Kivu_2009_students_data.json
+Progress: 220/415 files processed
+Inserted 3450 students from: Palmares_Tshuapa_2018_students_data.json
+Progress: 221/415 files processed
+Inserted 8600 students from: Palmares_PROVINCE-ORIENTALE-2-52_2015_students_data.json
+Progress: 222/415 files processed
+Inserted 3335 students from: Palmares_BAS-CONGO-2-22_2013_students_data.json
+Progress: 223/415 files processed
+Inserted 8773 students from: Palmares_MANIEMA-64_2015_students_data.json
+Progress: 224/415 files processed
+Inserted 23926 students from: Palmares_KINSHASA-EST_11_2010_students_data.json
+Progress: 225/415 files processed
+Inserted 31577 students from: Palmares_Katanga_2009_students_data.json
+Progress: 226/415 files processed
+Inserted 8251 students from: Palmares_2021_NORD-KIVU-3_students_data.json
+Progress: 227/415 files processed
+Inserted 8200 students from: PALMARES_-2021_MAI-NDOMBE-1_students_data.json
+Progress: 228/415 files processed
+Inserted 10700 students from: Palmares_NORD-KIVU-1-61_2013_students_data.json
+Progress: 229/415 files processed
+Inserted 7766 students from: Palmares_KASAI-ORIENTAL-1-91_2015_students_data.json
+Progress: 230/415 files processed
+Inserted 9052 students from: Palmares_definitif_MANIEMA_2017_64_students_data.json
+Progress: 231/415 files processed
+Inserted 16790 students from: Palmares_Katanga1_2012_students_data.json
+Progress: 232/415 files processed
+Inserted 6876 students from: Palmares_23_KONGO-CENTRAL-3_students_data.json
+Progress: 233/415 files processed
+Inserted 4421 students from: Palmares_definitif_MONGALA_2017_44_students_data.json
+Progress: 234/415 files processed
+Inserted 20419 students from: Palmares_Kasai_Or_2012_students_data.json
+Progress: 235/415 files processed
+Inserted 31275 students from: Palmares_32_KWILU_2016_students_data.json
+Progress: 236/415 files processed
+Inserted 3324 students from: Palmares_56_ITURI-2_students_data.json
+Progress: 237/415 files processed
+Inserted 6056 students from: Palmares_42_SUD-UBANGI_2016_students_data.json
+Progress: 238/415 files processed
+Inserted 391 students from: Palmares_Hors_Frontiere_2018_students_data.json
+Progress: 239/415 files processed
+Inserted 10888 students from: Palmares_Ituri_2018_students_data.json
+Progress: 240/415 files processed
+Inserted 60763 students from: Palmares_71_HAUT-KATANGA-1_students_data.json
+Progress: 241/415 files processed
+Inserted 8113 students from: Palmares_2021_Kwango-1_students_data.json
+Progress: 242/415 files processed
+Inserted 7474 students from: Palmares_definitif_SANKURU_2017_92_students_data.json
+Progress: 243/415 files processed
+Inserted 14883 students from: Palmares_KATANGA-1-71_2013_students_data.json
+Progress: 244/415 files processed
+Inserted 32579 students from: Palmares_definitif_HAUT-KATANGA_2017_71_students_data.json
+Progress: 245/415 files processed
+Inserted 103 students from: Palmares_Hors-Frontieres_2009_students_data.json
+Progress: 246/415 files processed
+Inserted 5938 students from: Palmares_BANDUNDU-3-33_2013_students_data.json
+Progress: 247/415 files processed
+Inserted 12133 students from: Palmares_41_EQUATEUR-1_students_data.json
+Progress: 248/415 files processed
+Inserted 158 students from: Palmares_HORS-FRONTIERES_01_2010_students_data.json
+Progress: 249/415 files processed
+Inserted 1084 students from: Palmares_2022_ITURI-3_Code-57_students_data.json
+Progress: 250/415 files processed
+Inserted 3242 students from: Palmares_45_NORD-UBANGI_2016_students_data.json
+Progress: 251/415 files processed
+Inserted 16893 students from: Palmares_2022_KINSHASA-FUNA_Code-12_students_data.json
+Progress: 252/415 files processed
+Inserted 2890 students from: Palmares_EQUATEUR-5-45_2015_students_data.json
+Progress: 253/415 files processed
+Inserted 17387 students from: Palmares_2021_LOMAMI_students_data.json
+Progress: 254/415 files processed
+Inserted 13833 students from: Palmares_2022_NORD-KIVU-2_Code-62-1_students_data.json
+Progress: 255/415 files processed
+Inserted 552 students from: Palmares_PROVINCE-ORIENTALE-4-54_2013_students_data.json
+Progress: 256/415 files processed
+Inserted 13617 students from: Palmares_82_KASAI-1_students_data.json
+Progress: 257/415 files processed
+Inserted 10267 students from: Palmares_KASAI-OCCIDENTAL-2-82_2015_students_data.json
+Progress: 258/415 files processed
+Inserted 4447 students from: Palmares_2021_Sud-Ubangi-2_students_data.json
+Progress: 259/415 files processed
+Inserted 5180 students from: Palmares_2022_SANKURU-2_Code-95_students_data.json
+Progress: 260/415 files processed
+Inserted 17642 students from: Palmares_61_NORD-KIVU-1_2016_students_data.json
+Progress: 261/415 files processed
+Inserted 2048 students from: Palmares_2021_HAUT-UELE-1_students_data.json
+Progress: 262/415 files processed
+Inserted 26506 students from: Palmares_2022_KINSHASA-LUKUNGA_Code-13_students_data.json
+Progress: 263/415 files processed
+Inserted 20281 students from: Palmares_KINSHASA-CENTRE-12_2013_students_data.json
+Progress: 264/415 files processed
+Inserted 32846 students from: Palmares_definitif_KINSHASA-EST_2017_11_Definitif_students_data.json
+Progress: 265/415 files processed
+Inserted 7218 students from: Palmares_52_ITURI-1_students_data.json
+Progress: 266/415 files processed
+Inserted 6857 students from: Palmares_2021_LUALABA-1_students_data.json
+Progress: 267/415 files processed
+Inserted 7155 students from: Palmares_92_SANKURU-1_students_data.json
+Progress: 268/415 files processed
+Inserted 15357 students from: Palmares_Tshopo_2018_students_data.json
+Progress: 269/415 files processed
+Inserted 3779 students from: Palmares_jUNACYC_2015_students_data.json
+Progress: 270/415 files processed
+Inserted 581619 students from: journal_exetat_2020_students_data.json
+Progress: 271/415 files processed
+Inserted 2467 students from: Palmares_2022_MONGALA-1_Code-44_students_data.json
+Progress: 272/415 files processed
+Inserted 4508 students from: Palmares_2022_MAI-NDOMBE-1_Code-31_students_data.json
+Progress: 273/415 files processed
+Inserted 1117 students from: Palmares_2021_Mongala-2_students_data.json
+Progress: 274/415 files processed
+Inserted 15533 students from: PALMARES_-2021_KINSHASA-FUNA_students_data.json
+Progress: 275/415 files processed
+Inserted 12495 students from: Palmares_Bandundu-1_31_2010_students_data.json
+Progress: 276/415 files processed
+Inserted 11645 students from: Palmares_2021_KASAI-ORIENTAL-1_students_data.json
+Progress: 277/415 files processed
+Inserted 3231 students from: Palmares_2022_LUALABA-2_Code-78_students_data.json
+Progress: 278/415 files processed
+Inserted 5691 students from: Palmares_2022_NORD-KIVU-3_Code-66_students_data.json
+Progress: 279/415 files processed
+Inserted 26485 students from: Palmares_2022_KONGO-CENTRAL-1-_Code-21_students_data.json
+Progress: 280/415 files processed
+Inserted 1600 students from: Palmares_Bas_Uele_2018_students_data.json
+Progress: 281/415 files processed
+Inserted 6560 students from: Palmares_2021_Kwango-2_students_data.json
+Progress: 282/415 files processed
+Inserted 4816 students from: Palmares_48_TSHUAPA-2_students_data.json
+Progress: 283/415 files processed
+Inserted 6924 students from: Palmares_NORD-KIVU-2_62_2010_students_data.json
+Progress: 284/415 files processed
+Inserted 7893 students from: Palmares_22_KONGO-CENTRAL-2_2016_students_data.json
+Progress: 285/415 files processed
+Inserted 1834 students from: Palmares_PROVINCE-ORIENTALE-3_53_2010_students_data.json
+Progress: 286/415 files processed
+Inserted 6563 students from: Palmares_KATANGA-2-72_2013_students_data.json
+Progress: 287/415 files processed
+Inserted 7542 students from: Palmares_Bas_Congo-1_21_2010_students_data.json
+Progress: 288/415 files processed
+Inserted 3221 students from: Palmares_2021_HAUT-KATANGA-2_students_data.json
+Progress: 289/415 files processed
+Inserted 467 students from: Palmares_KASAI-OR_2008_students_data.json
+Progress: 290/415 files processed
+Inserted 7207 students from: Palmares_73_TANGANYIKA-1_students_data.json
+Progress: 291/415 files processed
+Inserted 23170 students from: Palmares_KINSHASA-CENTRE-12_2015_students_data.json
+Progress: 292/415 files processed
+Inserted 9170 students from: Palmares_83_KASAI-CENTRAL-2_students_data.json
+Progress: 293/415 files processed
+Inserted 10956 students from: Palmares_Bas-Congo_2009_students_data.json
+Progress: 294/415 files processed
+Inserted 11351 students from: Palmares_2022_KINSHASA-PLATEAU_Code-15_students_data.json
+Progress: 295/415 files processed
+Inserted 11583 students from: Palmares_96_LOMAMI-2_students_data.json
+Progress: 296/415 files processed
+Inserted 7940 students from: Palmares_Katanga-2_72_2010_students_data.json
+Progress: 297/415 files processed
+Inserted 2931 students from: Palmares_49_MONGALA-2_students_data.json
+Progress: 298/415 files processed
+Inserted 5951 students from: Palmares_Kasai-Orient-1_91_2010_students_data.json
+Progress: 299/415 files processed
+Inserted 15786 students from: Palmares_Kasai_Central_2018_students_data.json
+Progress: 300/415 files processed
+Inserted 17032 students from: Palmares_Katanga-1_71_2010_students_data.json
+Progress: 301/415 files processed
+Inserted 58514 students from: Palmares_2011_Kinshasa_students_data.json
+Progress: 302/415 files processed
+Inserted 3551 students from: Palmares_2021_Mongala-1_students_data.json
+Progress: 303/415 files processed
+Inserted 11282 students from: Palmares_BAS-CONGO-1-21_2015_students_data.json
+Progress: 304/415 files processed
+Inserted 9609 students from: Palmares_2022_KASAI-CENTRAL-2_Code-83_students_data.json
+Progress: 305/415 files processed
+Inserted 5048 students from: Palmares_Junacyc_2012_students_data.json
+Progress: 306/415 files processed
+Inserted 4975 students from: Palmares_46_EQUATEUR-2_students_data.json
+Progress: 307/415 files processed
+Inserted 11626 students from: Palmares_81_KASAI-CENTRAL_2016_students_data.json
+Progress: 308/415 files processed
+Inserted 12537 students from: Palmares_2022_TSHOPO-1_Code-51_students_data.json
+Progress: 309/415 files processed
+Inserted 15860 students from: Palmares_Kasai-Occidental_2009_students_data.json
+Progress: 310/415 files processed
+Inserted 2876 students from: Palmares_Katanga-4_74_2010_students_data.json
+Progress: 311/415 files processed
+Inserted 7142 students from: Palmares_Maniema_2009_students_data.json
+Progress: 312/415 files processed
+Inserted 6089 students from: Palmares_2021_Haut_Lomami-2_students_data.json
+Progress: 313/415 files processed
+Inserted 7510 students from: Palmares_2021_SUD-KIVU-2_students_data.json
+Progress: 314/415 files processed
+Inserted 11312 students from: Palmares_2021_KASAI-CENTRAL-1_students_data.json
+Progress: 315/415 files processed
+Inserted 567807 students from: Palmares_2022_GLOBAL_students_data.json
+Progress: 316/415 files processed
+Inserted 12459 students from: Palmares_2022_KASAI-ORIENTAL-1_Code-91_students_data.json
+Progress: 317/415 files processed
+Inserted 10868 students from: Palmares_KASAI-OCCIDENTAL-1-81_2015_students_data.json
+Progress: 318/415 files processed
+Inserted 5057 students from: Palmares_KATANGA-3-73_2013_students_data.json
+Progress: 319/415 files processed
+Inserted 11714 students from: Palmares_51_TSHOPO_2016_students_data.json
+Progress: 320/415 files processed
+Inserted 53817 students from: Palmares_2011_Bandundu_students_data.json
+Progress: 321/415 files processed
+Inserted 4393 students from: Palmares_KASAI-ORIENTAL-1-91_2013_students_data.json
+Progress: 322/415 files processed
+Inserted 7355 students from: Palmares_75_HAUT-LOMAMI-2_students_data.json
+Progress: 323/415 files processed
+Inserted 23 students from: Palmares_2020_74_-Lualaba-corrige-922a_students_data.json
+Progress: 324/415 files processed
+Inserted 7852 students from: Palmares_2022_NORD-KIVU-1_Code-61_students_data.json
+Progress: 325/415 files processed
+Inserted 15954 students from: Palmares_Orientale_2012_students_data.json
+Progress: 326/415 files processed
+Inserted 2754 students from: Palmares_58_HAUT-UELE-2_students_data.json
+Progress: 327/415 files processed
+Inserted 4586 students from: Palmares_Junacyc_2013_students_data.json
+Progress: 328/415 files processed
+Inserted 12155 students from: Palmares_KASAI-ORIENTAL-3-93_2015_students_data.json
+Progress: 329/415 files processed
+Inserted 5566 students from: Palmares_37_MAI-NDOMBE-2_students_data.json
+Progress: 330/415 files processed
+Inserted 3446 students from: Palmares_2021_Equateur-2_students_data.json
+Progress: 331/415 files processed
+Inserted 3264 students from: Palmares_definitif_HAUT-UELE_2017_53_students_data.json
+Progress: 332/415 files processed
+Inserted 9651 students from: Palmares_Kasai-Orient-3_93_2010_students_data.json
+Progress: 333/415 files processed
+Inserted 2862 students from: Palmares_2022_NORD-UBANGI-1_Code-45_students_data.json
+Progress: 334/415 files processed
+Inserted 5315 students from: Palmares_Kasai-Orient-2_92_2010_students_data.json
+Progress: 335/415 files processed
+Inserted 21768 students from: Palmares_2022_KINSHASA-MONT-AMBA_Code-11_students_data.json
+Progress: 336/415 files processed
+Inserted 21416 students from: Palmares_Sud_Kivu_2012_students_data.json
+Progress: 337/415 files processed
+Inserted 331 students from: Palmares_2022_HORS-FRONTIERE_Code-01_students_data.json
+Progress: 338/415 files processed
+Inserted 12242 students from: Palmares_Sud_Kivu_63_2010_students_data.json
+Progress: 339/415 files processed
+Inserted 7188 students from: Palmares_PROVINCE-ORIENTALE-1-51_2013_students_data.json
+Progress: 340/415 files processed
+Inserted 298 students from: Palmares_HF_2016_students_data.json
+Progress: 341/415 files processed
+Inserted 24047 students from: Palmares-2023_35_KWILU-3_students_data.json
+Progress: 342/415 files processed
+Inserted 1289 students from: Palmares_54_BAS-UELE_2016_students_data.json
+Progress: 343/415 files processed
+Inserted 122 students from: Palmares_recours_2012_students_data.json
+Progress: 344/415 files processed
+Inserted 3520 students from: Palmares_76_HAUT-KATANGA-2_students_data.json
+Progress: 345/415 files processed
+Inserted 3133 students from: Palmares_2021_Sankuru-2_students_data.json
+Progress: 346/415 files processed
+Inserted 22612 students from: Palmares_2011_Kasai_Oriental_students_data.json
+Progress: 347/415 files processed
+Inserted 10678 students from: Palmares_2022_LOMAMI-2_Code-96_students_data.json
+Progress: 348/415 files processed
+Inserted 9817 students from: Palmares_definitif_KASAI_2017_82_students_data.json
+Progress: 349/415 files processed
+Inserted 20770 students from: PALMARES_-2021_KINSHASA-TSHANGU_students_data.json
+Progress: 350/415 files processed
+Inserted 15685 students from: Palmares_Haut_Lomami_2018_students_data.json
+Progress: 351/415 files processed
+Inserted 1108 students from: Palmares_2021_HAUT-UELE-2_students_data.json
+Progress: 352/415 files processed
+Inserted 8745 students from: Palmares_2021_Haut_Lomami-1_students_data.json
+Progress: 353/415 files processed
+Inserted 5856 students from: Palmares_EQUATEUR-1-41_2013_students_data.json
+Progress: 354/415 files processed
+Inserted 43288 students from: Palmares_Bandundu_2009_students_data.json
+Progress: 355/415 files processed
+Inserted 12835 students from: Palmares_2021_NORD-KIVU-2_students_data.json
+Progress: 356/415 files processed
+Inserted 14957 students from: Palmares_KINSHASA-OUEST_13_2010_students_data.json
+Progress: 357/415 files processed
+Inserted 4042 students from: Palmares_44_MONGALA_2016_students_data.json
+Progress: 358/415 files processed
+Inserted 11334 students from: Palmares_BANDUNDU-1-31_2013_students_data.json
+Progress: 359/415 files processed
+Inserted 25068 students from: Palmares_SUD-KIVU-63_2015_students_data.json
+Progress: 360/415 files processed
+Inserted 7271 students from: Palmares_Maniema_64_2010_students_data.json
+Progress: 361/415 files processed
+Inserted 35298 students from: Palmares_definitif_KWILU_2017_32_students_data.json
+Progress: 362/415 files processed
+Inserted 9232 students from: Palmares_Kasai-Occ-1_81_2010_students_data.json
+Progress: 363/415 files processed
+Inserted 12101 students from: Palmares_Sud-Kivu_2009_students_data.json
+Progress: 364/415 files processed
+Inserted 429 students from: Palmares_2020_HORS-FRONTIERES_SS_students_data.json
+Progress: 365/415 files processed
+Inserted 5074 students from: Palmares_74_LUALABA_2016_students_data.json
+Progress: 366/415 files processed
+Inserted 5697 students from: PALMARES_-2021_KONGO-CENTRAL-2_students_data.json
+Progress: 367/415 files processed
+Inserted 11406 students from: Palmares_Bas_Congo_2012_students_data.json
+Progress: 368/415 files processed
+Inserted 1420 students from: Palmares_2022_HAUT-UELE-1_Code-53_students_data.json
+Progress: 369/415 files processed
+Inserted 7508 students from: Palmares_77_TANGANYIKA-2_students_data.json
+Progress: 370/415 files processed
+Inserted 4945 students from: Palmares_2021_Maniema-2_students_data.json
+Progress: 371/415 files processed
+Inserted 6057 students from: Palmares_2021_Sankuru-1_students_data.json
+Progress: 372/415 files processed
+Inserted 9047 students from: Palmares_61_NORD-KIVU-1_students_data.json
+Progress: 373/415 files processed
+Inserted 6661 students from: Palmares_PROVINCE-ORIENTALE-1_51_2010_students_data.json
+Progress: 374/415 files processed
+Inserted 18579 students from: Palmares_2021_Sud-kivu-1_students_data.json
+Progress: 375/415 files processed
+Inserted 6662 students from: Palmares_2022_HAUT-LOMAMI-2_Code-75_students_data.json
+Progress: 376/415 files processed
+Inserted 21785 students from: PALMARES_-2021_KINSHASA-MONT-AMBA_students_data.json
+Progress: 377/415 files processed
+Inserted 7872 students from: Palmares_38_MAI-NDOMBE-3_students_data.json
+Progress: 378/415 files processed
+Inserted 5592 students from: Palmares_PROVINCE-ORIENTALE-2-52_2013_students_data.json
+Progress: 379/415 files processed
+Inserted 14809 students from: Palmares_84_KASAI-2_students_data.json
+Progress: 380/415 files processed
+Inserted 4722 students from: Palmares_KASAI-ORIENTAL-2-92_2015_students_data.json
+Progress: 381/415 files processed
+Inserted 2870 students from: Palmares_57_ITURI-3_students_data.json
+Progress: 382/415 files processed
+Inserted 5061 students from: Palmares_2022_KONGO-CENTRAL-3_Code-23_students_data.json
+Progress: 383/415 files processed
+Inserted 3594 students from: Palmares_definitif_NORD-UBANGI_2017_45_students_data.json
+Progress: 384/415 files processed
+Inserted 6033 students from: Palmares_47_SUD-UBANGI-2_students_data.json
+Progress: 385/415 files processed
+Inserted 6997 students from: Palmares_BAS-CONGO-1-21_2013_students_data.json
+Progress: 386/415 files processed
+Inserted 26156 students from: Palmares_Bandundu-2_32_2010_students_data.json
+Progress: 387/415 files processed
+Inserted 18874 students from: Palmares_KINSHASA-CENTRE_12_2010_students_data.json
+Progress: 388/415 files processed
+Inserted 9429 students from: Palmares_36_KWANGO-2_students_data.json
+Progress: 389/415 files processed
+Inserted 6562 students from: Palmares_2022_TANGANYIKA-2_Code-77_students_data.json
+Progress: 390/415 files processed
+Inserted 3168 students from: Palmares_54_BAS-UELE_students_data.json
+Progress: 391/415 files processed
+Inserted 36648 students from: Palmares_Nord_Kivu_2018_students_data.json
+Progress: 392/415 files processed
+Inserted 8468 students from: Palmares_2011_Maniema_students_data.json
+Progress: 393/415 files processed
+Inserted 19379 students from: Palmares_KINSHASA-EST-11_2013_students_data.json
+Progress: 394/415 files processed
+Inserted 283 students from: Palmares_definitif_HORS-FRONTIERE_2017_0X_students_data.json
+Progress: 395/415 files processed
+Inserted 2495 students from: Palmares_2022_TSHUAPA-2_Code-48_students_data.json
+Progress: 396/415 files processed
+Inserted 8068 students from: Palmares_NORD-KIVU-1_61_2010_students_data.json
+Progress: 397/415 files processed
+Inserted 9487 students from: Palmares_72_HAUT-LOMAMI_2016_students_data.json
+Progress: 398/415 files processed
+Inserted 4050 students from: Palmares_JUNACYC-2020_Final_students_data.json
+Progress: 399/415 files processed
+Inserted 5160 students from: Palmares_Katanga-3_73_2010_students_data.json
+Progress: 400/415 files processed
+Inserted 7707 students from: Palmares_73_TANGANYIKA_2016_students_data.json
+Progress: 401/415 files processed
+Inserted 353 students from: Palmares_EQUATEUR_2008_students_data.json
+Progress: 402/415 files processed
+Inserted 10879 students from: Palmares_NORD-KIVU-2-62_2013_students_data.json
+Progress: 403/415 files processed
+Inserted 27929 students from: Palmares_71_HAUT-KATANGA_2016_students_data.json
+Progress: 404/415 files processed
+Inserted 6252 students from: Palmares_2022_KONGO-CENTRAL-2_Code-22_students_data.json
+Progress: 405/415 files processed
+Inserted 23265 students from: Palmares_2022_KWILU-3_Code-35_students_data.json
+Progress: 406/415 files processed
+Inserted 17539 students from: PALMARES_-2021_KINSHASA-LUKUNGA_students_data.json
+Progress: 407/415 files processed
+Inserted 10828 students from: Palmares_21_KONGO-CENTRAL-1_2016_students_data.json
+Progress: 408/415 files processed
+Inserted 15249 students from: Palmares_2023_65_SUD-KIVU-2_students_data.json
+Progress: 409/415 files processed
+Inserted 7911 students from: Palmares_2022_SUD-KIVU-1_Code-63_students_data.json
+Progress: 410/415 files processed
+Inserted 11121 students from: Palmares_2022_LUALABA-1_Code-74_students_data.json
+Progress: 411/415 files processed
+Inserted 9418 students from: Palmares_2021_Equateur-1_students_data.json
+Progress: 412/415 files processed
+Inserted 12244 students from: Palmares_93_LOMAMI-1_students_data.json
+Progress: 413/415 files processed
+Inserted 36872 students from: Palmares_Kinshasa_2012_students_data.json
+Progress: 414/415 files processed
+Inserted 5330 students from: Palmares_2021_ITURI-1_students_data.json
+Progress: 415/415 files processed
