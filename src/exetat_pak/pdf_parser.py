@@ -267,7 +267,7 @@ def extract_body(page, path : str , header_adjustement: float ) -> str:
         body_part1_bbox = (0, body_top, part_width * 1.08, body_bottom)
         body_part2_bbox = (part_width * 1.05 , body_top, 1.94* part_width, body_bottom)
         body_part3_bbox = (1.90* part_width , body_top, width, body_bottom)
-    elif path.endswith("pdf_2008"):
+    if path.endswith("pdf_2008"):
         body_part1_bbox = (0, body_top, part_width * 1.15, body_bottom)
         body_part2_bbox = (part_width * 1.15, body_top, 2.03 * part_width, body_bottom)
         body_part3_bbox = (2.05 * part_width, body_top, width, body_bottom)
