@@ -7,8 +7,8 @@ def main():
     """ Process multiple PDF files and save data to JSON format """
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    pdf_folder = os.path.join(base_dir, "pdf_files", "global")
-    output_folder = os.path.join(base_dir, "json_files", "global")
+    pdf_folder = os.path.join(base_dir, "pdf_files", "2019")
+    output_folder = os.path.join(base_dir, "json_files", "2019")
     
     output_path = create_directory(directory_name = output_folder )
     
