@@ -23,7 +23,6 @@ def create_database():
         # Create table for schools data
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS schools (
-            id INT AUTO_INCREMENT,
             school_name VARCHAR(255),
             school_code VARCHAR(100),
             participants INT,
@@ -31,22 +30,22 @@ def create_database():
             school_option VARCHAR(100),
             province VARCHAR(100),
             years INT,
-            PRIMARY KEY schools_unique (id, school_name, school_option, years)
+            PRIMARY KEY schools_unique (school_name, school_option, years, province)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         """)
 
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS students (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            school_id INT,
             student_name VARCHAR(255),
             school_name VARCHAR(255),
             school_option VARCHAR(100),
+            province VARCHAR(100),
             student_code VARCHAR(100),
             sexe VARCHAR(100),
             years INT,
             pourcentage INT,
-            FOREIGN KEY (school_id, school_name, school_option, years) REFERENCES schools(id, school_name, school_option, years) ON DELETE SET NULL
+            FOREIGN KEY student_unique (school_name, school_option, years, province) REFERENCES schools(school_name, school_option, years, province) 
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         """)
 
@@ -67,3 +66,5 @@ def create_database():
         except:
             pass
 
+if __name__ == "__main__":
+    create_database()

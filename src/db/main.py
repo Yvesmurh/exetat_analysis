@@ -5,10 +5,9 @@ from insert import insert_school_data, insert_student_data
 
 def main():
     # 1. Create database and tables
-    #create_database()
 
     # 2. Define JSON directories
-    path = os.path.join(os.path.dirname(__file__), "..", "..", "json_files")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "json_files", "global")
     if not os.path.exists(path):
         print(f"Error: Directory '{path}' not found")
         return

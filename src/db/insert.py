@@ -91,7 +91,7 @@ def insert_school_data(json_path):
         valid_schools = 0
 
         insert_sql = """
-            INSERT INTO schools (school_name, school_code, participants, reussites, school_option, province, years)
+            INSERT IGNORE INTO schools (school_name, school_code, participants, reussites, school_option, province, years)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
         for school in data["schools"]:
@@ -143,7 +143,7 @@ def insert_student_data(json_path):
             return False
 
         insert_sql = """
-            INSERT INTO students (student_name, school_id, school_name, school_option, years, student_code, sexe, pourcentage)
+            INSERT INTO students (student_name, school_name, school_option, province, years, student_code, sexe, pourcentage)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
         valid_students = 0
@@ -154,6 +154,7 @@ def insert_student_data(json_path):
                         student["name"],
                         school_group["school_name"],
                         school_group["option"],
+                        school_group["province"],
                         int(school_group["year"]),
                         student["student_code"],
                         student["sexe"],
@@ -180,3 +181,6 @@ def insert_student_data(json_path):
             conn.close()
         except:
             pass
+
+
+    
