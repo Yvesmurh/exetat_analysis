@@ -539,6 +539,7 @@ def student_data(sections: dict, filename: str= "") -> dict:
     # Extract option from header
     header_text = sections.get("header", "")
     page_option = extract_option(header_text)
+    page_province = extract_province(header_text)
 
     # Process the combined body text to extract student data
     body_text = sections.get("body", "")
@@ -569,8 +570,9 @@ def student_data(sections: dict, filename: str= "") -> dict:
                 school_students = {
                     "school_name": school_name,
                     "school_code": school_code,
-                    "year":year,
                     "option":page_option,
+                    "province": page_province,
+                    "year":year,
                     "students": []
                 }
                 
