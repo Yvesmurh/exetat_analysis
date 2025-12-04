@@ -1,21 +1,10 @@
 import os 
-import mysql.connector
+from db import get_connection
 from mysql.connector import errorcode
-
-DB_HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
-DB_USER = os.getenv("MYSQL_USER", "root")
-DB_PASS = os.getenv("MYSQL_PASSWORD", "Root@2024!")
-DB_NAME = os.getenv("MYSQL_DATABASE", "exetat_1")
-
 
 def create_database():
     try:
-        conn = mysql.connector.connect(
-            host=DB_HOST,
-            user=DB_USER,
-            password=DB_PASS,
-            charset='utf8mb4'
-        )
+        conn = get_connection()
         cursor = conn.cursor()
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{DB_NAME}` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;")
         conn.database = DB_NAME
@@ -35,7 +24,7 @@ def create_database():
         """)
 
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS students (
+        CREATE TABLE (
             id INT AUTO_INCREMENT PRIMARY KEY,
             student_name VARCHAR(255),
             school_name VARCHAR(255),

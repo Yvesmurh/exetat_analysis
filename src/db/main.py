@@ -1,13 +1,16 @@
 import os
 from create_db import create_database
 from insert import insert_school_data, insert_student_data
-
+from month import december
+december(status_vue)
+finissons c
 
 def main():
     # 1. Create database and tables
+    # create_database()
 
     # 2. Define JSON directories
-    path = os.path.join(os.path.dirname(__file__), "..", "..", "json_files", "global")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "json_files", "2017")
     if not os.path.exists(path):
         print(f"Error: Directory '{path}' not found")
         return
