@@ -1,0 +1,169 @@
+/* School Details Page Styles */
+
+.school-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.school-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.school-info {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-item strong {
+    opacity: 0.9;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+}
+
+.performance-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.summary-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    color: #667eea;
+}
+
+.summary-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.yearly-data {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.yearly-data h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.year-card {
+    border-left: 4px solid #667eea;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.year-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.year-header h3 {
+    margin: 0;
+    color: #667eea;
+    font-size: 1.5rem;
+}
+
+.year-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stat-item .label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.stat-item .value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.percentage-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #667eea;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.percentage-badge.high {
+    background: #10b981;
+}
+
+.percentage-badge.medium {
+    background: #f59e0b;
+}
+
+.percentage-badge.low {
+    background: #ef4444;
+}
+
+.chart-container {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+}
