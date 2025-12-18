@@ -62,7 +62,7 @@ def split_pdf_for_processing(input_pdf_path: str, temp_folder: str, pages_per_ch
 def process_single_pdf(pdf_path: str, school_json_path: str, student_json_path: str,
                        pdf_folder: str, pages_per_chunk: int = 20, large_pdf_threshold: int = 600):
     """
-    Process a PDF file. If large (>600 pages), split into smaller chunks (350 pages each).
+    Process a PDF file. If large (>600 pages), split into smaller chunks (200 pages each).
     Each chunk is processed individually, merged into one JSON, and memory is freed after each chunk.
     """
 
@@ -267,6 +267,7 @@ def extract_body(page, path : str , header_adjustement: float ) -> str:
         body_part1_bbox = (0, body_top, part_width * 1.08, body_bottom)
         body_part2_bbox = (part_width * 1.05 , body_top, 1.94* part_width, body_bottom)
         body_part3_bbox = (1.90* part_width , body_top, width, body_bottom)
+        
     if path.endswith("pdf_2008"):
         body_part1_bbox = (0, body_top, part_width * 1.15, body_bottom)
         body_part2_bbox = (part_width * 1.15, body_top, 2.03 * part_width, body_bottom)
@@ -538,6 +539,7 @@ def student_data(sections: dict, filename: str= "") -> dict:
     # Extract option from header
     header_text = sections.get("header", "")
     page_option = extract_option(header_text)
+    page_province = extract_province(header_text)
 
     # Process the combined body text to extract student data
     body_text = sections.get("body", "")
@@ -568,8 +570,9 @@ def student_data(sections: dict, filename: str= "") -> dict:
                 school_students = {
                     "school_name": school_name,
                     "school_code": school_code,
-                    "year":year,
                     "option":page_option,
+                    "province": page_province,
+                    "year":year,
                     "students": []
                 }
                 

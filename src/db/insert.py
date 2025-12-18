@@ -1,8 +1,7 @@
-import sqlite3
 import json
-import os
 import shutil
 from datetime import datetime
+from db import get_connection
 
 def validate_school_data(school):
     """Validate school data for required fields and non-zero values."""
@@ -59,12 +58,14 @@ def move_to_missing(file_path, reason):
     shutil.copy2(file_path, new_path)
     print(f"Moved problematic file to: {new_path}")
 
-def insert_school_data(json_path, db_name="exetat.db"):
+def insert_school_data(json_path):
     """Insert school-related JSON data into the schools table."""
-    conn = sqlite3.connect(db_name)
-    cursor = conn.cursor()
+    conn = None
+    cusor = None
 
     try:
+        conn = get_connection()
+        cursor = conn.cursor()
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
@@ -73,12 +74,14 @@ def insert_school_data(json_path, db_name="exetat.db"):
             return False
 
         valid_schools = 0
+
+        insert_sql = """
+            INSERT IGNORE INTO schools (school_name, school_code, participants, reussites, school_option, province, years)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
         for school in data["schools"]:
             if validate_school_data(school):
-                cursor.execute("""
-                    INSERT INTO schools (school_name, code, participants, reussites, option, province, year)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
-                """, (
+                cursor.execute(insert_sql, (
                     school["school_name"],
                     school["school_code"],
                     int(school["school_participants"]),
@@ -102,14 +105,21 @@ def insert_school_data(json_path, db_name="exetat.db"):
         move_to_missing(json_path, "error")
         return False
     finally:
-        conn.close()
+        try:
+            cursor.close()
+            conn.close()
+        except:
+            pass
 
-def insert_student_data(json_path, db_name="exetat.db"):
+def insert_student_data(json_path):
     """Insert student-related JSON data into the students table."""
-    conn = sqlite3.connect(db_name)
-    cursor = conn.cursor()
+    conn = None
+    cursor = None
 
     try:
+        conn = get_connection()
+        cursor = conn.cursor()
+
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
@@ -117,18 +127,20 @@ def insert_student_data(json_path, db_name="exetat.db"):
             move_to_missing(json_path, "no_students_data")
             return False
 
+        insert_sql = """
+            INSERT INTO students (student_name, school_name, school_option, province, years, student_code, sexe, pourcentage)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """
         valid_students = 0
         for school_group in data["students_by_school"]:
             if validate_student_data(school_group):
                 for student in school_group["students"]:
-                    cursor.execute("""
-                        INSERT INTO students (school_name, option, year, student_name, student_code, sexe, pourcentage)
-                        VALUES (?, ?, ?, ?, ?, ?, ?)
-                    """, (
+                    cursor.execute(insert_sql, (
+                        student["name"],
                         school_group["school_name"],
                         school_group["option"],
+                        school_group["province"],
                         int(school_group["year"]),
-                        student["name"],
                         student["student_code"],
                         student["sexe"],
                         int(student["pourcentage"])
@@ -147,5 +159,13 @@ def insert_student_data(json_path, db_name="exetat.db"):
         print(f"Error processing {json_path}: {str(e)}")
         move_to_missing(json_path, "error")
         return False
+
     finally:
-        conn.close()
+        try:
+            cursor.close()
+            conn.close()
+        except:
+            pass
+
+
+    
