@@ -1,40 +1,59 @@
-import sqlite3
+import os 
+from db import get_connection
+from mysql.connector import errorcode
 
 def create_database():
-    conn = sqlite3.connect("exetat.db")
-    cursor = conn.cursor()
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS `{DB_NAME}` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;")
+        conn.database = DB_NAME
 
-    # Create table for schools data
-    cursor.execute("""
-CREATE TABLE schools (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    school_name TEXT,
-    code TEXT,
-    participants INTEGER,
-    reussites INTEGER,
-    option TEXT,
-    province TEXT,
-    year INTEGER
-)
-""")
+        # Create table for schools data
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS schools (
+            school_name VARCHAR(255),
+            school_code VARCHAR(100),
+            participants INT,
+            reussites INT,
+            school_option VARCHAR(100),
+            province VARCHAR(100),
+            years INT,
+            PRIMARY KEY schools_unique (school_name, school_option, years, province)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        """)
 
-    cursor.execute("""
-CREATE TABLE students (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    school_id INTEGER,
-    student_name TEXT,
-    school_name TEXT,
-    option TEXT,
-    student_code TEXT,
-    sexe TEXT,
-    year INTEGER,
-    pourcentage INTEGER,
-    FOREIGN KEY (school_id, option, year) REFERENCES schools(id, option, year)
+        cursor.execute("""
+        CREATE TABLE (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            student_name VARCHAR(255),
+            school_name VARCHAR(255),
+            school_option VARCHAR(100),
+            province VARCHAR(100),
+            student_code VARCHAR(100),
+            sexe VARCHAR(100),
+            years INT,
+            pourcentage INT,
+            FOREIGN KEY student_unique (school_name, school_option, years, province) REFERENCES schools(school_name, school_option, years, province) 
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        """)
 
-)
-""")
 
-    conn.commit()
-    conn.close()
-    print(" Database and tables created successfully!")
+        conn.commit()
+        print(" Database and tables created successfully!")
 
+    except mysql.connector.Error as err:
+        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Access denied: check MYSQL_USER and MYSQL_PASSWORD")
+        else:
+            print(f"MySQL error: {err}")
+        raise
+    finally:
+        try:
+            cursor.close()
+            conn.close()
+        except:
+            pass
+
+if __name__ == "__main__":
+    create_database()

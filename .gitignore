@@ -1,15 +1,15 @@
 
-src/db/
-*.db
+/src/db/
+/db.py
 
-json_files/
-*.json
+/json_files/
+/*.json
 
-__pycache__/
-.env
+/__pycache__/
+/.env
 
-pdf_files/
-*.pdf
+/pdf_files/
+/*.pdf
 
-csv_files/
-*.csv
+/csv_files/
+/*.csv
