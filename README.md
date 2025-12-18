@@ -1,27 +1,44 @@
-What's this project about?
-This project analyzes Exetat results and provides a Flask-based dashboard backed by local data (see `json_files/`).
+# DRC National Exam Results Dashboard
 
-How to run the app (recommended)
-1. Create and activate a Python venv (optional but recommended):
+## Overview
+This project is a data-driven dashboard designed to analyze and visualize national state examination (Exetat) results in the Democratic Republic of Congo (DRC). The system ranks secondary schools based on exam performance and presents insights in a clear and accessible format to support informed decision-making by showing the statistic of the national state exam .
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt  # or install `pip install -e .` if available
-```
+The project aims to transform existing examination data (pdf file) into actionable information (dashboard) for parents, educators, and education stakeholders.
 
-2. From the project root, run the app using the module runner (this ensures `src` is importable):
+## Problem Statement
+In the DRC, the Ministry of Education publishes the Palmarès de l’Exetat, which presents school performance based on the National State Examination. However, these results are disseminated in static, text-heavy, and tabular formats (pdf format), which are difficult for stakeholders—particularly parents, school administrators, and policymakers—to interpret or analyze effectively. The lack of interactivity and absence of integrated visual analytics limits users’s ability to compare schools, identify performance trends, or assess relative educational quality
 
-```bash
-./run.sh
-```
+## Features
+- School ranking based on national exam performance
+- Analysis of success rates and participation
+- Filtering by year and location
+- Clear visual presentation of results through a dashboard
 
-Alternative approaches to avoid ModuleNotFoundError: No module named 'src'
-- Run from the project root: `python -m src.app.app` (or `python src/app/app.py`) so that the project root is on `sys.path`.
-- Export `PYTHONPATH` to include the project root: `export PYTHONPATH="$PWD"` and then run `python src/app/app.py`.
-- Install the package in editable mode: `pip install -e .` and then run `python -m src.app.app` or `flask run`.
+## Technologies Used
+- Python
+- SQL / MySQL
+- Flask
+- HTML / CSS
 
-Why this error occurs
-When you run `python app.py` from `src/app`, Python's search path does not include the repository root and therefore can't find the top-level `src` package. Running as a module from project root or installing the package resolves this.
+## System Architecture
+The project follows a modular architecture:
+- A relational database stores and organizes examination data
+- SQL queries perform aggregation and ranking
+- A Flask backend processes data and exposes it to the frontend
+- A web interface displays results through a user-friendly dashboard
 
-If your workflow needs other convenience commands, you can run `FLASK_APP=src.app.app flask run` from project root after installation or setting `PYTHONPATH`.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repository-name.git
+2. Configure the database connection in the application settings.
+
+3. Run the application:
+    python -m src.app.app
+
+## Usage 
+After launching the application, users can access the dashboard via a web browser to:
+    View ranked lists of schools
+    Analyze performance trends by year
+    Explore key indicators related to examination success
+
