@@ -54,10 +54,41 @@ The project utilizes a modular architecture:
 2. Install dependencies: 
 Using uv:
     uv sync
+   
+4. Database Configuration: in that process we did a step by step method to collect data and insert them inside a database. and by that i mean
+    . Web scraping: Since the Palmarès (national exam rankings) are published on the official website of the Ministry of Education (MINEDUC-NC), I implemented a scraping routine to download all relevant PDF documents.
+    I created a Python file named downloader.py, which performs the following operations:
+        Extract card links from the main Palmarès page
+        Convert relative URLs to absolute URLs
+        Categorize links (PDF vs. HTML)
+        Generate clean filenames for downloaded PDFs
+        Identify all PDF file locations
+        Download and save all Palmarès PDFs locally
+    . PDF parsing :The aims of this step was to extract structured data from the downloaded Palmarès PDFs and convert it into JSON. To achieve this, I developed a script named pdf_parser, which performs the following tasks:
+        List PDF files in the designated directory
+        Extract header, body, and footer text from each PDF page
+        Identify and extract school-level data, including:
+            School name
+            School code
+            Number of participants
+            Number of successful candidates
+            Academic option
+            Province
+            Year
+        Identify and extract student-level data, including:
+            Student name
+            Gender
+            Percentage
+            Option
+            Year
+            School
+        Export extracted data into two structured JSON files:
+            school_data.json
+            student_data.json
+    . and then i created a database using Mysql and since we have json's file we can use any kind of database we want and insert those data inside the database 
+and from there we perform the database confirguration and connect it to the project using mysql.connector 
 
-3. Database Configuration: Update the database connection settings in src/db/ or your configuration file.
-
-4. Run the application:
+5. Run the application:
     python -m src.app.app
 
 ## Usage
@@ -71,20 +102,20 @@ Using uv:
 
 ## Project Structure
 
-├── main.py                 # Entry point
-├── pyproject.toml          # Project dependencies and metadata
-├── README.md               # Documentation
-├── run.sh                  # Execution script
+├── main.py                 
+├── pyproject.toml          
+├── README.md               
+├── run.sh                  
 ├── src
-│   ├── app                 # Web application logic
-│   │   ├── backend         # API and data processing
-│   │   ├── queries.py      # SQL aggregation logic
-│   │   ├── static          # CSS and JS files
-│   │   └── templates       # HTML files
-│   ├── db                  # Database scripts (Migration & Insertion)
-│   ├── downloader.py       # Scraper for official reports
-│   └── exetat_pak          # Core PDF parsing engine
-└── uv.lock                 # Dependency lockfile
+│   ├── app                 
+│   │   ├── backend         
+│   │   ├── queries.py      
+│   │   ├── static          
+│   │   └── templates       
+│   ├── db                  
+│   ├── downloader.py       
+│   └── exetat_pak          
+└── uv.lock                 
 
 ## Future Enhancements
     AI agent : developping a chatbot that for quick searching and user friendly conversation 
