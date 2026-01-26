@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ school_data[0].school_name }} - School Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='school_details.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="back-button">← Back to Dashboard</a>
+        
+        {% if school_data %}
+        <!-- School Header -->
+        <div class="school-header">
+            <h1>{{ school_data[0].school_name }}</h1>
+            <div class="school-info">
+                <div class="info-item">
+                    <strong>Code:</strong>
+                    <span>{{ school_data[0].school_code }}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Province:</strong>
+                    <span>{{ school_data[0].province }}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Option:</strong>
+                    <span>{{ school_data[0].school_option }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Performance Summary -->
+        <div class="performance-summary">
+            {% set total_participants = school_data|sum(attribute='participants') %}
+            {% set total_reussites = school_data|sum(attribute='reussites') %}
+            {% set avg_school_perf = (school_data|selectattr('school_percentage')|map(attribute='school_percentage')|list|sum / school_data|selectattr('school_percentage')|list|length)|round(2) if school_data|selectattr('school_percentage')|list|length > 0 else 0 %}
+            
+            <div class="summary-card">
+                <h3>{{ school_data|length }}</h3>
+                <p>Years of Data</p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>{{ total_participants }}</h3>
+                <p>Total Participants</p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>{{ total_reussites }}</h3>
+                <p>Total Successful Students</p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>{{ avg_school_perf }}%</h3>
+                <p>Average School Performance</p>
+            </div>
+        </div>
+        
+        <!-- Yearly Data -->
+        <div class="yearly-data">
+            <h2>Performance by Year</h2>
+            
+            {% for year_data in school_data %}
+            <div class="year-card">
+                <div class="year-header">
+                    <h3>{{ year_data.years }}</h3>
+                    {% if year_data.school_percentage and year_data.school_percentage > 0 %}
+                        {% if year_data.school_percentage >= 75 %}
+                            <span class="percentage-badge high">{{ year_data.school_percentage }}%</span>
+                        {% elif year_data.school_percentage >= 60 %}
+                            <span class="percentage-badge medium">{{ year_data.school_percentage }}%</span>
+                        {% else %}
+                            <span class="percentage-badge low">{{ year_data.school_percentage }}%</span>
+                        {% endif %}
+                    {% else %}
+                        <span class="percentage-badge">No Student Data</span>
+                    {% endif %}
+                </div>
+                
+                <div class="year-stats">
+                    <div class="stat-item">
+                        <div class="label">Participants</div>
+                        <div class="value">{{ year_data.participants }}</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="label">Successful Students</div>
+                        <div class="value">{{ year_data.reussites }}</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="label">Pass Rate</div>
+                        <div class="value">{{ year_data.pass_rate }}%</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="label">Students with Scores</div>
+                        <div class="value">{{ year_data.successful_students if year_data.successful_students else 0 }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% else %}
+        <div class="no-data">
+            <h2>No data available for this school</h2>
+            <p>The school you're looking for doesn't exist or has no recorded data.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
