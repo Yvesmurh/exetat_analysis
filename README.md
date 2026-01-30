@@ -1,8 +1,7 @@
 # Interactive Dashboard for School Performance Analysis (EXETAT-DRC)
-<<<<<<< HEAD
+cs50 youtube link "https://youtube.com/shorts/_VCqiTYuEwI?feature=share"
 
-=======
->>>>>>> ac75fdccc1a831f96def6cafce64a0627bf6d7a1
+
 ## Overview
 This project addresses a critical gap in the education system of the Democratic Republic of Congo (DRC). Currently, the Ministry of Education (MEPST) publishes annual National State Examination (Exetat) results in static, text-heavy tabular formats (PDFs). These formats are difficult for parents, administrators, and policymakers to interpret effectively.
 
