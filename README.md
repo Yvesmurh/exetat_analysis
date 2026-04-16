@@ -1,5 +1,4 @@
 # Interactive Dashboard for School Performance Analysis (EXETAT-DRC)
-cs50 youtube link "https://youtube.com/shorts/_VCqiTYuEwI?feature=share"
 
 
 ## Overview
