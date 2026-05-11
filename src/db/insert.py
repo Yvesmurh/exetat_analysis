@@ -1,171 +1,367 @@
+
+import argparse
 import json
-import shutil
-from datetime import datetime
+import logging
+import sys
+from typing import Dict, List, Tuple
+
+import mysql.connector
+from mysql.connector import Error
 from db import get_connection
 
-def validate_school_data(school):
-    """Validate school data for required fields and non-zero values."""
-    
-    required_fields = ["school_name", "school_code", "school_participants", 
-                      "school_reussites", "school_option", "school_province", "year"]
-    
-    # Check if all required fields exist
-    if not all(field in school for field in required_fields):
-        return False
-    
-    # Check for zero or empty values in important fields
-    if int(school["school_participants"]) == 0 or int(school["school_reussites"]) == 0:
-        return False
-        
-    return True
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-def validate_student_data(school_group):
-    """Validate student data for required fields and non-empty values."""
-    school_required_fields = ["school_name", "option", "year"]
-    if not all(field in school_group for field in school_required_fields):
-        return False
-        
-    if not school_group.get("students"):
-        return False
+
+BATCH_SIZE = 1000
+
+
+
+def chunked(iterable, size):
+    """
+    Split an iterable into chunks of a specified size.
+
+    Yields successive chunks from the iterable, each of the given size,
+
     
-    # Check individual student fields
-    student_required_fields = ["name", "student_code", "sexe", "pourcentage"]
-    for student in school_group["students"]:
-        if not all(field in student for field in student_required_fields):
-            return False
+    it takes the The iteration to be chunked. and the size (int): The size of each chunk.
+
+    and then return list: A chunk of the iterable.but those chunks are process at a time 
+    that why we're using yeild instead of return 
+    """
+    for i in range(0, len(iterable), size):
+        yield iterable[i:i + size]
+
+
+def extract_province(records: list) -> set:
+    province_set = set()
+    for r in records:
         try:
-            if not 0 <= int(student["pourcentage"]) <= 100:
-                return False
-        except (ValueError, TypeError):
-            return False
-    
-    return True
-
-def ensure_missing_folder():
-    """Create missing folder if it doesn't exist."""
-    missing_folder = "missing_data"
-    if not os.path.exists(missing_folder):
-        os.makedirs(missing_folder)
-    return missing_folder
-
-def move_to_missing(file_path, reason):
-    """Move problematic files to missing folder with timestamp and reason."""
-    missing_folder = ensure_missing_folder()
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = os.path.basename(file_path)
-    new_filename = f"{filename}_{timestamp}_{reason}.json"
-    new_path = os.path.join(missing_folder, new_filename)
-    shutil.copy2(file_path, new_path)
-    print(f"Moved problematic file to: {new_path}")
-
-def insert_school_data(json_path):
-    """Insert school-related JSON data into the schools table."""
-    conn = None
-    cusor = None
-
-    try:
-        conn = get_connection()
-        cursor = conn.cursor()
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        if "schools" not in data or not data["schools"]:
-            move_to_missing(json_path, "no_schools_data")
-            return False
-
-        valid_schools = 0
-
-        insert_sql = """
-            INSERT IGNORE INTO schools (school_name, school_code, participants, reussites, school_option, province, years)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """
-        for school in data["schools"]:
-            if validate_school_data(school):
-                cursor.execute(insert_sql, (
-                    school["school_name"],
-                    school["school_code"],
-                    int(school["school_participants"]),
-                    int(school["school_reussites"]),
-                    school["school_option"],
-                    school["school_province"],
-                    int(school["year"])
-                ))
-                valid_schools += 1
-        
-        if valid_schools == 0:
-            move_to_missing(json_path, "no_valid_schools")
-            return False
-
-        conn.commit()
-        print(f"Inserted {valid_schools} schools from: {os.path.basename(json_path)}")
-        return True
-
-    except Exception as e:
-        print(f"Error processing {json_path}: {str(e)}")
-        move_to_missing(json_path, "error")
-        return False
-    finally:
-        try:
-            cursor.close()
-            conn.close()
-        except:
+            province_set.add(r["school_province"])
+        except KeyError:
             pass
+    return province_set
 
-def insert_student_data(json_path):
-    """Insert student-related JSON data into the students table."""
-    conn = None
-    cursor = None
 
-    try:
-        conn = get_connection()
-        cursor = conn.cursor()
-
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        if "students_by_school" not in data or not data["students_by_school"]:
-            move_to_missing(json_path, "no_students_data")
-            return False
-
-        insert_sql = """
-            INSERT INTO students (student_name, school_name, school_option, province, years, student_code, sexe, pourcentage)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """
-        valid_students = 0
-        for school_group in data["students_by_school"]:
-            if validate_student_data(school_group):
-                for student in school_group["students"]:
-                    cursor.execute(insert_sql, (
-                        student["name"],
-                        school_group["school_name"],
-                        school_group["option"],
-                        school_group["province"],
-                        int(school_group["year"]),
-                        student["student_code"],
-                        student["sexe"],
-                        int(student["pourcentage"])
-                    ))
-                    valid_students += 1
-
-        if valid_students == 0:
-            move_to_missing(json_path, "no_valid_students")
-            return False
-
-        conn.commit()
-        print(f"Inserted {valid_students} students from: {os.path.basename(json_path)}")
-        return True
-
-    except Exception as e:
-        print(f"Error processing {json_path}: {str(e)}")
-        move_to_missing(json_path, "error")
-        return False
-
-    finally:
+def extract_options(records: list) -> set:
+    option_set = set()
+    for r in records:
         try:
-            cursor.close()
-            conn.close()
-        except:
+            option_set.add(r["school_option"])
+        except KeyError:
             pass
+    return option_set
 
+
+def extract_schools_dict(records: list) -> dict:
+    school_dict = {}
+    for r in records:
+        try:
+            code = r["school_code"]
+            if code not in school_dict:
+                school_dict[code] = (r["school_name"], r["school_province"])
+        except KeyError:
+            pass
+    return school_dict
+
+
+def extract_exetat_list(records: list) -> list:
+    exetat_list = []
+    for r in records:
+        try:
+            exetat_list.append({
+                "school_code": r["school_code"],
+                "option_name": r["school_option"],
+                "year": int(r["year"]),
+                "participants": int(r["school_participants"]),
+                "reussites": int(r["school_reussites"]),
+            })
+        except KeyError as e:
+            logging.warning(f"Missing field {e} in school record – skipped")
+    return exetat_list
+
+
+def extract_schools(records: list):
+    """
+    Extract provinces, options, schools, and exetat entries from schools records.
+
+    Processes a list of school records, collecting unique provinces and options,
+    building a school dictionary, and creating exetat entry data.
 
     
+    it takes records (list): List of dictionaries representing school records.
+
+    Returns:
+        tuple: (province_set, option_set, school_dict, exetat_list)
+            - province_set (set): Unique province names.
+            - option_set (set): Unique option names.
+            - school_dict (dict): {school_code: (school_name, province_name)}
+            - exetat_list (list): List of exetat entry dictionaries.
+    """
+    province_set = extract_province(records)
+    option_set = extract_options(records)
+    school_dict = extract_schools_dict(records)
+    exetat_list = extract_exetat_list(records)
+    # a ka swall useful code to help track the processing staff .. and keep tracking of data processed 
+    logging.info(
+        f"Extracted: {len(province_set)} province(s), {len(option_set)} option(s), "
+        f"{len(school_dict)} school(s), {len(exetat_list)} exetat entry row(s)"
+    )
+    return province_set, option_set, school_dict, exetat_list
+
+
+
+def insert_and_map(cursor, table: str, column: str, values: set) -> Dict[str, int]:
+    """
+    Insert unique values into a table and return a mapping of value to ID.
+
+    Performs INSERT IGNORE on the set of values, then queries the table to build
+    a dictionary mapping each value to its ID.
+
+    it takes as Arguments:
+        cursor: Database cursor.
+        table (str): Table name.
+        column (str): Column name for the values.
+        values (set): Set of unique values to insert.
+
+    and Returns:
+        Dict[str, int]: Mapping of value to ID.
+    """
+    if values:
+        # Bulk insert unique values
+        cursor.executemany(
+            f"INSERT IGNORE INTO {table} ({column}) VALUES (%s)",
+            [(v,) for v in values]
+        )
+        logging.info(f"  {table}: {cursor.rowcount} new row(s) inserted")
+    # Fetch the mapping
+    cursor.execute(f"SELECT id, {column} FROM {table}")
+    return {name: _id for _id, name in cursor.fetchall()}
+
+
+
+def insert_provinces(cursor, province_set: set) -> Dict[str, int]:
+    """
+    Insert unique province names and return a mapping.
+
+    Args:
+        cursor: Database cursor.
+        province_set (set): Set of province names.
+
+    Returns:
+        Dict[str, int]: Mapping of province name to ID.
+    """
+    return insert_and_map(cursor, "provinces", "province_name", province_set)
+
+
+
+def insert_options(cursor, option_set: set) -> Dict[str, int]:
+    """
+    Insert unique option names and return a mapping.
+
+    Args:
+        cursor: Database cursor.
+        option_set (set): Set of option names.
+
+    Returns:
+        Dict[str, int]: Mapping of option name to ID.
+    """
+    return insert_and_map(cursor, "options", "option_name", option_set)
+
+
+
+def insert_schools(cursor, school_dict: dict, province_map: Dict[str, int]) -> Dict[str, int]:
+    """
+    Insert schools into the database and return a mapping.
+
+    Resolves province IDs from the province_map and bulk inserts schools.
+
+    Args:
+        cursor: Database cursor.
+        school_dict (dict): {school_code: (school_name, province_name)}
+        province_map (Dict[str, int]): Mapping of province name to ID.
+
+    Returns:
+        Dict[str, int]: Mapping of school_code to school ID.
+    """
+    #question ...........
+    #here rows in list is important because with it we can have a list of code, name, pro_id and 
+    #with it when executing executemay it will send many row at once 
+    rows = []
+    for code, (name, province) in school_dict.items():
+        pro_id = province_map.get(province)
+        if pro_id is not None:
+            rows.append((code, name, pro_id))
+        else:
+            logging.warning(f"Province not found: {province!r} – school {code} skipped")
+
+    # Bulk insert schools: a bulk operation is performing the same operation on many piece of data at once 
+    for batch in chunked(rows, BATCH_SIZE):
+        #don't silence your error so leave that insert ignore 
+        cursor.executemany(
+            "INSERT INTO schools (school_code, school_name, province_id) VALUES (%s, %s, %s)",
+            batch
+        )
+    logging.info(f"  schools: {len(rows)} row(s) processed")
+
+    # Fetch school mapping
+    cursor.execute("SELECT id, school_code FROM schools")
+    return {code: sid for sid, code in cursor.fetchall()}
+
+
+
+def insert_exetat_entries(cursor, exetat_list: list, school_map: dict, option_map: dict) -> None:
+    """
+    Insert exetat entries into the database.
+
+    Resolves school and option IDs, then bulk inserts with ON DUPLICATE KEY UPDATE.
+
+    Args:
+        cursor: Database cursor.
+        exetat_list (list): List of exetat entry dictionaries.
+        school_map (dict): Mapping of school_code to school ID.
+        option_map (dict): Mapping of option_name to option ID.
+    """
+    rows    = []
+    skipped = 0
+
+    for e in exetat_list:
+        sid = school_map.get(e["school_code"])
+        oid = option_map.get(e["option_name"])
+
+        if sid and oid:
+            rows.append((sid, e["year"], oid, e["participants"], e["reussites"]))
+        else:
+            logging.warning(f"Missing school/option mapping for {e['school_code']} – skipped")
+            skipped += 1
+
+    # need to be change at the point of duplication key 
+    for batch in chunked(rows, BATCH_SIZE):
+        cursor.executemany(
+            """
+            INSERT INTO exetat_entry (school_id, years, option_id, participants, reussites)
+            VALUES (%s, %s, %s, %s, %s)
+            """,
+            batch
+        )
+    logging.info(f"  exetat_entry: {len(rows)} processed, {skipped} skipped")
+
+
+def build_exetat_map(cursor) -> dict:
+    """
+    Build a mapping from (school_code, option_name, year) to exetat_entry ID.
+
+    Queries the database to create a lookup map for exetat entries.
+
+    Args:
+        cursor: Database cursor.
+
+    Returns:
+        dict: {(school_code, option_name, year): exetat_entry_id}
+    """
+    # Query to get exetat entries with joined school and option names
+    cursor.execute(
+        """
+        SELECT ee.id, s.school_code, o.option_name, ee.years
+          FROM exetat_entry ee
+          JOIN schools s ON ee.school_id = s.id
+          JOIN options o ON ee.option_id  = o.id
+        """
+    )
+    return {
+        (code, opt, year): eid
+        for eid, code, opt, year in cursor.fetchall()
+    }
+
+def extract_student_data(groups: list, exetat_map: dict) -> Tuple[List, List, int]:
+    student_rows = []
+    result_rows = []
+    skipped = 0
+    for g in groups:
+        code = g.get("school_code")
+        option = g.get("option")
+        year = int(g.get("year", 0))
+        ex_id = exetat_map.get((code, option, year))
+        if not ex_id:
+            logging.warning(
+                f"No exetat_entry for ({code!r}, {option!r}, {year}) "
+                f"– {len(g.get('students', []))} student(s) skipped"
+            )
+            skipped += len(g.get("students", []))
+            continue
+        for s in g.get("students", []):
+            try:
+                student_rows.append((s["student_code"], s["name"], s.get("sexe")))
+                result_rows.append((s["student_code"], ex_id, float(s["pourcentage"])))
+            except KeyError as e:
+                logging.warning(f"Missing field {e} in student record – skipped")
+                skipped += 1
+    return student_rows, result_rows, skipped
+
+
+def insert_students_bulk(cursor, student_rows: List) -> None:
+    if not student_rows:
+        return
+    for batch in chunked(student_rows, BATCH_SIZE):
+        cursor.executemany(
+            "INSERT IGNORE INTO students (student_code, full_name, sexe) VALUES (%s, %s, %s)",
+            batch
+        )
+    logging.info(f"  students: {cursor.rowcount} new row(s) inserted (last batch)")
+
+
+def build_student_map(cursor, codes: List) -> Dict[str, int]:
+    student_map = {}
+    for batch in chunked(codes, BATCH_SIZE):
+        fmt = ",".join(["%s"] * len(batch))
+        cursor.execute(
+            f"SELECT id, student_code FROM students WHERE student_code IN ({fmt})",
+            batch
+        )
+        student_map.update({code: sid for sid, code in cursor.fetchall()})
+    return student_map
+
+
+def insert_exam_results_bulk(cursor, result_rows: List, student_map: Dict[str, int]) -> int:
+    final_rows = []
+    skipped = 0
+    for code, ex_id, pct in result_rows:
+        sid = student_map.get(code)
+        if sid:
+            final_rows.append((sid, ex_id, pct))
+        else:
+            logging.warning(f"student_code {code!r} not resolved – exam result skipped")
+            skipped += 1
+    for batch in chunked(final_rows, BATCH_SIZE):
+        cursor.executemany(
+            """
+            INSERT INTO exam_results (student_id, school_session_id, percentage)
+            VALUES (%s, %s, %s)
+            ON DUPLICATE KEY UPDATE percentage = VALUES(percentage)
+            """,
+            batch
+        )
+    logging.info(f"  exam_results: {len(final_rows)} processed, {skipped} skipped")
+    return skipped
+
+
+def insert_students(cursor, groups: list, exetat_map: dict) -> None:
+    """
+    Insert students and their exam results into the database.
+
+    Processes groups of students by school, resolves exetat IDs, inserts students
+    and exam results in batches.
+
+    Args:
+        cursor: Database cursor.
+        groups (list): List of student groups from JSON.
+        exetat_map (dict): Mapping from (school_code, option, year) to exetat_id.
+    """
+    student_rows, result_rows, skipped = extract_student_data(groups, exetat_map)
+    if not student_rows:
+        logging.info("  No students to insert.")
+        return
+    insert_students_bulk(cursor, student_rows)
+    codes = list({r[0] for r in student_rows})
+    student_map = build_student_map(cursor, codes)
+    insert_exam_results_bulk(cursor, result_rows, student_map)
+
