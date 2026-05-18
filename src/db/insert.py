@@ -129,7 +129,7 @@ def insert_and_map(cursor, table: str, column: str, values: set) -> Dict[str, in
     if values:
         # Bulk insert unique values
         cursor.executemany(
-            f"INSERT IGNORE INTO {table} ({column}) VALUES (%s)",
+            f"INSERT INTO {table} ({column}) VALUES (%s)",
             [(v,) for v in values]
         )
         logging.info(f"  {table}: {cursor.rowcount} new row(s) inserted")
@@ -196,7 +196,8 @@ def insert_schools(cursor, school_dict: dict, province_map: Dict[str, int]) -> D
 
     # Bulk insert schools: a bulk operation is performing the same operation on many piece of data at once 
     for batch in chunked(rows, BATCH_SIZE):
-        #don't silence your error so leave that insert ignore 
+        #don't silence your error so leave that insert ignore
+        #it look like here i might need to use the constraint ON DUPLICATED KEY 
         cursor.executemany(
             "INSERT INTO schools (school_code, school_name, province_id) VALUES (%s, %s, %s)",
             batch

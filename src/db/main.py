@@ -16,7 +16,7 @@ from insert import (
 )
 
 logging.basicConfig(level=logging.INFO)
-DATA_DIR= "/home/yves-s-computer/Exetat_analysis/json_files/test"
+DATA_DIR= "/home/yves-s-computer/Exetat_analysis/json_files/global"
 
 def discover_files(data_dir):
     """
@@ -125,34 +125,56 @@ def main():
         if not pairs:
             raise ValueError("No valid file pairs found")
 
-        # Process each pair of files
+        # Process each pair of files. If one file is malformed or processing fails
+        # for that pair, log the offending files, rollback that transaction and
+        # continue with the remaining pairs.
+        failed_pairs = []
         for schools_path, students_path in sorted(pairs):
             logging.info(f"Processing: {schools_path} + {students_path}")
+            try:
+                # Load schools data
+                with open(schools_path, encoding="utf-8") as f:
+                    schools_data = json.load(f)
 
-            # Load schools data
-            with open(schools_path, encoding="utf-8") as f:
-                schools_data = json.load(f)
+                # Load students data
+                with open(students_path, encoding="utf-8") as f:
+                    students_data = json.load(f)
 
-            # Load students data
-            with open(students_path, encoding="utf-8") as f:
-                students_data = json.load(f)
+                # Extract data from schools JSON
+                province_set, option_set, school_dict, exetat_list = \
+                    extract_schools(schools_data.get("schools", []))
 
-            # Extract data from schools JSON
-            province_set, option_set, school_dict, exetat_list = \
-                extract_schools(schools_data.get("schools", []))
+                # Insert data into database
+                province_map = insert_provinces(cursor, province_set)
+                option_map   = insert_options(cursor, option_set)
+                school_map   = insert_schools(cursor, school_dict, province_map)
+                insert_exetat_entries(cursor, exetat_list, school_map, option_map)
 
-            # Insert data into database
-            province_map = insert_provinces(cursor, province_set)
-            option_map   = insert_options(cursor, option_set)
-            school_map   = insert_schools(cursor, school_dict, province_map)
-            insert_exetat_entries(cursor, exetat_list, school_map, option_map)
+                # Build map for students insertion
+                exetat_map = build_exetat_map(cursor)
+                insert_students(cursor, students_data.get("students_by_school", []), exetat_map)
 
-            # Build map for students insertion
-            exetat_map = build_exetat_map(cursor)
-            insert_students(cursor, students_data.get("students_by_school", []), exetat_map)
+                # Commit transaction for this pair
+                conn.commit()
 
-            # Commit transaction for this pair
-            conn.commit()
+            except json.JSONDecodeError as e:
+                # Malformed JSON — rollback this pair and continue
+                conn.rollback()
+                logging.error(f"JSON decode error in {schools_path} or {students_path}: {e}")
+                failed_pairs.append((schools_path, students_path, str(e)))
+                continue
+
+            except Exception as e:
+                # Any other processing error — rollback this pair and continue
+                conn.rollback()
+                logging.error(f"Failed processing {schools_path} + {students_path}: {e}")
+                failed_pairs.append((schools_path, students_path, str(e)))
+                continue
+
+        if failed_pairs:
+            logging.warning("Some file pairs failed to process:")
+            for a, b, reason in failed_pairs:
+                logging.warning(f"  {a} + {b}: {reason}")
 
         logging.info("All files processed successfully.")
 
