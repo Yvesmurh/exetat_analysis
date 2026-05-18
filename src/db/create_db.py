@@ -49,7 +49,7 @@ def create_database():
             """
             CREATE TABLE IF NOT EXISTS schools (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                school_code VARCHAR(100) NOT NULL UNIQUE,
+                school_code VARCHAR(100) NOT NULL,
                 school_name VARCHAR(255) NOT NULL,
                 province_id INT NOT NULL,
                 INDEX (school_name),
