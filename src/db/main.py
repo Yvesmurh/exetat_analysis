@@ -16,7 +16,7 @@ from insert import (
 )
 
 logging.basicConfig(level=logging.INFO)
-DATA_DIR= "/home/yves-s-computer/Exetat_analysis/json_files/global"
+DATA_DIR= "/home/yves-s-computer/Exetat_analysis/json_files/2016"
 
 def discover_files(data_dir):
     """

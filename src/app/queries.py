@@ -8,7 +8,7 @@ def calculate_success_rate(participants, reussites):
 def get_available_years(connection):
     """Get all available years from the database"""
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT DISTINCT years FROM schools ORDER BY years DESC")
+    cursor.execute("SELECT DISTINCT years FROM exetat_entry ORDER BY years DESC")
     years = [row['years'] for row in cursor.fetchall()]
     cursor.close()
     
@@ -21,29 +21,32 @@ def get_filter_options(connection, year=None):
     
     # Single query using UNION to get both provinces and options efficiently
     query = """
-        SELECT 'province' AS category, province AS value
-        FROM schools
+        SELECT 'province' AS category, p.province_name AS value
+        FROM exetat_entry ee
+        JOIN schools s ON ee.school_id = s.id
+        JOIN provinces p ON s.province_id = p.id
         WHERE 1=1
     """
     params = []
     
     if year:
-        query += " AND years = %s"
+        query += " AND ee.years = %s"
         params.append(year)
     
     query += """
-        GROUP BY province
+        GROUP BY p.province_name
         UNION ALL
-        SELECT 'option' AS category, school_option AS value
-        FROM schools
+        SELECT 'option' AS category, o.option_name AS value
+        FROM exetat_entry ee
+        JOIN options o ON ee.option_id = o.id
         WHERE 1=1
     """
     
     if year:
-        query += " AND years = %s"
+        query += " AND ee.years = %s"
         params.append(year)
     
-    query += " GROUP BY school_option"
+    query += " GROUP BY o.option_name"
     
     cursor.execute(query, params)
     results = cursor.fetchall()
@@ -66,54 +69,51 @@ def get_filter_options(connection, year=None):
 
 
 def get_school_rankings(connection, year=None, province=None, option=None, limit=50):
-    """Get school rankings based purely on average student performance (school percentage)"""
+    """Get school rankings based on normalized exetat and exam result tables."""
     cursor = connection.cursor(dictionary=True)
 
     # 1. Determine the target year
     if year:
         target_year = year
     else:
-        cursor.execute("SELECT MAX(years) AS latest_year FROM schools")
+        cursor.execute("SELECT MAX(years) AS latest_year FROM exetat_entry")
         target_year = cursor.fetchone()['latest_year']
 
-    # 2. Build ranking query optimized for index usage
     query = """
-        SELECT 
+        SELECT
             s.school_name,
-            s.school_option,
-            s.province,
-            s.years,
-            s.participants AS total_participants,
-            s.reussites AS total_reussites,
-            SUM(st.pourcentage) AS total_points,
-            COUNT(st.pourcentage) AS successful_students,
+            o.option_name AS school_option,
+            p.province_name AS province,
+            ee.years,
+            ee.participants AS total_participants,
+            ee.reussites AS total_reussites,
+            COALESCE(SUM(er.percentage), 0) AS total_points,
+            COUNT(er.percentage) AS successful_students,
             ROUND(
-                (SUM(st.pourcentage) / (COUNT(st.pourcentage) * 100)) * 100,
+                IF(COUNT(er.percentage) = 0, 0, SUM(er.percentage) / (COUNT(er.percentage) * 100) * 100),
                 2
             ) AS school_percentage
-        FROM schools s
-        INNER JOIN students st 
-            ON s.school_name = st.school_name
-            AND s.school_option = st.school_option
-            AND s.years = st.years
-            AND s.province = st.province
-        WHERE s.years = %s
+        FROM exetat_entry ee
+        JOIN schools s ON ee.school_id = s.id
+        JOIN provinces p ON s.province_id = p.id
+        JOIN options o ON ee.option_id = o.id
+        LEFT JOIN exam_results er ON er.school_session_id = ee.id
+        WHERE ee.years = %s
     """
 
     params = [target_year]
 
-    # Optional filters - indexes will be used for these
     if province:
-        query += " AND s.province = %s"
+        query += " AND p.province_name = %s"
         params.append(province)
 
     if option:
-        query += " AND s.school_option = %s"
+        query += " AND o.option_name = %s"
         params.append(option)
 
     query += """
-        GROUP BY s.school_name, s.school_option, s.province, s.years, 
-                 s.participants, s.reussites
+        GROUP BY s.school_name, o.option_name, p.province_name, ee.years,
+                 ee.participants, ee.reussites
         ORDER BY school_percentage DESC, successful_students DESC
         LIMIT %s
     """
@@ -123,7 +123,6 @@ def get_school_rankings(connection, year=None, province=None, option=None, limit
     cursor.execute(query, params)
     schools = cursor.fetchall()
 
-    # Add ranking number and use school_percentage as success_rate for display
     for i, school in enumerate(schools, 1):
         school['rank'] = i
         school['success_rate'] = school['school_percentage']
@@ -134,35 +133,40 @@ def get_school_rankings(connection, year=None, province=None, option=None, limit
 
 
 def get_best_student(connection, year=None, province=None, option=None):
-    """Get the best student overall"""
+    """Get the best student overall from normalized tables."""
     cursor = connection.cursor(dictionary=True)
     
     query = """
-        SELECT 
-            student_name,
-            school_name,
-            school_option,
-            province,
-            pourcentage,
-            years
-        FROM students
+        SELECT
+            s.student_name AS student_name,
+            sc.school_name,
+            o.option_name AS school_option,
+            p.province_name AS province,
+            er.percentage AS pourcentage,
+            ee.years
+        FROM exam_results er
+        JOIN students s ON er.student_id = s.id
+        JOIN exetat_entry ee ON er.school_session_id = ee.id
+        JOIN schools sc ON ee.school_id = sc.id
+        JOIN provinces p ON sc.province_id = p.id
+        JOIN options o ON ee.option_id = o.id
         WHERE 1=1
     """
     params = []
     
     if year:
-        query += " AND years = %s"
+        query += " AND ee.years = %s"
         params.append(year)
     
     if province:
-        query += " AND province = %s"
+        query += " AND p.province_name = %s"
         params.append(province)
     
     if option:
-        query += " AND school_option = %s"
+        query += " AND o.option_name = %s"
         params.append(option)
     
-    query += " ORDER BY pourcentage DESC LIMIT 1"
+    query += " ORDER BY er.percentage DESC LIMIT 1"
     
     cursor.execute(query, params)
     student = cursor.fetchone()
@@ -173,12 +177,11 @@ def get_best_student(connection, year=None, province=None, option=None):
 
 
 def get_best_per_option(connection, year=None, province=None):
-    """Get the best student for each option using window function (single query)"""
+    """Get the best student for each option using window function (single query)."""
     cursor = connection.cursor(dictionary=True)
     
-    # Use ROW_NUMBER() to get best student per option in ONE query (eliminates N+1 problem)
     query = """
-        SELECT 
+        SELECT
             student_name,
             school_name,
             school_option,
@@ -186,25 +189,30 @@ def get_best_per_option(connection, year=None, province=None):
             pourcentage,
             years
         FROM (
-            SELECT 
-                student_name,
-                school_name,
-                school_option,
-                province,
-                pourcentage,
-                years,
-                ROW_NUMBER() OVER (PARTITION BY school_option ORDER BY pourcentage DESC) AS rn
-            FROM students
+            SELECT
+                s.student_name AS student_name,
+                sc.school_name,
+                o.option_name AS school_option,
+                p.province_name AS province,
+                er.percentage AS pourcentage,
+                ee.years,
+                ROW_NUMBER() OVER (PARTITION BY o.option_name ORDER BY er.percentage DESC) AS rn
+            FROM exam_results er
+            JOIN students s ON er.student_id = s.id
+            JOIN exetat_entry ee ON er.school_session_id = ee.id
+            JOIN schools sc ON ee.school_id = sc.id
+            JOIN provinces p ON sc.province_id = p.id
+            JOIN options o ON ee.option_id = o.id
             WHERE 1=1
     """
     params = []
     
     if year:
-        query += " AND years = %s"
+        query += " AND ee.years = %s"
         params.append(year)
     
     if province:
-        query += " AND province = %s"
+        query += " AND p.province_name = %s"
         params.append(province)
     
     query += """
@@ -222,74 +230,76 @@ def get_best_per_option(connection, year=None, province=None):
 
 
 def get_statistics(connection, year=None, province=None, option=None):
-    """Get overall statistics combined in a single query for better performance"""
+    """Get overall statistics combined in a single query for better performance."""
     cursor = connection.cursor(dictionary=True)
     
-    # Combine school stats and student performance in ONE query using LEFT JOIN
     query = """
-        SELECT 
+        SELECT
             school_stats.total_schools,
             school_stats.total_participants,
             school_stats.total_reussites,
             school_stats.avg_pass_rate,
             COALESCE(student_perf.avg_school_performance, school_stats.avg_pass_rate) AS avg_success_rate
         FROM (
-            SELECT 
-                COUNT(DISTINCT school_name) as total_schools,
-                SUM(participants) as total_participants,
-                SUM(reussites) as total_reussites,
-                ROUND(AVG(reussites / participants * 100), 2) as avg_pass_rate
-            FROM schools
+            SELECT
+                COUNT(DISTINCT ee.school_id) AS total_schools,
+                SUM(ee.participants) AS total_participants,
+                SUM(ee.reussites) AS total_reussites,
+                ROUND(AVG(CASE WHEN ee.participants = 0 THEN 0 ELSE ee.reussites / ee.participants * 100 END), 2) AS avg_pass_rate
+            FROM exetat_entry ee
+            JOIN schools s ON ee.school_id = s.id
+            JOIN provinces p ON s.province_id = p.id
+            JOIN options o ON ee.option_id = o.id
             WHERE 1=1
     """
     params = []
     
     if year:
-        query += " AND years = %s"
+        query += " AND ee.years = %s"
         params.append(year)
     
     if province:
-        query += " AND province = %s"
+        query += " AND p.province_name = %s"
         params.append(province)
     
     if option:
-        query += " AND school_option = %s"
+        query += " AND o.option_name = %s"
         params.append(option)
     
     query += """
         ) school_stats
         LEFT JOIN (
-            SELECT 
-                ROUND(AVG(school_perf), 2) AS avg_school_performance
+            SELECT
+                ROUND(AVG(entry_perf), 2) AS avg_school_performance
             FROM (
-                SELECT 
+                SELECT
+                    ee.id,
                     ROUND(
-                        SUM(st.pourcentage) / (COUNT(st.pourcentage) * 100) * 100,
+                        IF(COUNT(er.percentage) = 0, 0, SUM(er.percentage) / (COUNT(er.percentage) * 100) * 100),
                         2
-                    ) AS school_perf
-                FROM schools s
-                JOIN students st 
-                    ON s.school_name = st.school_name
-                    AND s.school_option = st.school_option
-                    AND s.years = st.years
-                    AND s.province = st.province
+                    ) AS entry_perf
+                FROM exetat_entry ee
+                JOIN schools s ON ee.school_id = s.id
+                JOIN provinces p ON s.province_id = p.id
+                JOIN options o ON ee.option_id = o.id
+                LEFT JOIN exam_results er ON er.school_session_id = ee.id
                 WHERE 1=1
     """
     
     if year:
-        query += " AND s.years = %s AND st.years = %s"
-        params.extend([year, year])
+        query += " AND ee.years = %s"
+        params.append(year)
     
     if province:
-        query += " AND s.province = %s AND st.province = %s"
-        params.extend([province, province])
+        query += " AND p.province_name = %s"
+        params.append(province)
     
     if option:
-        query += " AND s.school_option = %s AND st.school_option = %s"
-        params.extend([option, option])
+        query += " AND o.option_name = %s"
+        params.append(option)
     
     query += """
-                GROUP BY s.school_name, s.school_option, s.province, s.years
+                GROUP BY ee.id
             ) AS school_performances
         ) student_perf ON 1=1
     """
@@ -303,37 +313,35 @@ def get_statistics(connection, year=None, province=None, option=None):
 
 
 def get_school_detail(connection, school_name):
-    """Get detailed data for a specific school across years, aggregated by year"""
+    """Get detailed data for a specific school across years, aggregated by year."""
     cursor = connection.cursor(dictionary=True)
     
-    # Aggregate data by year in case there are multiple entries per year
     cursor.execute("""
-        SELECT 
+        SELECT
             s.school_name,
             s.school_code,
-            s.school_option,
-            s.province,
-            s.years,
-            SUM(s.participants) as participants,
-            SUM(s.reussites) as reussites,
-            ROUND((SUM(s.reussites) / SUM(s.participants) * 100), 2) as pass_rate,
-            COALESCE(
-                ROUND(
-                    SUM(st.pourcentage) / (COUNT(st.pourcentage) * 100) * 100,
-                    2
-                ),
-                NULL
-            ) as school_percentage,
-            COUNT(st.pourcentage) as successful_students
+            o.option_name AS school_option,
+            p.province_name AS province,
+            ee.years,
+            ee.participants AS participants,
+            ee.reussites AS reussites,
+            ROUND(
+                CASE WHEN ee.participants = 0 THEN 0 ELSE ee.reussites / ee.participants * 100 END,
+                2
+            ) AS pass_rate,
+            CASE WHEN COUNT(er.percentage) = 0 THEN NULL
+                ELSE ROUND(SUM(er.percentage) / (COUNT(er.percentage) * 100) * 100, 2)
+            END AS school_percentage,
+            COUNT(er.percentage) AS successful_students
         FROM schools s
-        LEFT JOIN students st 
-            ON s.school_name = st.school_name
-            AND s.school_option = st.school_option
-            AND s.years = st.years
-            AND s.province = st.province
+        JOIN exetat_entry ee ON ee.school_id = s.id
+        JOIN provinces p ON s.province_id = p.id
+        JOIN options o ON ee.option_id = o.id
+        LEFT JOIN exam_results er ON er.school_session_id = ee.id
         WHERE s.school_name = %s
-        GROUP BY s.school_name, s.school_code, s.school_option, s.province, s.years
-        ORDER BY s.years DESC
+        GROUP BY s.school_name, s.school_code, o.option_name, p.province_name, ee.years,
+                 ee.participants, ee.reussites
+        ORDER BY ee.years DESC
     """, (school_name,))
     
     school_data = cursor.fetchall()

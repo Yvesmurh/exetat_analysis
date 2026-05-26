@@ -128,8 +128,7 @@ def extract_option(header_text: str) -> str:
     return ""
 
 
-#i have an idea i would like to talk about here what if we could normalize province name 
-#at the extraction point ....
+
 def extract_province(header_text: str) -> str:
     """Extract province from header, with OPTION-line fallback."""
     if not header_text:
