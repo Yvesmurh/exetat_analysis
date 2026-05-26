@@ -1,4 +1,3 @@
-
 import argparse
 import json
 import logging
@@ -129,7 +128,7 @@ def insert_and_map(cursor, table: str, column: str, values: set) -> Dict[str, in
     if values:
         # Bulk insert unique values
         cursor.executemany(
-            f"INSERT INTO {table} ({column}) VALUES (%s)",
+            f"INSERT IGNORE INTO {table} ({column}) VALUES (%s)",
             [(v,) for v in values]
         )
         logging.info(f"  {table}: {cursor.rowcount} new row(s) inserted")
@@ -304,7 +303,7 @@ def insert_students_bulk(cursor, student_rows: List) -> None:
         return
     for batch in chunked(student_rows, BATCH_SIZE):
         cursor.executemany(
-            "INSERT IGNORE INTO students (student_code, full_name, sexe) VALUES (%s, %s, %s)",
+            "INSERT INTO students (student_code, student_name, sexe) VALUES (%s, %s, %s)",
             batch
         )
     logging.info(f"  students: {cursor.rowcount} new row(s) inserted (last batch)")
@@ -365,4 +364,3 @@ def insert_students(cursor, groups: list, exetat_map: dict) -> None:
     codes = list({r[0] for r in student_rows})
     student_map = build_student_map(cursor, codes)
     insert_exam_results_bulk(cursor, result_rows, student_map)
-

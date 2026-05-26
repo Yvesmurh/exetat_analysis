@@ -81,9 +81,9 @@ def create_database():
             CREATE TABLE IF NOT EXISTS students (
                 id BIGINT AUTO_INCREMENT PRIMARY KEY,
                 student_code VARCHAR(100) NOT NULL UNIQUE,
-                full_name VARCHAR(255) NOT NULL,
+                student_name VARCHAR(255) NOT NULL,
                 sexe VARCHAR(16),
-                INDEX (full_name)
+                INDEX (student_name)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
             """
         )
