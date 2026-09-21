@@ -1,0 +1,301 @@
+exetat_dashboard/
+
+│
+├── app.py
+├── config.py
+├── requirements.txt
+│
+├── assets/
+│      style.css
+│
+├── queries/
+│      overview.py
+│      province.py
+│      schools.py
+│      trends.py
+│
+├── figures/
+│      overview_cards.py
+│      map.py
+│      ranking.py
+│      trend.py
+│      distribution.py
+│
+├── pages/
+│      home.py
+│      province.py
+│      schools.py
+│
+└── utils/
+
+alright friend on the afternoon of August 3 2026 we're going to work on making this dashboard real
+i propose we start with the database configuration : 
+yeah that just simple i can just import the get_connection function that i had in db.py module 
+
+second problem i solve is that i mappend the province name from the geojson file to the one i have in my db
+i used something called a reconciled code . what i did is that i add in the geojson file a new feature called province which keep the name of province as they are in my db
+
+and for today i take a break here .... to be continue .
+i will come back to work on the queries since i've done the database connection 
+
+alright on the day of 04 august here i'm ready to tackle into another step of my project. 
+
+COALESCE (SUM(ee.participants), 0) simply mean return the first the sum of value and if a value is null replace it with 0
+
+record of 05 August at 4 am. on remark :
+before sleeping i have to clear my mind about the problem i was working on , else i will feel it 
+
+on this morning i've started again everything solving TODO by TODO 
+
+and so far i've solved all in queries/overview.py 
+
+next i'm going for queries/trends.py now 
+
+on the day of 12 August here i am starting over in order to make a good package . 
+so today the work is to make my project a package . 
+
+i've done it in the past but got lost in the way but by definition making a project a package is to :
+
+To make a Python project a package means to organize your code 
+into a directory structure containing modules and an __init__.py file
+
+to add a dependancy 
+$ uv add requests
+
+bref . uv add . does the management dependancy and management work for dev. 
+
+something that my vibe coding didn't tell me 
+Note: Even though uv has an alternative interface that mimics pip, 
+you shouldn’t use it to install dependencies 
+because these commands won’t update the uv.lock file or pyproject.toml automatically 
+like uv add does.
+
+to upgrade the dependancy i should use this 
+
+$ uv add --upgrade requests
+
+and to remove we use the following 
+
+$ uv remove <package_name>
+
+to see the package that i have in my python env. 
+
+uv pip list
+
+These commands are helpful if you encounter issues with running the project and
+want to ensure that you’re using the correct version of each dependency.
+
+$ uv lock
+$ uv sync
+
+in order to build a package i nee to build a system . and for it i use 
+setuptools . and add them in my .toml file 
+
+[build-system]
+requires = ["setuptools>=78.1.0", "wheel>=0.45.1"]
+build-backend = "setuptools.build_meta"
+
+now to build the distribution i use 
+
+$ uv build 
+
+
+Having a package is actually something cool. now i think i'm going to start over again the dashboard interface again . 
+
+Record of 27 august . althought i'm actually busy with schools , i'm gonna analyse the figures code and try understand it 
+then make some change on them 
+
+1.National Overview Card
+  What is the total number of schools?
+  What is the total number of participants?
+  What is the total number of successful students?
+  What is the national success rate?
+  comparaison of success rate between the current years and the last year ?
+
+  SELECT
+    (SELECT COUNT(DISTINCT school_id) FROM exetat_entry WHERE years = 2023) AS total_schools,
+    (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) AS total_participants,
+    (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) AS total_successes,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) * 100
+    , 2) AS success_rate_2023,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2022) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2022) * 100
+    , 2) AS success_rate_2022,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) * 100
+        -
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2022) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2022) * 100
+    , 2) AS rate_change_pts;
+
+    
+
+2.top Performing province being changed with (top Performing student )
+  Top Performing student for each option for the current years
+  comparaison of percentage of current student with the one for last years 
+
+WITH ranked_2023 AS (
+    SELECT
+        o.id AS option_id,
+        o.option_name,
+        s.id AS student_id,
+        s.student_name,
+        er.percentage,
+        ROW_NUMBER() OVER (PARTITION BY o.id ORDER BY er.percentage DESC) AS rn
+    FROM exam_results er
+    JOIN exetat_entry ee ON er.school_session_id = ee.id
+    JOIN options o ON ee.option_id = o.id
+    JOIN students s ON er.student_id = s.id
+    WHERE ee.years = 2023
+),
+ranked_2022 AS (
+    SELECT
+        o.id AS option_id,
+        MAX(er.percentage) AS top_percentage_2022
+    FROM exam_results er
+    JOIN exetat_entry ee ON er.school_session_id = ee.id
+    JOIN options o ON ee.option_id = o.id
+    WHERE ee.years = 2022
+    GROUP BY o.id
+)
+SELECT
+    r.option_name,
+    r.student_name AS top_student_2023,
+    r.percentage AS top_percentage_2023,
+    p.top_percentage_2022,
+    ROUND(r.percentage - p.top_percentage_2022, 2) AS pts_change
+FROM ranked_2023 r
+LEFT JOIN ranked_2022 p ON r.option_id = p.option_id
+WHERE r.rn = 1
+ORDER BY r.option_name;
+
+3.province performance trend ;
+  down to the drc map;
+  we make a chart that show success rate for each years per province (every province from 2015 to 2023)
+
+4.province performance map
+these are datas that will be display on the Map ,For every province:
+
+  Province name
+  Success rate
+  Number of schools
+  Number of participants
+  Number of successful students
+  Difference (by rate of success) compared to the last year
+
+WITH prov_2023 AS (
+    SELECT
+        p.id AS province_id,
+        p.name AS province_name,
+        COUNT(DISTINCT sc.id) AS num_schools,
+        SUM(ee.participants) AS num_participants,
+        SUM(ee.reussites) AS num_successes,
+        ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate_2023
+    FROM pr_after_reform26 p
+    JOIN ed_province ep ON ep.province_after_id = p.id
+    JOIN schools sc ON sc.province_id = ep.id
+    JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2020
+    GROUP BY p.id, p.name
+),
+prov_2022 AS (
+    SELECT
+        p.id AS province_id,
+        ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate_2022
+    FROM pr_after_reform26 p
+    JOIN ed_province ep ON ep.province_after_id = p.id
+    JOIN schools sc ON sc.province_id = ep.id
+    JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2019
+    GROUP BY p.id
+)
+SELECT
+    c.province_name,
+    c.success_rate_2023,
+    c.num_schools,
+    c.num_participants,
+    c.num_successes,
+    p.success_rate_2022,
+    ROUND(c.success_rate_2023 - p.success_rate_2022, 2) AS rate_change_pts
+FROM prov_2023 c
+LEFT JOIN prov_2022 p ON c.province_id = p.province_id
+ORDER BY c.province_name;
+
+
+5.Province Ranking:
+
+  Give all provinces ordered by success rate. 
+but i will be drop down that the user can scroll down to see all the province because i will only be showing the 5 first province 
+success rate by range;
+that will be used as a legende (referencing of the province performance map)
+it will take the highest success rating - the lowest success rating 
+and then make 5 range from the highest to the lowest ; it should be in percentage (0-100%)
+darker colors indicate the higher success rate 
+
+SELECT
+    p.id as province_id,
+    p.name AS province_name,
+    COUNT(DISTINCT sc.id) AS num_schools,
+    SUM(ee.participants) AS num_participants,
+    SUM(ee.reussites) AS num_successes,
+    ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate
+FROM pr_after_reform26 p
+JOIN ed_province ep ON ep.province_after_id = p.id
+JOIN schools sc ON sc.province_id = ep.id
+JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2020
+GROUP BY p.id, p.name
+ORDER BY success_rate DESC;
+
+  
+When the user changes:
+
+  Year
+  Province
+  Educational option
+
+  Your frontend asks:
+  Everything on the dashboard updates from these filters.
+
+
+Province page : 
+1.Province overview
+  What is the total number of schools?
+  What is the total number of participants?
+  What is the total number of successful students?
+  What is the province success rate?
+  comparaison of success rate between the current years and the last year ?
+
+2. Top Performing student for each option for the current years
+  comparaison of percentage of current student with the one for last years 
+
+3.province performance trend ;
+  we make a chart that show success rate for each years from 2015 to 2023)
+
+4.School Ranking:
+
+  Give all the school for that provinces ranked by school percentage (the average (percentage/number of students)for each schools  ). 
+but i will be drop down that the user can scroll down to see all the schools because i will only be showing the 10 first schools.
+success rate by range;
+
+b School page .
+
+1. School overview:
+  What is the total number of option a schools has for the given years ?
+  What is the total number of participants?
+  What is the total number of successful students?
+  What is the schools success rate?
+  comparaison of success rate between the current years and the last year ?
+
+2. Top Performing student for each option for the current years
+  comparaison of percentage of current student with the one for last years 
+
+3.schools performance trend ;
+  we make a chart that show success rate for each years for the schools from 2015 to 2023
+
+4.students Ranking:
+
+  Give all the students for that schools ranked by percentage for the given years 
+but i will be drop down that the user can scroll down to see all the schools because i will only be showing the 10 first schools.
+success rate by range;

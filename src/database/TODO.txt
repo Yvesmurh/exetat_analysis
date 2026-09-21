@@ -1,0 +1,540 @@
+ select student_name, years, exam_results.percentage, participants, reussites, sexe, name, school_name, schools.id from students  
+ join exam_results on students.id = exam_results.student_id  
+ join exetat_entry on exetat_entry.id = exam_results.school_session_id  
+ join schools on exetat_entry.school_id = schools.id  
+ join options on exetat_entry.option_id = options.id 
+ join ed_province on schools.province_id = ed_province.id where name = 'KASAI ORIENTAL 1'and years = 2022 and student_name = 'KABEYA KABEYA TRESOR';
++---------------------------+-------------+-------+------------+----------------------+---------------+
+| student_name              | school_name | years | percentage | name        | option_name   |
++---------------------------+-------------+-------+------------+----------------------+---------------+
+| LOHO EKANDA MARIE         | ALIFE LYCEE |  2012 |      56.00 | PROVINCE ORIENTALE 1 | COUPE-COUTURE |
+| TANGELI ALIFE MIREILLE    | ALIFE LYCEE |  2012 |      58.00 | PROVINCE ORIENTALE 1 | COUPE-COUTURE |
+| AKAKA YENI HRISTINE       | ALIFE LYCEE |  2016 |     106.00 | TSHOPO               | COUPE-COUTURE |
+| LIFOTI LEKATELO JOSEPHINE | ALIFE LYCEE |  2016 |      94.00 | TSHOPO               | COUPE-COUTURE |
+| OKOTA YENI PIERRETTE      | ALIFE LYCEE |  2016 |     103.00 | TSHOPO               | COUPE-COUTURE |
+| IKOTO LITUMBE CHRISTINE   | ALIFE LYCEE |  2017 |      53.00 | TSHOPO               | COUPE-COUTURE |
+| LILANGA KOYA ADOLPHINE    | ALIFE LYCEE |  2017 |      56.00 | TSHOPO               | COUPE-COUTURE |
+| OSOMA EKILI PELAGIE       | ALIFE LYCEE |  2017 |      51.00 | TSHOPO               | COUPE-COUTURE |
+| OTEKAKI FINA HENRIETTE    | ALIFE LYCEE |  2017 |      56.00 | TSHOPO               | COUPE-COUTURE |
+| AFONDO LIYEMBE LEONTINE   | ALIFE LYCEE |  2018 |      58.00 | TSHOPO 2             | COUPE-COUTURE |
+| OSENGE OSUSU LEONTINE     | ALIFE LYCEE |  2018 |      60.00 | TSHOPO 2             | COUPE-COUTURE |
+| ATHENO LILO REGINE        | ALIFE LYCEE |  2015 |      52.00 | PROVINCE ORIENTALE 1 | COUPE-COUTURE |
+| NYOTA OTOMBOLA GISELE     | ALIFE LYCEE |  2015 |      55.00 | PROVINCE ORIENTALE 1 | COUPE-COUTURE |
+| ALENGELA LETA ANNIE       | ALIFE LYCEE |  2020 |      60.00 | TSHOPO 2             | COUPE-COUTURE |
+| LIYENE AISOMBE JULIENNE   | ALIFE LYCEE |  2020 |      55.00 | TSHOPO 2             | COUPE-COUTURE |
+| OKELI KOYALE CHARLOTTE    | ALIFE LYCEE |  2020 |      58.00 | TSHOPO 2             | COUPE-COUTURE |
+| OKINA OSUSU AIMERANCE     | ALIFE LYCEE |  2020 |      56.00 | TSHOPO 2             | COUPE-COUTURE |
+| OKOSE ILANGIKOY CELESTINE | ALIFE LYCEE |  2020 |      57.00 | TSHOPO 2             | COUPE-COUTURE |
+| OSENGE AKOYA CLEMENTINE   | ALIFE LYCEE |  2020 |      58.00 | TSHOPO 2             | COUPE-COUTURE |
+| YENGA AYESA CHANCE LA VIE | ALIFE LYCEE |  2020 |      59.00 | TSHOPO 2             | COUPE-COUTURE |
+| YENI LOKUTA JACQUELINE    | ALIFE LYCEE |  2020 |      59.00 | TSHOPO 2             | COUPE-COUTURE |
++---------------------------+-------------+-------+------------+----------------------+---------------+
+21 rows in set (0.09 sec)
+Done
+
+mysql> update exam_results set percentage = 56 where percentage = 106 ;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update exam_results set percentage = 53 where percentage = 103 ;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update exam_results set percentage = 54 where percentage = 94 ;
+Query OK, 4 rows affected (0.02 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> mysqlbinlog;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysqlbinlog' at line 1
+mysql> roolback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roolback' at line 1
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+5804058
+to look for 
+select * from students where id not in (select student_id from exam_results);
++---------+-------------------------+-----------------------+------+
+| id      | student_code            | student_name          | sexe |
++---------+-------------------------+-----------------------+------+
+|  307643 | 12051 / 103 / 03 / 7/ 9 | BAKULA BAKULA LEOLINE | F    |
+|  946334 | 71053 / 201 / 13 / 1/ 8 | KABANGE NUMBI PATIENT | M    | find find
+| 1065175 | 63072 / 201 / 05 / 6/ 3 | BAHATI MANDNGA DENISE | F    |
++---------+-------------------------+-----------
++---------------------------+------------------+-------+------------+---------------+--------------------+
+| student_name              | school_name      | years | percentage | name | option_name        |
++---------------------------+------------------+-------+------------+---------------+--------------------+
+| AIME MASUZU               | KYAMATE INSTITUT |  2011 |      58.00 | SUD - KIVU    | PEDAGOGIE GENERALE |
+| 8 BYAMUNGU CENGERO ELIE   | KYAMATE INSTITUT |  2012 |      67.00 | SUD - KIVU    | PEDAGOGIE GENERALE |
+| MASHAKA JEAN FREE CALLING | KIGURWE INSTITUT |  2013 |      54.00 | SUD - KIVU    | PEDAGOGIE GENERALE |
+| AMANI DUDU BIENVENU       | INSTITUT KYAMATE |  2016 |      64.00 | SUD-KIVU      | PEDAGOGIE GENERALE |
+| AMINA TULIZO JUSTINE      | INSTITUT KYAMATE |  2017 |      51.00 | SUD-KIVU      | PEDAGOGIE GENERALE |
+| KWIGWASA RUTUNGANYA TEXAS | KIGURWE INSTITUT |  2014 |      52.00 | SUD - KIVU    | PEDAGOGIE GENERALE |
+| BIPEMACHO KIDENDE BAHATI  | INSTITUT KY27733AMATE |  2015 |      50.00 | SUD - KIVU    | PEDAGOGIE GENERALE |
++---------------------------+------------------+-------+------------+---------------+--------------------+
+2023, 2009,2019,2018,
+
+|  248933 | 32076 / 201 / 10 / 2/ 0  | 7 KINEMO MULENDA EMERY          | M    | incorrect/ 2010
+|  307717 | 12051 / 103 / 03 / 7/ 9  | 83 MBAMA MUNYELE HUSHER         | M    | incorrect but also bug during pdf parsing because it skips student name from 87-135 /2010
+|  946385 | 71053 / 201 / 13 / 1/ 8  | 59 POTA NGOY MARCELINE          | F    | incorrect 2012
+| 1065180 | 63072 / 201 / 05 / 6/ 3  | 8 BYAMUNGU CENGERO ELIE         | M    | incorrec /2012
+
+
+            for record on this day of 24 juin 2026 i'm going to work for the following problem cited down 
+
+
+there is a error in the pdf global 2022 it duplication and it start at the page number 4511 and stopped at 4683 (find you , he is from kasai oriental_1)
+now on my way to solve this error up 
+step 1: 5804058 - 5777276 (wrong after verification)
+Step 2: second try : what if we could have a way to check in my db student who have the same name and their student_id is like contiguous (the id of the first is the id of the second+1)
+remarque that i've found that all those student with duplication in 2022 are from Kasai oriental 1 number of rows after running this code(27733)
+    
+     select student_name, school_name , years, exam_results.percentage, name, option_name,  student_id from students  
+     join exam_results on students.id = exam_results.student_id  
+     join exetat_entry on exetat_entry.id = exam_results.school_session_id  
+     join schools on exetat_entry.school_id = schools.id  
+     join options on exetat_entry.option_id = options.id 
+     join ed_province on schools.province_id = ed_province.id where students.id = 1511027 ;
+
+
+ now let try the number of rows we will get if we look for distinct student name (13839) with this query 
+
+    select distinct(student_name) from students  
+    join exam_results on students.id = exam_results.student_id  
+    join exetat_entry on exetat_entry.id = exam_results.school_session_id  
+    join schools on exetat_entry.school_id = schools.id  
+    join options on exetat_entry.option_id = options.id 
+    join ed_province on schools.province_id = ed_province.id where name = 'KASAI ORIENTAL 1'and years = 2022;
+
+for record this one also doesn't work but let check this one :
+
+    SELECT student_name, COUNT(*) AS occurrences
+    FROM students
+    JOIN exam_results ON students.id = exam_results.student_id
+    JOIN exetat_entry ON exetat_entry.id = exam_results.school_session_id
+    JOIN schools ON exetat_entry.school_id = schools.id
+    JOIN options ON exetat_entry.option_id = options.id
+    JOIN ed_province ON schools.province_id = ed_province.id
+    WHERE name = 'KASAI ORIENTAL 1' AND years = 2022
+    GROUP BY student_name
+    HAVING COUNT(*) >= 1 ORDER BY occurrences ASC LIMIT 50;
+
+with this query i have now that reccord occurrences it not that efficiency but so far i think the right way to deal with this problem is to find a query that que check for what i said in step 2 
+so after asking chagpt i got that it possible with a query like the following 
+    SELECT
+        s1.id,
+        s1.student_name,
+        s2.id AS next_id,
+        pe1.name
+    FROM students s1
+    JOIN students s2
+        ON s1.student_name = s2.student_name
+       AND s2.id = s1.id + 1
+    JOIN exam_results er1
+        ON s1.id = er1.student_id
+    JOIN exetat_entry ee1
+        ON ee1.id = er1.school_session_id
+    JOIN schools sc1
+        ON ee1.school_id = sc1.id
+    JOIN ed_province pe1
+        ON sc1.province_id = pe1.id
+    WHERE ee1.years = 2022;
+
+what i  have found is that the latest name selected corresponds to the last name with duplication data in global 2022 pdf at page (4683)(id_: 5805007)
+and the first name let check if it corresponds to what i thinks . and yes the what i was thinking was correct the first name selected corresponds to the first nmae in the range of Duplicate data in 
+pdf page 4511 and student_id (5777276)
+
+so for 2022 the duplicated data are just 13845 students, so what if i check for the all db for that i'm going to processed with a check by year
+
+for reccord after checking student in 2009 i found that could have same name , same school , same id (s1.id  = s2.id+1) but different percentage 
+so i decided to change the query to check if and only if they have same percentage 
+    SELECT
+        s1.id,
+        s1.student_name,
+        er1.percentage,
+        s2.id AS next_id,
+        pe1.name
+    FROM students s1
+    JOIN students s2
+        ON s1.student_name = s2.student_name
+       AND s2.id = s1.id + 1
+    JOIN exam_results er1
+        ON s1.id = er1.student_id
+    JOIN exam_results er2
+        ON s2.id = er2.student_id
+       AND er1.percentage = er2.percentage
+    JOIN exetat_entry ee1
+        ON ee1.id = er1.school_session_id
+    JOIN schools sc1
+        ON ee1.school_id = sc1.id
+    JOIN provinces pe1
+        ON sc1.province_id = pe1.id
+    WHERE ee1.years = 2022;
++-------+
+|  2009 | 
+|  2010 | 1 student in KATANGA 3 
+|  2011 | 10 students over all (3 in EQUATEUR 2 ,6 in sud-KIVU and just 1 student in province ORIENTALE 2)
+|  2012 | 38 students over all (1 in kishansa est , 2 in kasai OCCIDENTAL 2, 1 in KATANGA and the rest in bas-CONGO 2)
+|  2013 | 18 students over all (1 in BANDUNDU 3 , 1 in EQUATEUR, 5 in KASAI OCCIDENTAL 1, rest in KASAI ORIENTAL 3 )
+|  2014 | 9 students over all( 1 in MANIEMA and the rest in province ORIENTALE 2)
+|  2015 | thanks God their nonone in 2015
+|  2016 | 14 students over all( 8 in TSHOPO, 5 in ITURI and 1 in KINSHASA - EST)
+|  2017 | 1 in HAUT-KATANGA 
+|  2018 | thanks God it also an empty set
+|  2019 | 2 students ( 1 in Kasai 2, and another in LOMAMI)
+|  2020 | 2 students again 1 in Kasai 2 and another in NORD-KIVU 1
+|  2021 | empty set
+|  2022 | master the big 13846 rows (1 in EQUATEUR 1 and others in Kasai oriental 1)
+|  2023 | 25 students over all ( 2 in KONGO CENTRAL_2, 2 in NORD-UBANGI_2 , 1 SUD-UBANGI_1, 1 NORD-UBANGI_1 , 2 in TSHUAPA, 3 in ITURI_3
+            , 2 in NORD-KIVU_2, 2 in SUD-KIVU_1, 1 in HAUT-LOMAMI_2, and lot of province that i can check any time)
++-------+
+
+so this are all province which has all those kind of duplication and now let me think about how to solve that duplication problem 
+if there could be a way in mysql to updata a table by delecting everything link with the id that we found 
+    like to explain it cleary i mean if i could check for the student who has same name , same percentage and their id is countigous (s1.id = s2.id+1), and then delect the s2.id+1 ,in our db
+        so first Before deleting anything i have to ...:
+            Make a backup.
+            Run the query and review the results manually.
+            Delete only after you're confident the matches are true duplicates.
+
+alright so now for the record let work on delecting duplication data
+    1. i would be using the backup db i've kept named : exetat
+    2. first after checking the duplicated data using the query for it , the one there up 
+    i've found that this is the number of rows affected by it (11316) in 2022
+    now for just safety i'm going to keep the number of student recorded in 2022 
++--------------------+
+| total_student_2022 |
++--------------------+
+|             567807 |
++--------------------+
+    so normaly after delecting the number of student in my db this is the total student who should remain
+    556491
+
+    so this is the killing query : 
+    first we detect the id 
+        SELECT s2.id AS duplicate_id
+        FROM students s1
+        JOIN students s2
+            ON s1.student_name = s2.student_name
+           AND s2.id = s1.id + 1
+        JOIN exam_results er1
+            ON s1.id = er1.student_id
+        JOIN exam_results er2
+            ON s2.id = er2.student_id
+           AND er1.percentage = er2.percentage
+        JOIN exetat_entry ee1
+            ON ee1.id = er1.school_session_id
+        JOIN exetat_entry ee2
+            ON ee2.id = er2.school_session_id
+        WHERE ee1.years = 2022
+          AND ee2.years = 2022;
+    
+    second we delect them 
+        this is the query and it result 
+        mysql> DELETE er
+    -> FROM exam_results er
+    -> WHERE er.student_id IN (
+    ->     SELECT duplicate_id
+    ->     FROM (
+    ->         SELECT s2.id AS duplicate_id
+    ->         FROM students s1
+    ->         JOIN students s2
+    ->             ON s1.student_name = s2.student_name
+    ->            AND s2.id = s1.id + 1
+    ->         JOIN exam_results er1
+    ->             ON s1.id = er1.student_id
+    ->         JOIN exam_results er2
+    ->             ON s2.id = er2.student_id
+    ->            AND er1.percentage = er2.percentage
+    ->            AND er1.school_session_id = er2.school_session_id
+    ->         JOIN exetat_entry ee
+    ->             ON ee.id = er1.school_session_id
+    ->         WHERE ee.years = 2022
+    ->     ) d
+    -> );
+            Query OK, 11316 rows affected (10.06 sec) i can say i'm like because those who were delected are all the student i found with that error duplication 
+            also to say that the total student is the one expected 
+            +--------------------+
+            | total_student_2022 |
+            +--------------------+
+            |             556491 |
+            +--------------------+
+            1 row in set (6.61 sec)
+
+            and also to check if everything going well in my db this is query to find every student from that school in order to see is they where normalized 
+         select student_name, years, exam_results.percentage, participants, reussites, sexe, name, school_name, schools.id from students 
+         join exam_results on exam_results.student_id = students.id 
+         join exetat_entry on exetat_entry.id = exam_results.school_session_id 
+         join schools on schools.id = exetat_entry.school_id 
+         join provinces on schools.province_id = provinces.id 
+         where schools.id = '467369'
+         ORDER BY student_name asc ;
+        
+        select student_name, school_name , years, exam_results.percentage, name, option_name, exetat_entry.school_id from students 
+        join exam_results on students.id = exam_results.student_id 
+        join exetat_entry on exetat_entry.id = exam_results.school_session_id 
+        join schools on exetat_entry.school_id = schools.id 
+        join options on exetat_entry.option_id = options.id
+        join provinces on schools.province_id = provinces.id
+        where student_name = 'KALENDA KALOMBO ELIE' and years = 2022;
+
+
+and we call it a day ............... 
+
+        for record on this day of 25 juin i'm going to work on my db the first work is to link each education_province to it province using foreign key and primary 
+
+first i'm going to work in my backup db 
+alright so far this is the record off all province i have in my db:
+
+
+RENAME TABLE provinces to ed_province;
+alter table ed_province rename column name to name;
+
+before think about classing and linking them , i have to know that there is two different type of province ones before reform -2015 and ones after reform +2015
+let check for distinct province for each year ;
+query : select distinct  ed_province.name from ed_province 
+        join schools on ed_province.id = schools.province_id 
+        join exetat_entry on schools.id = exetat_entry.school_id
+        where years = 2009;
+
+list of drc province before reform 
+BANDUNDU	        KWANGO, KWILU, MAI-NDOMBE
+BAS-CONGO	        KONGO CENTRAL (renamed)
+ÉQUATEUR	        ÉQUATEUR, MONGALA, NORD-UBANGI, SUD-UBANGI, TSHUAPA
+KASAÏ-OCCIDENTAL	KASAÏ, KASAÏ CENTRAL
+KASAÏ-ORIENTAL	    KASAÏ ORIENTAL, LOMAMI, SANKURU
+KATANGA	            HAUT-KATANGA, HAUT-LOMAMI, LUALABA, TANGANYIKA
+KINSHASA	        KINSHASA (unchanged)
+MANIEMA	            MANIEMA (unchanged)
+NORD-KIVU	        NORD-KIVU (unchanged)
+PROVINCE ORIENTALE	BAS-UELE, HAUT-UELE, ITURI, TSHOPO
+SUD-KIVU	        SUD-KIVU (unchanged)
+
+so the province should follow this maping from 2009-2015
+then from 2016 to 2023 the current maping 
+all right for record , day of 30 juin , i'm feeling sad but i have to work 
+after analysis and discussion with Hope i've come to a conclusion to solve the province problem manually .. 
+and to work on it i will follow the following plan ;
+        Create province_b_reform11 (canonical list of the 11 pre-reform provinces).
+             first let do this : 
+            CREATE TABLE pr_before_reform11 (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(100) NOT NULL
+            );
+              
+        Create province_af_reform26 (canonical list of the 26 post-reform provinces).
+            CREATE TABLE pr_after_reform26 (
+             id INT AUTO_INCREMENT PRIMARY KEY,
+             name VARCHAR(100) NOT NULL
+            );
+        Add nullable foreign keys in ed_province to both tables.
+            now i'm goint to add the foreign key constraint . 
+            first i will add the column 
+                ALTER TABLE ed_province
+                ADD COLUMN province_before_id INT NULL,
+                ADD COLUMN province_after_id INT NULL;
+            and then next i will add the constraint 
+                ALTER TABLE ed_province
+                ADD CONSTRAINT fk_before
+                FOREIGN KEY (province_before_id)
+                REFERENCES pr_before_reform11(id);
+
+                ALTER TABLE ed_province
+                ADD CONSTRAINT fk_after
+                FOREIGN KEY (province_after_id)
+                REFERENCES pr_after_reform26(id);
+.
+        Use update to set the foreign to it's id for pr_before_reform11 manually using this query.
+UPDATE ed_province
+SET province_before_id = 7
+WHERE name ='KINSHASA - CENTRE' or name ='KINSHASA - EST'
+or name = 'KINSHASA - OUEST' or name = 'PROVINCE ORIENTALE 4' or name = 'EQUATEUR 5';
+
+so let say the first part it's done now let be ready for the next part of 
+pr_after_reform26 
+
+UPDATE ed_province
+SET province_after_id = 27
+WHERE name ='HORS - FRONTIERE' 
+or name = 'CATARACTES' 
+or name = 'LUKAYA'
+or name = 'SUD-UBANGI 1'
+or name = 'SUD-UBANGI' or name = 'SUD UBANGI 2';
+
+## there is a simpler way to solve this problem ( with a boolean column)
+
+and with that we can call it a done work 
+
+
+        Reccord from 2 July 
+mysql> select * from students where id not in (select student_id from exam_results);
++---------+-------------------------+-----------------------+------+
+| id      | student_code            | student_name          | sexe |
++---------+-------------------------+-----------------------+------+
+|  693117 | 12051 / 103 / 03 / 7/ 9 | BAKULA BAKULA LEOLINE | F    |
+| 1378952 | 71053 / 201 / 13 / 1/ 8 | KABANGE NUMBI PATIENT | M    |
+| 1511028 | 63072 / 201 / 05 / 6/ 3 | BAHATI MANDNGA DENISE | F    |
++---------+-------------------------+-----------------------+------+
+found a way to solve this problem but i will leave it to later and see if i could work on what i planned this week 
+
+    following up from July 3 
+    let assume we want to display data from 2023 so i'm going to find the following data for 2023
+
+1.National Overview Card
+  What is the total number of schools?
+  What is the total number of participants?
+  What is the total number of successful students?
+  What is the national success rate?
+  comparaison of success rate between the current years and the last year ?
+
+  SELECT
+    (SELECT COUNT(DISTINCT school_id) FROM exetat_entry WHERE years = 2023) AS total_schools,
+    (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) AS total_participants,
+    (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) AS total_successes,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) * 100
+    , 2) AS success_rate_2023,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2022) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2022) * 100
+    , 2) AS success_rate_2022,
+    ROUND(
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2023) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2023) * 100
+        -
+        (SELECT SUM(reussites) FROM exetat_entry WHERE years = 2022) /
+        (SELECT SUM(participants) FROM exetat_entry WHERE years = 2022) * 100
+    , 2) AS rate_change_pts;
+
+    
+
+2.top Performing province being changed with (top Performing student )
+  Top Performing student for each option for the current years
+  comparaison of percentage of current student with the one for last years 
+
+WITH ranked_2023 AS (
+    SELECT
+        o.id AS option_id,
+        o.option_name,
+        s.id AS student_id,
+        s.student_name,
+        er.percentage,
+        ROW_NUMBER() OVER (PARTITION BY o.id ORDER BY er.percentage DESC) AS rn
+    FROM exam_results er
+    JOIN exetat_entry ee ON er.school_session_id = ee.id
+    JOIN options o ON ee.option_id = o.id
+    JOIN students s ON er.student_id = s.id
+    WHERE ee.years = 2023
+),
+ranked_2022 AS (
+    SELECT
+        o.id AS option_id,
+        MAX(er.percentage) AS top_percentage_2022
+    FROM exam_results er
+    JOIN exetat_entry ee ON er.school_session_id = ee.id
+    JOIN options o ON ee.option_id = o.id
+    WHERE ee.years = 2022
+    GROUP BY o.id
+)
+SELECT
+    r.option_name,
+    r.student_name AS top_student_2023,
+    r.percentage AS top_percentage_2023,
+    p.top_percentage_2022,
+    ROUND(r.percentage - p.top_percentage_2022, 2) AS pts_change
+FROM ranked_2023 r
+LEFT JOIN ranked_2022 p ON r.option_id = p.option_id
+WHERE r.rn = 1
+ORDER BY r.option_name;
+
+3.province performance trend ;
+  down to the drc map;
+  we make a chart that show success rate for each years per province (every province from 2015 to 2023)
+
+4.province performance map
+these are datas that will be display on the Map ,For every province:
+
+  Province name
+  Success rate
+  Number of schools
+  Number of participants
+  Number of successful students
+  Difference (by rate of success) compared to the last year
+
+WITH prov_2023 AS (
+    SELECT
+        p.id AS province_id,
+        p.name AS province_name,
+        COUNT(DISTINCT sc.id) AS num_schools,
+        SUM(ee.participants) AS num_participants,
+        SUM(ee.reussites) AS num_successes,
+        ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate_2023
+    FROM pr_after_reform26 p
+    JOIN ed_province ep ON ep.province_after_id = p.id
+    JOIN schools sc ON sc.province_id = ep.id
+    JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2020
+    GROUP BY p.id, p.name
+),
+prov_2022 AS (
+    SELECT
+        p.id AS province_id,
+        ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate_2022
+    FROM pr_after_reform26 p
+    JOIN ed_province ep ON ep.province_after_id = p.id
+    JOIN schools sc ON sc.province_id = ep.id
+    JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2019
+    GROUP BY p.id
+)
+SELECT
+    c.province_name,
+    c.success_rate_2023,
+    c.num_schools,
+    c.num_participants,
+    c.num_successes,
+    p.success_rate_2022,
+    ROUND(c.success_rate_2023 - p.success_rate_2022, 2) AS rate_change_pts
+FROM prov_2023 c
+LEFT JOIN prov_2022 p ON c.province_id = p.province_id
+ORDER BY c.province_name;
+
+
+5.Province Ranking:
+
+  Give all provinces ordered by success rate. 
+but i will be drop down that the user can scroll down to see all the province because i will only be showing the 5 first province 
+success rate by range;
+that will be used as a legende (referencing of the province performance map)
+it will take the highest success rating - the lowest success rating 
+and then make 5 range from the highest to the lowest ; it should be in percentage (0-100%)
+darker colors indicate the higher success rate 
+
+SELECT
+    p.id as province_id,
+    p.name AS province_name,
+    COUNT(DISTINCT sc.id) AS num_schools,
+    SUM(ee.participants) AS num_participants,
+    SUM(ee.reussites) AS num_successes,
+    ROUND(SUM(ee.reussites) / NULLIF(SUM(ee.participants), 0) * 100, 2) AS success_rate
+FROM pr_after_reform26 p
+JOIN ed_province ep ON ep.province_after_id = p.id
+JOIN schools sc ON sc.province_id = ep.id
+JOIN exetat_entry ee ON ee.school_id = sc.id AND ee.years = 2020
+GROUP BY p.id, p.name
+ORDER BY success_rate DESC;
+
+  
+When the user changes:
+
+  Year
+  Province
+  Educational option
+
+  Your frontend asks:
+  Everything on the dashboard updates from these filters.

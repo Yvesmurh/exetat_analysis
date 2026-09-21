@@ -1,0 +1,1036 @@
+Found 59 PDF file(s) in /home/yves-s-computer/Exetat_analysis/src/exetat_pak/test_pdf/style_2
+Found 59 PDF files to process
+
+
+============================================================
+Processing PDF 1/59: Palmares_71_HAUT-KATANGA-1.pdf
+============================================================
+
+📘 Palmares_71_HAUT-KATANGA-1.pdf — 553 pages
+🔹 Split into 3 chunks (200 pages each)
+
+▶️  Chunk 1/3: chunk_1_to_200.pdf
+
+📘 chunk_1_to_200.pdf — 200 pages
+Processing 200 pages...
+   Schools: 1926 | Students: 25288
+✅ chunk_1_to_200.pdf — 1m 2s
+✅ Chunk 1/3 — 1926 schools, 25288 students so far
+
+▶️  Chunk 2/3: chunk_201_to_400.pdf
+
+📘 chunk_201_to_400.pdf — 200 pages
+Processing 200 pages...
+   Schools: 2058 | Students: 23110
+✅ chunk_201_to_400.pdf — 1m 1s
+✅ Chunk 2/3 — 3984 schools, 48398 students so far
+
+▶️  Chunk 3/3: chunk_401_to_553.pdf
+
+📘 chunk_401_to_553.pdf — 153 pages
+Processing 153 pages...
+   Schools: 1455 | Students: 18336
+✅ chunk_401_to_553.pdf — 0m 43s
+✅ Chunk 3/3 — 5439 schools, 66734 students so far
+
+🎉 All chunks merged and saved.
+✅ Palmares_71_HAUT-KATANGA-1.pdf — 2m 54s
+
+============================================================
+Processing PDF 2/59: Palmares_78_LUALABA-2.pdf
+============================================================
+
+📘 Palmares_78_LUALABA-2.pdf — 42 pages
+Processing 42 pages...
+   Schools: 298 | Students: 4553
+✅ Palmares_78_LUALABA-2.pdf — 0m 10s
+
+============================================================
+Processing PDF 3/59: Palmares_55_TSHOPO-2.pdf
+============================================================
+
+📘 Palmares_55_TSHOPO-2.pdf — 86 pages
+Processing 86 pages...
+   Schools: 845 | Students: 8932
+✅ Palmares_55_TSHOPO-2.pdf — 0m 20s
+
+============================================================
+Processing PDF 4/59: Palmares_40_NORD-UBANGI-2.pdf
+============================================================
+
+📘 Palmares_40_NORD-UBANGI-2.pdf — 34 pages
+Processing 34 pages...
+   Schools: 358 | Students: 2721
+✅ Palmares_40_NORD-UBANGI-2.pdf — 0m 7s
+
+============================================================
+Processing PDF 5/59: Palmares_21_KONGO-CENTRAL-1.pdf
+============================================================
+
+📘 Palmares_21_KONGO-CENTRAL-1.pdf — 232 pages
+Processing 232 pages...
+   Schools: 2129 | Students: 26765
+✅ Palmares_21_KONGO-CENTRAL-1.pdf — 0m 57s
+
+============================================================
+Processing PDF 6/59: Palmares_53_HAUT-UELE-1.pdf
+============================================================
+
+📘 Palmares_53_HAUT-UELE-1.pdf — 49 pages
+Processing 49 pages...
+   Schools: 363 | Students: 3896
+✅ Palmares_53_HAUT-UELE-1.pdf — 0m 10s
+
+============================================================
+Processing PDF 7/59: Palmares_41_EQUATEUR-1.pdf
+============================================================
+
+📘 Palmares_41_EQUATEUR-1.pdf — 116 pages
+Processing 116 pages...
+   Schools: 905 | Students: 13433
+✅ Palmares_41_EQUATEUR-1.pdf — 0m 27s
+
+============================================================
+Processing PDF 8/59: Palmares_38_MAI-NDOMBE-3.pdf
+============================================================
+
+📘 Palmares_38_MAI-NDOMBE-3.pdf — 79 pages
+Processing 79 pages...
+   Schools: 713 | Students: 8628
+✅ Palmares_38_MAI-NDOMBE-3.pdf — 0m 19s
+
+============================================================
+Processing PDF 9/59: Palmares_54_BAS-UELE.pdf
+============================================================
+
+📘 Palmares_54_BAS-UELE.pdf — 38 pages
+Processing 38 pages...
+   Schools: 287 | Students: 3462
+✅ Palmares_54_BAS-UELE.pdf — 0m 8s
+
+============================================================
+Processing PDF 10/59: Palmares-2023_35_KWILU-3.pdf
+============================================================
+
+📘 Palmares-2023_35_KWILU-3.pdf — 229 pages
+Processing 229 pages...
+   Schools: 2621 | Students: 25306
+✅ Palmares-2023_35_KWILU-3.pdf — 0m 56s
+
+============================================================
+Processing PDF 11/59: Palmares_58_HAUT-UELE-2.pdf
+============================================================
+
+📘 Palmares_58_HAUT-UELE-2.pdf — 34 pages
+Processing 34 pages...
+   Schools: 289 | Students: 2830
+✅ Palmares_58_HAUT-UELE-2.pdf — 0m 8s
+
+============================================================
+Processing PDF 12/59: Palmares_46_EQUATEUR-2.pdf
+============================================================
+
+📘 Palmares_46_EQUATEUR-2.pdf — 52 pages
+Processing 52 pages...
+   Schools: 439 | Students: 5365
+✅ Palmares_46_EQUATEUR-2.pdf — 0m 13s
+
+============================================================
+Processing PDF 13/59: Palmares_94_KASAI-ORIENTAL-2.pdf
+============================================================
+
+📘 Palmares_94_KASAI-ORIENTAL-2.pdf — 29 pages
+Processing 29 pages...
+   Schools: 190 | Students: 2792
+✅ Palmares_94_KASAI-ORIENTAL-2.pdf — 0m 7s
+
+============================================================
+Processing PDF 14/59: Palmares_73_TANGANYIKA-1.pdf
+============================================================
+
+📘 Palmares_73_TANGANYIKA-1.pdf — 68 pages
+Processing 68 pages...
+   Schools: 489 | Students: 7705
+✅ Palmares_73_TANGANYIKA-1.pdf — 0m 18s
+
+============================================================
+Processing PDF 15/59: Palmares_47_SUD-UBANGI-2.pdf
+============================================================
+
+📘 Palmares_47_SUD-UBANGI-2.pdf — 64 pages
+Processing 64 pages...
+   Schools: 720 | Students: 6348
+✅ Palmares_47_SUD-UBANGI-2.pdf — 0m 18s
+
+============================================================
+Processing PDF 16/59: Palmares_44_MONGALA-1.pdf
+============================================================
+
+📘 Palmares_44_MONGALA-1.pdf — 74 pages
+Processing 74 pages...
+   Schools: 601 | Students: 7918
+✅ Palmares_44_MONGALA-1.pdf — 0m 22s
+
+============================================================
+Processing PDF 17/59: Palmares_13_KINSHASA-LUKUNGA.pdf
+============================================================
+
+📘 Palmares_13_KINSHASA-LUKUNGA.pdf — 288 pages
+Processing 288 pages...
+   Schools: 2516 | Students: 34617
+✅ Palmares_13_KINSHASA-LUKUNGA.pdf — 1m 39s
+
+============================================================
+Processing PDF 18/59: Palmares_51_TSHOPO-1.pdf
+============================================================
+
+📘 Palmares_51_TSHOPO-1.pdf — 134 pages
+Processing 134 pages...
+   Schools: 1036 | Students: 15843
+✅ Palmares_51_TSHOPO-1.pdf — 0m 46s
+
+============================================================
+Processing PDF 19/59: Palmares_81_KASAI-CENTRAL-1.pdf
+============================================================
+
+📘 Palmares_81_KASAI-CENTRAL-1.pdf — 177 pages
+Processing 177 pages...
+   Schools: 1247 | Students: 22263
+✅ Palmares_81_KASAI-CENTRAL-1.pdf — 0m 59s
+
+============================================================
+Processing PDF 20/59: Palmares_62_NORD-KIVU-2.pdf
+============================================================
+
+📘 Palmares_62_NORD-KIVU-2.pdf — 203 pages
+Processing 203 pages...
+   Schools: 2115 | Students: 21328
+✅ Palmares_62_NORD-KIVU-2.pdf — 1m 10s
+
+============================================================
+Processing PDF 21/59: Palmares_84_KASAI-2.pdf
+============================================================
+
+📘 Palmares_84_KASAI-2.pdf — 132 pages
+Processing 132 pages...
+   Schools: 1133 | Students: 15968
+✅ Palmares_84_KASAI-2.pdf — 0m 45s
+
+============================================================
+Processing PDF 22/59: Palmares_63_SUD-KIVU-1.pdf
+============================================================
+
+📘 Palmares_63_SUD-KIVU-1.pdf — 243 pages
+Processing 243 pages...
+   Schools: 1944 | Students: 30269
+✅ Palmares_63_SUD-KIVU-1.pdf — 1m 20s
+
+============================================================
+Processing PDF 23/59: Palmares_75_HAUT-LOMAMI-2.pdf
+============================================================
+
+📘 Palmares_75_HAUT-LOMAMI-2.pdf — 67 pages
+Processing 67 pages...
+   Schools: 418 | Students: 8124
+✅ Palmares_75_HAUT-LOMAMI-2.pdf — 0m 23s
+
+============================================================
+Processing PDF 24/59: Palmares_91_KASAI-ORIENTAL-1.pdf
+============================================================
+
+📘 Palmares_91_KASAI-ORIENTAL-1.pdf — 151 pages
+Processing 151 pages...
+   Schools: 948 | Students: 19006
+✅ Palmares_91_KASAI-ORIENTAL-1.pdf — 0m 48s
+
+============================================================
+Processing PDF 25/59: Palmares_15_KINSHASA-PLATEAU.pdf
+============================================================
+
+📘 Palmares_15_KINSHASA-PLATEAU.pdf — 126 pages
+Processing 126 pages...
+   Schools: 1267 | Students: 14165
+✅ Palmares_15_KINSHASA-PLATEAU.pdf — 0m 43s
+
+============================================================
+Processing PDF 26/59: Palmares_77_TANGANYIKA-2.pdf
+============================================================
+
+📘 Palmares_77_TANGANYIKA-2.pdf — 68 pages
+Processing 68 pages...
+   Schools: 437 | Students: 8288
+✅ Palmares_77_TANGANYIKA-2.pdf — 0m 21s
+
+============================================================
+Processing PDF 27/59: Palmares_49_MONGALA-2.pdf
+============================================================
+
+📘 Palmares_49_MONGALA-2.pdf — 41 pages
+Processing 41 pages...
+   Schools: 339 | Students: 3203
+✅ Palmares_49_MONGALA-2.pdf — 0m 11s
+
+============================================================
+Processing PDF 28/59: Palmares-2023_34_KWILU-2.pdf
+============================================================
+
+📘 Palmares-2023_34_KWILU-2.pdf — 334 pages
+Processing 334 pages...
+   Schools: 3751 | Students: 38296
+✅ Palmares-2023_34_KWILU-2.pdf — 1m 54s
+
+============================================================
+Processing PDF 29/59: Palmares_92_SANKURU-1.pdf
+============================================================
+
+📘 Palmares_92_SANKURU-1.pdf — 79 pages
+Processing 79 pages...
+   Schools: 880 | Students: 7783
+✅ Palmares_92_SANKURU-1.pdf — 0m 29s
+
+============================================================
+Processing PDF 30/59: Palmares_12_KINSHASA-FUNA.pdf
+============================================================
+
+📘 Palmares_12_KINSHASA-FUNA.pdf — 188 pages
+Processing 188 pages...
+   Schools: 1286 | Students: 24761
+✅ Palmares_12_KINSHASA-FUNA.pdf — 1m 2s
+
+============================================================
+Processing PDF 31/59: Palmares_11_KINSHASA-MONT-AMBA.pdf
+============================================================
+
+📘 Palmares_11_KINSHASA-MONT-AMBA.pdf — 257 pages
+Processing 257 pages...
+   Schools: 1872 | Students: 32792
+✅ Palmares_11_KINSHASA-MONT-AMBA.pdf — 1m 27s
+
+============================================================
+Processing PDF 32/59: Palmares_82_KASAI-1.pdf
+============================================================
+
+📘 Palmares_82_KASAI-1.pdf — 134 pages
+Processing 134 pages...
+   Schools: 1353 | Students: 14878
+✅ Palmares_82_KASAI-1.pdf — 0m 46s
+
+============================================================
+Processing PDF 33/59: Palmares_43_TSHUAPA-1.pdf
+============================================================
+
+📘 Palmares_43_TSHUAPA-1.pdf — 43 pages
+Processing 43 pages...
+   Schools: 236 | Students: 5040
+✅ Palmares_43_TSHUAPA-1.pdf — 0m 13s
+
+============================================================
+Processing PDF 34/59: Palmares_61_NORD-KIVU-1.pdf
+============================================================
+
+📘 Palmares_61_NORD-KIVU-1.pdf — 96 pages
+Processing 96 pages...
+   Schools: 878 | Students: 9549
+✅ Palmares_61_NORD-KIVU-1.pdf — 0m 29s
+
+============================================================
+Processing PDF 35/59: Palmares_42_SUD-UBANGI-1.pdf
+============================================================
+
+📘 Palmares_42_SUD-UBANGI-1.pdf — 76 pages
+Processing 76 pages...
+   Schools: 952 | Students: 6284
+✅ Palmares_42_SUD-UBANGI-1.pdf — 0m 24s
+
+============================================================
+Processing PDF 36/59: Palmares_67_SUD-KIVU-3.pdf
+============================================================
+
+📘 Palmares_67_SUD-KIVU-3.pdf — 44 pages
+Processing 44 pages...
+   Schools: 412 | Students: 4371
+✅ Palmares_67_SUD-KIVU-3.pdf — 0m 13s
+
+============================================================
+Processing PDF 37/59: Palmares_56_ITURI-2.pdf
+============================================================
+
+📘 Palmares_56_ITURI-2.pdf — 40 pages
+Processing 40 pages...
+   Schools: 308 | Students: 3685
+✅ Palmares_56_ITURI-2.pdf — 0m 11s
+
+============================================================
+Processing PDF 38/59: Palmares-2023_32_KWILU-1.pdf
+============================================================
+
+📘 Palmares-2023_32_KWILU-1.pdf — 131 pages
+Processing 131 pages...
+   Schools: 1262 | Students: 14737
+✅ Palmares-2023_32_KWILU-1.pdf — 0m 42s
+
+============================================================
+Processing PDF 39/59: Palmares_83_KASAI-CENTRAL-2.pdf
+============================================================
+
+📘 Palmares_83_KASAI-CENTRAL-2.pdf — 82 pages
+Processing 82 pages...
+   Schools: 597 | Students: 9974
+✅ Palmares_83_KASAI-CENTRAL-2.pdf — 0m 26s
+
+============================================================
+Processing PDF 40/59: Palmares_31_MAI-NDOMBE-1.pdf
+============================================================
+
+📘 Palmares_31_MAI-NDOMBE-1.pdf — 55 pages
+Processing 55 pages...
+   Schools: 410 | Students: 6154
+✅ Palmares_31_MAI-NDOMBE-1.pdf — 0m 17s
+
+============================================================
+Processing PDF 41/59: Palmares_14_KINSHASA-TSHANGU.pdf
+============================================================
+
+📘 Palmares_14_KINSHASA-TSHANGU.pdf — 276 pages
+Processing 276 pages...
+   Schools: 2292 | Students: 34749
+✅ Palmares_14_KINSHASA-TSHANGU.pdf — 1m 34s
+
+============================================================
+Processing PDF 42/59: Palmares_37_MAI-NDOMBE-2.pdf
+============================================================
+
+📘 Palmares_37_MAI-NDOMBE-2.pdf — 53 pages
+Processing 53 pages...
+   Schools: 407 | Students: 6058
+✅ Palmares_37_MAI-NDOMBE-2.pdf — 0m 19s
+
+============================================================
+Processing PDF 43/59: Palmares_22_KONGO-CENTRAL-2.pdf
+============================================================
+
+📘 Palmares_22_KONGO-CENTRAL-2.pdf — 129 pages
+Processing 129 pages...
+   Schools: 1094 | Students: 14918
+✅ Palmares_22_KONGO-CENTRAL-2.pdf — 0m 42s
+
+============================================================
+Processing PDF 44/59: Palmares_52_ITURI-1.pdf
+============================================================
+
+📘 Palmares_52_ITURI-1.pdf — 87 pages
+Processing 87 pages...
+   Schools: 817 | Students: 7739
+✅ Palmares_52_ITURI-1.pdf — 0m 26s
+
+============================================================
+Processing PDF 45/59: Palmares_48_TSHUAPA-2.pdf
+============================================================
+
+📘 Palmares_48_TSHUAPA-2.pdf — 45 pages
+Processing 45 pages...
+   Schools: 303 | Students: 5457
+✅ Palmares_48_TSHUAPA-2.pdf — 0m 14s
+
+============================================================
+Processing PDF 46/59: Palmares_93_LOMAMI-1.pdf
+============================================================
+
+📘 Palmares_93_LOMAMI-1.pdf — 119 pages
+Processing 119 pages...
+   Schools: 1114 | Students: 13550
+✅ Palmares_93_LOMAMI-1.pdf — 0m 39s
+
+============================================================
+Processing PDF 47/59: Palmares_68_MANIEMA-2.pdf
+============================================================
+
+📘 Palmares_68_MANIEMA-2.pdf — 74 pages
+Processing 74 pages...
+   Schools: 618 | Students: 8016
+✅ Palmares_68_MANIEMA-2.pdf — 0m 22s
+
+============================================================
+Processing PDF 48/59: Palmares_36_KWANGO-2.pdf
+============================================================
+
+📘 Palmares_36_KWANGO-2.pdf — 88 pages
+Processing 88 pages...
+   Schools: 825 | Students: 10022
+✅ Palmares_36_KWANGO-2.pdf — 0m 28s
+
+============================================================
+Processing PDF 49/59: Palmares_76_HAUT-KATANGA-2.pdf
+============================================================
+
+📘 Palmares_76_HAUT-KATANGA-2.pdf — 37 pages
+Processing 37 pages...
+   Schools: 266 | Students: 3696
+✅ Palmares_76_HAUT-KATANGA-2.pdf — 0m 11s
+
+============================================================
+Processing PDF 50/59: Palmares_2023_65_SUD-KIVU-2.pdf
+============================================================
+
+📘 Palmares_2023_65_SUD-KIVU-2.pdf — 135 pages
+Processing 135 pages...
+   Schools: 911 | Students: 17154
+✅ Palmares_2023_65_SUD-KIVU-2.pdf — 0m 40s
+
+============================================================
+Processing PDF 51/59: Palmares_64_MANIEMA-1.pdf
+============================================================
+
+📘 Palmares_64_MANIEMA-1.pdf — 84 pages
+Processing 84 pages...
+   Schools: 840 | Students: 8594
+✅ Palmares_64_MANIEMA-1.pdf — 0m 27s
+
+============================================================
+Processing PDF 52/59: Palmares_66_NORD-KIVU-3.pdf
+============================================================
+
+📘 Palmares_66_NORD-KIVU-3.pdf — 87 pages
+Processing 87 pages...
+   Schools: 883 | Students: 8954
+✅ Palmares_66_NORD-KIVU-3.pdf — 0m 28s
+
+============================================================
+Processing PDF 53/59: Palmares_74_LUALABA-1.pdf
+============================================================
+
+📘 Palmares_74_LUALABA-1.pdf — 114 pages
+Processing 114 pages...
+   Schools: 840 | Students: 13728
+✅ Palmares_74_LUALABA-1.pdf — 0m 37s
+
+============================================================
+Processing PDF 54/59: Palmares_23_KONGO-CENTRAL-3.pdf
+============================================================
+
+📘 Palmares_23_KONGO-CENTRAL-3.pdf — 68 pages
+Processing 68 pages...
+   Schools: 514 | Students: 7428
+✅ Palmares_23_KONGO-CENTRAL-3.pdf — 0m 21s
+
+============================================================
+Processing PDF 55/59: Palmares_95_SANKURU-2.pdf
+============================================================
+
+📘 Palmares_95_SANKURU-2.pdf — 68 pages
+Processing 68 pages...
+   Schools: 647 | Students: 6748
+✅ Palmares_95_SANKURU-2.pdf — 0m 21s
+
+============================================================
+Processing PDF 56/59: Palmares_72_HAUT-LOMAMI-1.pdf
+============================================================
+
+📘 Palmares_72_HAUT-LOMAMI-1.pdf — 101 pages
+Processing 101 pages...
+   Schools: 891 | Students: 11779
+✅ Palmares_72_HAUT-LOMAMI-1.pdf — 0m 33s
+
+============================================================
+Processing PDF 57/59: Palmares_96_LOMAMI-2.pdf
+============================================================
+
+📘 Palmares_96_LOMAMI-2.pdf — 100 pages
+Processing 100 pages...
+   Schools: 645 | Students: 12869
+✅ Palmares_96_LOMAMI-2.pdf — 0m 32s
+
+============================================================
+Processing PDF 58/59: Palmares_57_ITURI-3.pdf
+============================================================
+
+📘 Palmares_57_ITURI-3.pdf — 39 pages
+Processing 39 pages...
+   Schools: 284 | Students: 3034
+✅ Palmares_57_ITURI-3.pdf — 0m 10s
+
+============================================================
+Processing PDF 59/59: Palmares_45_NORD-UBANGI-1.pdf
+============================================================
+
+📘 Palmares_45_NORD-UBANGI-1.pdf — 38 pages
+Processing 38 pages...
+   Schools: 408 | Students: 3019
+✅ Palmares_45_NORD-UBANGI-1.pdf — 0m 11s
+
+============================================================
+ALL FILES PROCESSED!
+============================================================
+
+Found 48 PDF file(s) in /home/yves-s-computer/Exetat_analysis/src/exetat_pak/test_pdf/style_3/2019
+Found 48 PDF files to process
+
+
+============================================================
+Processing PDF 1/48: Palm_EQUATEUR-2_46_2019.pdf
+============================================================
+
+📘 Palm_EQUATEUR-2_46_2019.pdf — 33 pages
+Processing 33 pages...
+   Schools: 358 | Students: 2914
+✅ Palm_EQUATEUR-2_46_2019.pdf — 1m 1s
+
+============================================================
+Processing PDF 2/48: Palm_SUD-KIVU-3_67_2019.pdf
+============================================================
+
+📘 Palm_SUD-KIVU-3_67_2019.pdf — 31 pages
+Processing 31 pages...
+   Schools: 304 | Students: 2609
+✅ Palm_SUD-KIVU-3_67_2019.pdf — 0m 52s
+
+============================================================
+Processing PDF 3/48: Palm_SANKURU_92_2019.pdf
+============================================================
+
+📘 Palm_SANKURU_92_2019.pdf — 101 pages
+Processing 101 pages...
+   Schools: 1311 | Students: 10833
+✅ Palm_SANKURU_92_2019.pdf — 3m 57s
+
+============================================================
+Processing PDF 4/48: Palm_TSHOPO-2_55_2019.pdf
+============================================================
+
+📘 Palm_TSHOPO-2_55_2019.pdf — 49 pages
+Processing 49 pages...
+   Schools: 632 | Students: 4553
+✅ Palm_TSHOPO-2_55_2019.pdf — 1m 54s
+
+============================================================
+Processing PDF 5/48: Palm_KASAI-1_82_2019.pdf
+============================================================
+
+📘 Palm_KASAI-1_82_2019.pdf — 64 pages
+Processing 64 pages...
+   Schools: 803 | Students: 6345
+✅ Palm_KASAI-1_82_2019.pdf — 2m 15s
+
+============================================================
+Processing PDF 6/48: Palm_TSHOPO-1_51_2019.pdf
+============================================================
+
+📘 Palm_TSHOPO-1_51_2019.pdf — 88 pages
+Processing 88 pages...
+   Schools: 940 | Students: 10647
+✅ Palm_TSHOPO-1_51_2019.pdf — 4m 6s
+
+============================================================
+Processing PDF 7/48: Palm_HAUT-LOMAMI-2_75_2019.pdf
+============================================================
+
+📘 Palm_HAUT-LOMAMI-2_75_2019.pdf — 47 pages
+Processing 47 pages...
+   Schools: 382 | Students: 6312
+✅ Palm_HAUT-LOMAMI-2_75_2019.pdf — 2m 28s
+
+============================================================
+Processing PDF 8/48: Palm_KWILU-1_32_2019.pdf
+============================================================
+
+📘 Palm_KWILU-1_32_2019.pdf — 83 pages
+Processing 83 pages...
+   Schools: 1094 | Students: 9062
+✅ Palm_KWILU-1_32_2019.pdf — 3m 58s
+
+============================================================
+Processing PDF 9/48: Palm_BAS-UELE_54_2019.pdf
+============================================================
+
+📘 Palm_BAS-UELE_54_2019.pdf — 22 pages
+Processing 22 pages...
+   Schools: 197 | Students: 1875
+✅ Palm_BAS-UELE_54_2019.pdf — 0m 44s
+
+============================================================
+Processing PDF 10/48: Palm_NORD-KIVU-3_66_2019.pdf
+============================================================
+
+📘 Palm_NORD-KIVU-3_66_2019.pdf — 74 pages
+Processing 74 pages...
+   Schools: 740 | Students: 8814
+✅ Palm_NORD-KIVU-3_66_2019.pdf — 3m 46s
+
+============================================================
+Processing PDF 11/48: Palm_LOMAMI_93_2019.pdf
+============================================================
+
+📘 Palm_LOMAMI_93_2019.pdf — 137 pages
+Processing 137 pages...
+   Schools: 1446 | Students: 18322
+✅ Palm_LOMAMI_93_2019.pdf — 8m 2s
+
+============================================================
+Processing PDF 12/48: Palm_TANGANYIKA-2_77_2019.pdf
+============================================================
+
+📘 Palm_TANGANYIKA-2_77_2019.pdf — 41 pages
+Processing 41 pages...
+   Schools: 342 | Students: 4320
+✅ Palm_TANGANYIKA-2_77_2019.pdf — 1m 51s
+
+============================================================
+Processing PDF 13/48: Palm_ITURI-1_52_2019.pdf
+============================================================
+
+📘 Palm_ITURI-1_52_2019.pdf — 66 pages
+Processing 66 pages...
+   Schools: 616 | Students: 6757
+✅ Palm_ITURI-1_52_2019.pdf — 2m 51s
+
+============================================================
+Processing PDF 14/48: Palm_KASAI-CENTRAL-1_81_2019.pdf
+============================================================
+
+📘 Palm_KASAI-CENTRAL-1_81_2019.pdf — 105 pages
+Processing 105 pages...
+   Schools: 812 | Students: 13304
+✅ Palm_KASAI-CENTRAL-1_81_2019.pdf — 5m 52s
+
+============================================================
+Processing PDF 15/48: Palm_SUD-UBANGI-2_47_2019_Global-avec-session-speciale.pdf
+============================================================
+
+📘 Palm_SUD-UBANGI-2_47_2019_Global-avec-session-speciale.pdf — 35 pages
+Processing 35 pages...
+   Schools: 376 | Students: 3168
+✅ Palm_SUD-UBANGI-2_47_2019_Global-avec-session-speciale.pdf — 1m 19s
+
+============================================================
+Processing PDF 16/48: Palm_KWILU-2_34_2019 (1).pdf
+============================================================
+
+📘 Palm_KWILU-2_34_2019 (1).pdf — 178 pages
+Processing 178 pages...
+   Schools: 2686 | Students: 20087
+✅ Palm_KWILU-2_34_2019 (1).pdf — 8m 1s
+
+============================================================
+Processing PDF 17/48: Palm_SUD-KIVU-2_65_2019.pdf
+============================================================
+
+📘 Palm_SUD-KIVU-2_65_2019.pdf — 65 pages
+Processing 65 pages...
+   Schools: 533 | Students: 8639
+✅ Palm_SUD-KIVU-2_65_2019.pdf — 3m 47s
+
+============================================================
+Processing PDF 18/48: Palm_EQUATEUR-1_41_2019.pdf
+============================================================
+
+📘 Palm_EQUATEUR-1_41_2019.pdf — 66 pages
+Processing 66 pages...
+   Schools: 610 | Students: 7390
+✅ Palm_EQUATEUR-1_41_2019.pdf — 3m 11s
+
+============================================================
+Processing PDF 19/48: Palm_KWANGO-1_33_2019.pdf
+============================================================
+
+📘 Palm_KWANGO-1_33_2019.pdf — 82 pages
+Processing 82 pages...
+   Schools: 1106 | Students: 8821
+✅ Palm_KWANGO-1_33_2019.pdf — 3m 33s
+
+============================================================
+Processing PDF 20/48: Palm_KWILU-2_34_2019.pdf
+============================================================
+
+📘 Palm_KWILU-2_34_2019.pdf — 178 pages
+Processing 178 pages...
+   Schools: 2686 | Students: 20087
+✅ Palm_KWILU-2_34_2019.pdf — 8m 4s
+
+============================================================
+Processing PDF 21/48: Palm_LUKAYA_23_2019.pdf
+============================================================
+
+📘 Palm_LUKAYA_23_2019.pdf — 46 pages
+Processing 46 pages...
+   Schools: 432 | Students: 4455
+✅ Palm_LUKAYA_23_2019.pdf — 1m 52s
+
+============================================================
+Processing PDF 22/48: Palm_TSHUAPA_43_2019.pdf
+============================================================
+
+📘 Palm_TSHUAPA_43_2019.pdf — 37 pages
+Processing 37 pages...
+   Schools: 296 | Students: 4003
+✅ Palm_TSHUAPA_43_2019.pdf — 1m 39s
+
+============================================================
+Processing PDF 23/48: Palm_NORD-KIVU-1_61_2019.pdf
+============================================================
+
+📘 Palm_NORD-KIVU-1_61_2019.pdf — 110 pages
+Processing 110 pages...
+   Schools: 1004 | Students: 13644
+✅ Palm_NORD-KIVU-1_61_2019.pdf — 5m 59s
+
+============================================================
+Processing PDF 24/48: Palm_HAUT-LOMAMI-1_72_2019.pdf
+============================================================
+
+📘 Palm_HAUT-LOMAMI-1_72_2019.pdf — 66 pages
+Processing 66 pages...
+   Schools: 687 | Students: 7757
+✅ Palm_HAUT-LOMAMI-1_72_2019.pdf — 3m 18s
+
+============================================================
+Processing PDF 25/48: Palm_BAS-FLEUVE_21_2019.pdf
+============================================================
+
+📘 Palm_BAS-FLEUVE_21_2019.pdf — 127 pages
+Processing 127 pages...
+   Schools: 1415 | Students: 15220
+✅ Palm_BAS-FLEUVE_21_2019.pdf — 6m 31s
+
+============================================================
+Processing PDF 26/48: Palm_LUALABA-2_78_2019.pdf
+============================================================
+
+📘 Palm_LUALABA-2_78_2019.pdf — 30 pages
+Processing 30 pages...
+   Schools: 247 | Students: 3371
+✅ Palm_LUALABA-2_78_2019.pdf — 1m 26s
+
+============================================================
+Processing PDF 27/48: Palm_TANGANYIKA-1_73_2019.pdf
+============================================================
+
+📘 Palm_TANGANYIKA-1_73_2019.pdf — 40 pages
+Processing 40 pages...
+   Schools: 347 | Students: 4580
+✅ Palm_TANGANYIKA-1_73_2019.pdf — 1m 52s
+
+============================================================
+Processing PDF 28/48: Palm_NORD-KIVU-2_62_2019_Global-avec-session-speciale.pdf
+============================================================
+
+📘 Palm_NORD-KIVU-2_62_2019_Global-avec-session-speciale.pdf — 157 pages
+Processing 157 pages...
+   Schools: 1642 | Students: 19762
+✅ Palm_NORD-KIVU-2_62_2019_Global-avec-session-speciale.pdf — 7m 45s
+
+============================================================
+Processing PDF 29/48: Palm_HAUT-KATANGA_71_2019.pdf
+============================================================
+
+📘 Palm_HAUT-KATANGA_71_2019.pdf — 358 pages
+Processing 358 pages...
+   Schools: 3668 | Students: 49294
+✅ Palm_HAUT-KATANGA_71_2019.pdf — 19m 35s
+
+============================================================
+Processing PDF 30/48: Palm_CATARATCES_22_2019.pdf
+============================================================
+
+📘 Palm_CATARATCES_22_2019.pdf — 68 pages
+Processing 68 pages...
+   Schools: 773 | Students: 7391
+✅ Palm_CATARATCES_22_2019.pdf — 2m 54s
+
+============================================================
+Processing PDF 31/48: Palm_HAUT-UELE_53_2019.pdf
+============================================================
+
+📘 Palm_HAUT-UELE_53_2019.pdf — 43 pages
+Processing 43 pages...
+   Schools: 437 | Students: 4050
+✅ Palm_HAUT-UELE_53_2019.pdf — 1m 27s
+
+============================================================
+Processing PDF 32/48: Palm_MAI-NDOMBE_31_2019_Global-avec-session-speciale.pdf
+============================================================
+
+📘 Palm_MAI-NDOMBE_31_2019_Global-avec-session-speciale.pdf — 102 pages
+Processing 102 pages...
+   Schools: 1101 | Students: 12496
+✅ Palm_MAI-NDOMBE_31_2019_Global-avec-session-speciale.pdf — 4m 47s
+
+============================================================
+Processing PDF 33/48: Palm_LUALABA-1_74_2019.pdf
+============================================================
+
+📘 Palm_LUALABA-1_74_2019.pdf — 54 pages
+Processing 54 pages...
+   Schools: 480 | Students: 5662
+✅ Palm_LUALABA-1_74_2019.pdf — 2m 10s
+
+============================================================
+Processing PDF 34/48: Palm_SUD-UBANGI-1_42_2019.pdf
+============================================================
+
+📘 Palm_SUD-UBANGI-1_42_2019.pdf — 54 pages
+Processing 54 pages...
+   Schools: 620 | Students: 5714
+✅ Palm_SUD-UBANGI-1_42_2019.pdf — 2m 4s
+
+============================================================
+Processing PDF 35/48: Palm_junacyc_2019.pdf
+============================================================
+
+📘 Palm_junacyc_2019.pdf — 192 pages
+Processing 192 pages...
+   Schools: 694 | Students: 4209
+✅ Palm_junacyc_2019.pdf — 1m 0s
+
+============================================================
+Processing PDF 36/48: Palm_KASAI-ORIENTAL_91_2019.pdf
+============================================================
+
+📘 Palm_KASAI-ORIENTAL_91_2019.pdf — 88 pages
+Processing 88 pages...
+   Schools: 844 | Students: 11150
+✅ Palm_KASAI-ORIENTAL_91_2019.pdf — 4m 16s
+
+============================================================
+Processing PDF 37/48: Palm_MONGALA_44_2019.pdf
+============================================================
+
+📘 Palm_MONGALA_44_2019.pdf — 67 pages
+Processing 67 pages...
+   Schools: 717 | Students: 7099
+✅ Palm_MONGALA_44_2019.pdf — 2m 36s
+
+============================================================
+Processing PDF 38/48: Palm_MANIEMA_64_2019.pdf
+============================================================
+
+📘 Palm_MANIEMA_64_2019.pdf — 99 pages
+Processing 99 pages...
+   Schools: 1130 | Students: 11745
+✅ Palm_MANIEMA_64_2019.pdf — 4m 31s
+
+============================================================
+Processing PDF 39/48: Kinshasa_2019a.pdf
+============================================================
+
+📘 Kinshasa_2019a.pdf — 800 pages
+🔹 Split into 4 chunks (200 pages each)
+
+▶️  Chunk 1/4: chunk_1_to_200.pdf
+
+📘 chunk_1_to_200.pdf — 200 pages
+Processing 200 pages...
+   Schools: 1814 | Students: 27678
+✅ chunk_1_to_200.pdf — 10m 56s
+✅ Chunk 1/4 — 1814 schools, 27678 students so far
+
+▶️  Chunk 2/4: chunk_201_to_400.pdf
+
+📘 chunk_201_to_400.pdf — 200 pages
+Processing 200 pages...
+   Schools: 1786 | Students: 28313
+✅ chunk_201_to_400.pdf — 11m 26s
+✅ Chunk 2/4 — 3600 schools, 55991 students so far
+
+▶️  Chunk 3/4: chunk_401_to_600.pdf
+
+📘 chunk_401_to_600.pdf — 200 pages
+Processing 200 pages...
+   Schools: 2117 | Students: 23828
+✅ chunk_401_to_600.pdf — 5m 56s
+✅ Chunk 3/4 — 5717 schools, 79819 students so far
+
+▶️  Chunk 4/4: chunk_601_to_800.pdf
+
+📘 chunk_601_to_800.pdf — 200 pages
+Processing 200 pages...
+   Schools: 2446 | Students: 24687
+✅ chunk_601_to_800.pdf — 4m 17s
+✅ Chunk 4/4 — 8163 schools, 104506 students so far
+
+🎉 All chunks merged and saved.
+✅ Kinshasa_2019a.pdf — 32m 57s
+
+============================================================
+Processing PDF 40/48: Palm_NORD-UBANGI_45_2019.pdf
+============================================================
+
+📘 Palm_NORD-UBANGI_45_2019.pdf — 41 pages
+Processing 41 pages...
+   Schools: 517 | Students: 3706
+✅ Palm_NORD-UBANGI_45_2019.pdf — 0m 30s
+
+============================================================
+Processing PDF 41/48: Palm_ITURI-2_56_2019.pdf
+============================================================
+
+📘 Palm_ITURI-2_56_2019.pdf — 48 pages
+Processing 48 pages...
+   Schools: 471 | Students: 4661
+✅ Palm_ITURI-2_56_2019.pdf — 0m 46s
+
+============================================================
+Processing PDF 42/48: Palm_KWANGO-2_36_2019.pdf
+============================================================
+
+📘 Palm_KWANGO-2_36_2019.pdf — 48 pages
+Processing 48 pages...
+   Schools: 621 | Students: 4901
+✅ Palm_KWANGO-2_36_2019.pdf — 0m 48s
+
+============================================================
+Processing PDF 43/48: Palm_SUD-KIVU-1_63_2019.pdf
+============================================================
+
+📘 Palm_SUD-KIVU-1_63_2019.pdf — 164 pages
+Processing 164 pages...
+   Schools: 1529 | Students: 22066
+✅ Palm_SUD-KIVU-1_63_2019.pdf — 3m 50s
+
+============================================================
+Processing PDF 44/48: Palm_KASAI-2_84_2019.pdf
+============================================================
+
+📘 Palm_KASAI-2_84_2019.pdf — 68 pages
+Processing 68 pages...
+   Schools: 710 | Students: 8109
+✅ Palm_KASAI-2_84_2019.pdf — 1m 22s
+
+============================================================
+Processing PDF 45/48: Palm_HAUT-KATANGA-2_76_2019.pdf
+============================================================
+
+📘 Palm_HAUT-KATANGA-2_76_2019.pdf — 30 pages
+Processing 30 pages...
+   Schools: 219 | Students: 3013
+✅ Palm_HAUT-KATANGA-2_76_2019.pdf — 0m 27s
+
+============================================================
+Processing PDF 46/48: Palm_HF_2019.pdf
+============================================================
+
+📘 Palm_HF_2019.pdf — 6 pages
+Processing 6 pages...
+   Schools: 13 | Students: 414
+✅ Palm_HF_2019.pdf — 0m 3s
+
+============================================================
+Processing PDF 47/48: Palm_KASAI-CENTRAL-2_83_2019.pdf
+============================================================
+
+📘 Palm_KASAI-CENTRAL-2_83_2019.pdf — 45 pages
+Processing 45 pages...
+   Schools: 388 | Students: 4736
+✅ Palm_KASAI-CENTRAL-2_83_2019.pdf — 0m 48s
+
+============================================================
+Processing PDF 48/48: Palm_KWILU-3_35_2019.pdf
+============================================================
+
+📘 Palm_KWILU-3_35_2019.pdf — 111 pages
+Processing 111 pages...
+   Schools: 1271 | Students: 13747
+✅ Palm_KWILU-3_35_2019.pdf — 2m 14s
+
+============================================================
+ALL FILES PROCESSED!
+============================================================
