@@ -7,9 +7,13 @@
 
 /__pycache__/
 /.env
+/*.pyc
 
 /pdf_files/
 /*.pdf
 
 /csv_files/
 /*.csv
+
+dist/
+*.egg-info/

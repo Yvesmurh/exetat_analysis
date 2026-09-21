@@ -1,0 +1,162 @@
+Database and tables created successfully!
+INFO: Processing: /home/yves-s-computer/Exetat_analysis/json_files/test/PALMARES_2021_GLOBAL_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/PALMARES_2021_GLOBAL_students_data.json
+INFO: Extracted: 59 province(s), 49 option(s), 53017 school(s), 53017 exetat entry row(s)
+INFO:   provinces: 59 new row(s) inserted
+INFO:   options: 49 new row(s) inserted
+INFO:   schools: 53017 row(s) processed
+INFO:   exetat_entry: 53017 processed, 0 skipped
+INFO:   students: 805 new row(s) inserted (last batch)
+INFO:   exam_results: 459805 processed, 0 skipped
+INFO: All files processed successfully.
+(exetat-analysis) yves-s-computer@yves-s-computer-Latitude-3520:~/Exetat_analysis/src/db$ python3 main.py
+INFO: Processing: /home/yves-s-computer/Exetat_analysis/json_files/test/Palmares_2022_GLOBAL_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/Palmares_2022_GLOBAL_students_data.json
+INFO: Extracted: 61 province(s), 49 option(s), 46416 school(s), 46416 exetat entry row(s)
+INFO:   provinces: 27 new row(s) inserted
+INFO:   options: 5 new row(s) inserted
+INFO:   schools: 46416 row(s) processed
+INFO:   exetat_entry: 46416 processed, 0 skipped
+INFO:   students: 807 new row(s) inserted (last batch)
+INFO:   exam_results: 567807 processed, 0 skipped
+INFO: All files processed successfully.
+(exetat-analysis) yves-s-computer@yves-s-computer-Latitude-3520:~/Exetat_analysis/src/db$ python3 main.py
+INFO: Processing: /home/yves-s-computer/Exetat_analysis/json_files/test/journal_exetat_2020_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/journal_exetat_2020_students_data.json
+INFO: Extracted: 49 province(s), 48 option(s), 48321 school(s), 48321 exetat entry row(s)
+INFO:   provinces: 16 new row(s) inserted
+INFO:   options: 0 new row(s) inserted
+INFO:   schools: 48321 row(s) processed
+INFO:   exetat_entry: 48321 processed, 0 skipped
+ERROR: Pipeline failed: could not convert string to float: 'NSTITUT'
+Traceback (most recent call last):
+  File "/home/yves-s-computer/Exetat_analysis/src/db/main.py", line 110, in <module>
+    main()
+  File "/home/yves-s-computer/Exetat_analysis/src/db/main.py", line 93, in main
+    insert_students(cursor, students_data.get("students_by_school", []), exetat_map)
+  File "/home/yves-s-computer/Exetat_analysis/src/db/insert.py", line 241, in insert_students
+    result_rows.append((s["student_code"], ex_id, float(s["pourcentage"])))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'NSTITUT'
+
+
+INFO: Processing: /home/yves-s-computer/Exetat_analysis/json_files/test/journal_exetat_2020_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/journal_exetat_2020_students_data.json
+INFO: Extracted: 49 province(s), 48 option(s), 48321 school(s), 48321 exetat entry row(s)
+INFO:   provinces: 16 new row(s) inserted
+INFO:   options: 0 new row(s) inserted
+INFO:   schools: 48321 row(s) processed
+INFO:   exetat_entry: 48321 processed, 0 skipped
+INFO:   students: 346 new row(s) inserted (last batch)
+INFO:   exam_results: 582372 processed, 0 skipped
+INFO: All files processed successfully.
+
+
+my error 
+Traceback (most recent call last):
+  File "/home/yves-s-computer/Exetat_analysis/.venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry '11001 / 101 / 01 / 7' for key 'schools.school_code'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/yves-s-computer/Exetat_analysis/src/db/main.py", line 172, in <module>
+    main()
+  File "/home/yves-s-computer/Exetat_analysis/src/db/main.py", line 147, in main
+    school_map   = insert_schools(cursor, school_dict, province_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yves-s-computer/Exetat_analysis/src/db/insert.py", line 200, in insert_schools
+    cursor.executemany(
+  File "/home/yves-s-computer/Exetat_analysis/.venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 473, in executemany
+    return self.execute(cast(str, stmt))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yves-s-computer/Exetat_analysis/.venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/yves-s-computer/Exetat_analysis/.venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yves-s-computer/Exetat_analysis/.venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '11001 / 101 / 01 / 7' for key 'schools.school_code'
+
+so what i need to improve ?:
+1. first in the extract_schools function i need to divide that function because a function
+should do one thing so .. one function to extract province set, one for option, for schools and exetat list
+2. inset_student function also should be diveded in many function in order to have one function doing one thing and another one thing 
+
+
+after some analysis it look like the school_code table will be hard to be unique for sure 
+found that i have a error in my code that was extracting schools and student ...like it like my code is missing something , 
+when there is a school_name starting with a number the code just consider it as an student that where the code crush...
+
+
+INFO: Processing: /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/journal_exetat_2020_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/journal_exetat_2020_students_data.json
+INFO: Extracted: 49 province(s), 48 option(s), 48321 school(s), 48321 exetat entry row(s)
+INFO:   provinces: 0 new row(s) inserted
+INFO:   options: 0 new row(s) inserted
+INFO:   schools: 48321 row(s) processed
+INFO:   exetat_entry: 48321 processed, 0 skipped
+INFO:   students: 0 new row(s) inserted (last batch)
+INFO:   exam_results: 582209 processed, 0 skipped
+WARNING: Some file pairs failed to process:
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/PALMARES_-2021_MAI-NDOMBE-2_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/PALMARES_-2021_MAI-NDOMBE-2_students_data.json: invalid literal for int() with base 10: 'ont:'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_BAS-CONGO_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_BAS-CONGO_2008_students_data.json: invalid literal for int() with base 10: 'F 60'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_Bandundu-2_32_2010_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_Bandundu-2_32_2010_students_data.json: invalid literal for int() with base 10: '4 Participants : 18'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_EQUATEUR_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_EQUATEUR_2008_students_data.json: invalid literal for int() with base 10: '50 Participants : 9'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KASAI-OCC_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KASAI-OCC_2008_students_data.json: invalid literal for int() with base 10: '52 Participants : 2'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KASAI-OR_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KASAI-OR_2008_students_data.json: invalid literal for int() with base 10: '6 Participants : 37'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KATANGA_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KATANGA_2008_students_data.json: invalid literal for int() with base 10: 'F 61'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-CENTRE_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-CENTRE_2008_students_data.json: invalid literal for int() with base 10: 'F 68 Participants : 9'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-EST_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-EST_2008_students_data.json: invalid literal for int() with base 10: 'F 52'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-OUEST_13_2010_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-OUEST_13_2010_students_data.json: invalid literal for int() with base 10: '6 Participants : 6'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-OUEST_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KINSHASA-OUEST_2008_students_data.json: invalid literal for int() with base 10: 'F 50 Participants : 18'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KIN_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_KIN_2008_students_data.json: invalid literal for int() with base 10: 'F 52'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_MANIEMA_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_MANIEMA_2008_students_data.json: invalid literal for int() with base 10: '1 Participants : 25'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_NORD-KIVU_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_NORD-KIVU_2008_students_data.json: invalid literal for int() with base 10: 'F 53 Participants : 43'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_PROVINCE-ORIENTALE_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_PROVINCE-ORIENTALE_2008_students_data.json: invalid literal for int() with base 10: '53 Participants : 55'
+WARNING:   /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_SUD-KIVU_2008_schools_data.json + /home/yves-s-computer/Exetat_analysis/json_files/test/style_1/Palmares_SUD-KIVU_2008_students_data.json: invalid literal for int() with base 10: 'F 57 Participants : 12'
+INFO: All files processed successfully.
+
+1.National Overview Card
+  What is the total number of schools?
+  What is the total number of participants?
+  What is the total number of successful students?
+  What is the national success rate?
+  comparaison of success rate between the current years and the last year ?
+
+2.top Performing province being changed with (top Performing student )
+  Top Performing student for each option for the current years
+  comparaison of percentage of current student with the one for last years 
+
+
+3.province performance trend ;
+  down to the drc map;
+  we make a chart that show success rate for each years per province (every province from 2015 to 2023)
+
+4.province performance map
+  these are datas that will be display on the Map ,For every province:
+
+  Province name
+  Success rate
+  Number of schools
+  Number of participants
+  Number of successful students
+  Difference (by rate of success) compared to previous year
+
+
+5.Province Ranking:
+
+  Give all provinces ordered by success rate.
+  but i will be drop down that the user can scroll down to see all the province because i will only be showing the 5 first province 
+
+  success rate by range;
+  that will be used as a legende (referencing of the province performance map)
+  it will take the highest success rating - the lowest success rating 
+  and then make 5 range from the highest to the lowest ; it should be in percentage (0-100%)
+  darker colors indicate the higher success rate 
+
+When the user changes:
+
+  Year
+  Province
+  Educational option
+
+  Your frontend asks:
+  Everything on the dashboard updates from these filters.
