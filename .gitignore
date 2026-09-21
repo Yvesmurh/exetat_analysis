@@ -1,19 +1,23 @@
+# Personal configuration
+.bashrc
+.bash_profile
+.profile
+.zshrc
+.zprofile
+.gitconfig
+.ripgreprc
 
-/src/db/
-/db.py
+# IDE and local tools
+.claude/
+.idea/
+.vscode/
 
-/json_files/
-/*.json
+# Python
+__pycache__/
+*.py[cod]
+.venv/
 
-/__pycache__/
-/.env
-/*.pyc
-
-/pdf_files/
-/*.pdf
-
-/csv_files/
-/*.csv
-
-dist/
-*.egg-info/
+# Secrets
+.env
+.env.*
+!.env.example
