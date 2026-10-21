@@ -15,7 +15,7 @@ import re
 import plotly.graph_objects as go
 from dash import dash_table, dcc, html
 
-from exetat_dashboard.config import COLORS
+from exetat_dashboard.config import COLORS, FONT_FAMILY
 
 
 def _hex_to_rgba(hex_color: str, alpha: float) -> str:
@@ -39,36 +39,36 @@ def _province_card_figure(prov_df, highlighted: bool) -> go.Figure:
             x=prov_df["year"],
             y=prov_df["success_rate"] * 100,
             mode="lines+markers",
-            line=dict(width=2.75, color=color, shape="spline", smoothing=0.25),
-            marker=dict(size=5, color=color, line=dict(width=1, color="#07111F")),
+            line=dict(width=2.5, color=color, shape="spline", smoothing=0.25),
+            marker=dict(size=5, color=color, line=dict(width=1.5, color="#FFFFFF")),
             fill="tozeroy",
-            fillcolor=_hex_to_rgba(color, 0.12),
-            hovertemplate="Year %{x}<br>Success rate: %{y:.1f}%<extra></extra>",
+            fillcolor=_hex_to_rgba(color, 0.10),
+            hovertemplate="Année %{x}<br>Taux de réussite: %{y:.1f}%<extra></extra>",
         )
     )
     fig.update_layout(
-        margin=dict(l=38, r=12, t=6, b=28),
+        margin=dict(l=36, r=12, t=6, b=24),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        height=150,
-        font=dict(family="Manrope, sans-serif", color=COLORS["text"], size=9),
+        height=145,
+        font=dict(family=FONT_FAMILY, color=COLORS["text"], size=10),
         xaxis=dict(
             dtick=1,
             showgrid=False,
             showline=True,
-            linecolor=COLORS["border"],
-            tickfont=dict(size=8, color=COLORS["muted"]),
+            linecolor="#E2E8F0",
+            tickfont=dict(size=10, color=COLORS["text_secondary"], family=FONT_FAMILY),
         ),
         yaxis=dict(
             ticksuffix="%",
             showgrid=True,
-            gridcolor=COLORS["border"],
+            gridcolor="#F1F5F9",
             zeroline=False,
             rangemode="tozero",
-            tickfont=dict(size=8, color=COLORS["muted"]),
+            tickfont=dict(size=10, color=COLORS["text_secondary"], family=FONT_FAMILY),
         ),
         hovermode="x unified",
-        hoverlabel=dict(bgcolor="#0C1728", bordercolor=COLORS["primary"], font=dict(family="Manrope, sans-serif", color=COLORS["text"])),
+        hoverlabel=dict(bgcolor="#FFFFFF", bordercolor=COLORS["primary"], font=dict(family=FONT_FAMILY, color=COLORS["text"], size=12.5)),
         showlegend=False,
     )
     return fig
@@ -177,17 +177,18 @@ def build_trend_table(df) -> html.Div:
             style_header={
                 "backgroundColor": COLORS["primary_light"],
                 "color": COLORS["primary_dark"],
-                "fontWeight": "600",
+                "fontWeight": "700",
                 "border": "none",
-                "fontSize": "12px",
+                "fontSize": "12.5px",
+                "fontFamily": FONT_FAMILY,
                 "whiteSpace": "nowrap",
             },
             style_cell={
                 "backgroundColor": COLORS["card_bg"],
                 "color": COLORS["text"],
                 "padding": "8px 12px",
-                "fontFamily": "inherit",
-                "fontSize": "12px",
+                "fontFamily": FONT_FAMILY,
+                "fontSize": "12.5px",
                 "border": "none",
                 "borderBottom": f"1px solid {COLORS['border']}",
                 "whiteSpace": "nowrap",

@@ -140,10 +140,11 @@ def _header() -> html.Div:
     brand_icon = html.Img(
         src=(
             "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' "
-            "fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>"
+            "fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>"
             "<path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/>"
             "<path d='M22 10v6'/></svg>"
-        )
+        ),
+        alt="Education icon",
     )
     return html.Div(
         [

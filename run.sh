@@ -9,4 +9,4 @@ if [ -f .venv/bin/activate ]; then
 fi
 
 # Run the app as a module; this keeps imports consistent
-python -m src.app.app
+python -m src.exetat_dashboard.app

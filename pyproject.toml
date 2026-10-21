@@ -30,7 +30,7 @@ dev = [
 # in order to configuring the project i have to set the project's entry-point script 
 # and this is it .
 [project.scripts]
-exetat-analysis = "main:main"
+exetat-analysis = "exetat_dashboard.app:main"
 
 # this say that to build a system i will need a setuptools and wheel s
 [build-system]

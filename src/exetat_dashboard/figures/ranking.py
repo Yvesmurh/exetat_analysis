@@ -26,13 +26,16 @@ def _row(rank: int, province: str, success_rate: float, delta, max_rate: float) 
         cls = "delta-up" if delta > 0 else ("delta-down" if delta < 0 else "delta-neutral")
         change_el = html.Span(f"{arrow} {delta:+.2f} pts", className=f"delta-badge {cls}")
 
+    rank_class = f"ranking-rank ranking-rank--{rank}" if rank <= 3 else "ranking-rank"
+    top_class = f" ranking-row--top ranking-row--top{rank}" if rank <= 3 else ""
+
     return html.Div(
         [
             html.Div(
                 [
                     html.Div(
                         [
-                            html.Span(str(rank), className="ranking-rank"),
+                            html.Span(str(rank), className=rank_class),
                             html.Span(str(province).title(), className="ranking-name"),
                         ],
                         className="ranking-name-block",
@@ -44,7 +47,7 @@ def _row(rank: int, province: str, success_rate: float, delta, max_rate: float) 
             html.Div(html.Div(className="progress-fill", style={"width": f"{width_pct}%"}), className="progress-track"),
             html.Div(change_el, className="ranking-row-bottom"),
         ],
-        className=f"ranking-row{' ranking-row--top' if rank == 1 else ''}",
+        className=f"ranking-row{top_class}",
     )
 
 

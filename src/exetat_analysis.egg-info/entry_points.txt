@@ -1,0 +1,2 @@
+[console_scripts]
+exetat-analysis = exetat_dashboard.app:main

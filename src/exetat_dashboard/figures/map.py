@@ -30,6 +30,7 @@ from typing import Optional
 import pandas as pd
 import plotly.graph_objects as go
 
+from exetat_dashboard.config import COLORS, FONT_FAMILY
 from exetat_dashboard.utils.province_names import normalize_province_name
 
 # ---------------------------------------------------------------------------
@@ -247,11 +248,11 @@ def create_choropleth(
 
     # Thicker/darker border on the selected province, if any.
     line_widths = [
-        1.8 if selected_location and loc == selected_location else 0.6
+        2.4 if selected_location and loc == selected_location else 0.8
         for loc in location_values
     ]
     line_colors = [
-        "#00E5FF" if selected_location and loc == selected_location else "#284A63"
+        "#007FFF" if selected_location and loc == selected_location else "#94A3B8"
         for loc in location_values
     ]
 
@@ -266,19 +267,20 @@ def create_choropleth(
             marker_line_color=line_colors,
             marker_line_width=line_widths,
             colorbar=dict(
-                title=dict(text=colorbar_title or value_col, font=dict(color="#9BB0C3", size=9)),
-                thickness=10,
-                len=0.62,
-                x=0.99,
-                tickfont=dict(color="#9BB0C3", size=9),
-                outlinewidth=0,
-                bgcolor="rgba(5,11,22,0.42)",
+                title=dict(text=colorbar_title or value_col, font=dict(color=COLORS["text"], size=11.5, family=FONT_FAMILY)),
+                thickness=12,
+                len=0.65,
+                x=0.98,
+                tickfont=dict(color=COLORS["text_secondary"], size=10.5, family=FONT_FAMILY),
+                outlinewidth=1,
+                outlinecolor="#E2E8F0",
+                bgcolor="rgba(255, 255, 255, 0.9)",
             ),
             hovertext=hover_text,
             customdata=customdata,
             hovertemplate="<b>%{hovertext}</b><br>"
             + f"{colorbar_title or value_col}: "
-            + "%{z}<br>"
+            + "%{z:.1f}%<br>"
             + extra_lines
             + "<extra></extra>",
         )
@@ -289,12 +291,16 @@ def create_choropleth(
     fig.update_layout(
         title=title,
         autosize=True,
-        margin=dict(l=0, r=0, t=50 if title else 10, b=0),
+        margin=dict(l=0, r=0, t=40 if title else 8, b=0),
         geo=dict(bgcolor="rgba(0,0,0,0)"),
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Manrope, sans-serif", color="#EDF8FF"),
-        hoverlabel=dict(bgcolor="#07111F", bordercolor="#00A8FF", font=dict(color="#EDF8FF", size=11)),
-        transition=dict(duration=280, easing="cubic-in-out"),
+        font=dict(family=FONT_FAMILY, color=COLORS["text"]),
+        hoverlabel=dict(
+            bgcolor="#FFFFFF",
+            bordercolor=COLORS["primary"],
+            font=dict(color=COLORS["text"], size=13, family=FONT_FAMILY),
+        ),
+        transition=dict(duration=250, easing="cubic-in-out"),
     )
 
     return fig
