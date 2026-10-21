@@ -1,176 +1,248 @@
-# Interactive Dashboard for National State Examination Performance Analysis (EXETAT-DRC)
+# Exetat — DRC National Exam Results Analysis
 
-## Overview
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Database](https://img.shields.io/badge/Database-MySQL-4479A1)
+![Dashboard](https://img.shields.io/badge/Dashboard-Dash-00A8FF)
 
-This project addresses a critical gap in the education system of the Democratic Republic of Congo (DRC). Currently, the Ministry of Education (MEPST) publishes annual National State Examination (Exetat) results in static, text-heavy tabular formats (PDFs). These formats are difficult for parents, administrators, and policymakers to interpret effectively.
+## Project Overview
 
-This research study presents the design and implementation of an Interactive Dashboard that transforms raw, static Exetat data into dynamic, user-friendly visualizations. The tool empowers families to make evidence-based school choices and enables policymakers to monitor educational performance trends with precision.
+EXETAT-analysis is an end-to-end data intelligence platform designed to improve access to and analysis of results from the Democratic Republic of the Congo's National State Examination **(*Examen d'État*).** The platform extracts tabular examination data from official government PDF reports, transforms and organizes it in a relational MySQL database, and presents the data through an interactive analytics dashboard.
 
-## Key Features
+The project's goal is to promote transparency in the DRC's education system by making **EXETAT results** more accessible, structured, and easier to analyze for education stakeholders, researchers, and other interested users.
 
-1. Summary Metrics (KPIs): Instant visibility into Total Schools, Total Participants, and Success Rates using dynamic filters.
-2. Success Rate Indicators: Real-time calculations and comparisons for both Student and School performance.
-3. Dynamic School Rankings: A ranking system that evaluates schools based on the longitudinal average of student performance scores.
-4. Student Highlights: Features "Best Student of the Year" and "Best Student per Option" to recognize and celebrate individual excellence.
-5. Multi-Dimensional Filters: Capability to slice and dice data by Year, Province, and Option.
-6. Visual Hierarchy: A professional UI/UX design using color-coded indicators (blue/purple) to enhance data readability.
+> **Project status:** The archive contains the application code, but does not include a complete setup manifest or all source data. Installation and database configuration may require adjustment for your environment.
 
-## Methodology
+## Table of Contents
 
-The development followed a structured, data-driven methodology:
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Execution / Usage](#execution--usage)
+- [Tests](#tests)
+- [Data and privacy](#data-and-privacy)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [Author](#author)
+- [Change log](#change-log)
+- [License](#license)
 
-1. Web Scraping: Automated collection of official Palmarès reports from ministry sources.
-2. PDF Parsing & Extraction: Conversion of unstructured PDF data into machine-readable formats.
-3. Database Modeling: Design of a normalized relational database (3NF) to store and manage complex school and student datasets.
-4. Dashboard Design: Development of a responsive, interactive web interface using Python-based frameworks.
+## Features
 
-## Technologies Used
-
-    Backend: Python, Flask
-    Database: SQL / MySQL
-    Frontend: HTML5, CSS, JavaScript
-    Data Processing: PDF Parsing and Web Scraping libraries
-
-## System Architecture
-
-The project utilizes a modular architecture:
-    Data Layer: A relational database organizes years of examination data.
-    Logic Layer: SQL queries handle complex aggregations, rankings, and filtering logic.
-    Processing Layer: A Flask backend processes data requests and manages API routes.
-    Presentation Layer: A modern web interface displays data through an intuitive dashboard.
-
-## Installation
-
-1. Prerequisites
-   Python 3.12+
-   MySQL Server
-   uv
-
-## Setup
-
-1. Clone the repository:
-   git clone https://github.com/your-username/your-repository-name.git
-   cd your-repository-name
-2. Install dependencies:
-   Using uv:
-   uv sync
-3. Database Configuration: in that process we did a step by step method to collect data and insert them inside a database. and by that i mean
-   . Web scraping: Since the Palmarès (national exam rankings) are published on the official website of the Ministry of Education (MINEDUC-NC), I implemented a scraping routine to download all relevant PDF documents.
-   I created a Python file named downloader.py, which performs the following operations:
-   Extract card links from the main Palmarès page
-   Convert relative URLs to absolute URLs
-   Categorize links (PDF vs. HTML)
-   Generate clean filenames for downloaded PDFs
-   Identify all PDF file locations
-   Download and save all Palmarès PDFs locally
-   . PDF parsing :The aims of this step was to extract structured data from the downloaded Palmarès PDFs and convert it into JSON. To achieve this, I developed a script named pdf_parser, which performs the following tasks:
-   List PDF files in the designated directory
-   Extract header, body, and footer text from each PDF page
-   Identify and extract school-level data, including:
-   School name
-   School code
-   Number of participants
-   Number of successful candidates
-   Academic option
-   Province
-   Year
-   Identify and extract student-level data, including:
-   Student name
-   Gender
-   Percentage
-   Option
-   Year
-   School
-   Export extracted data into two structured JSON files:
-   school_data.json
-   student_data.json
-   . and then i created a database using Mysql and since we have json's file we can use any kind of database we want and insert those data inside the database
-   and from there we perform the database confirguration and connect it to the project using mysql.connector
-
-<<<<<<< HEAD
-3. Database Configuration: in that process we did a step by step method to collect data and insert them inside a database. and by that i mean
-    . Web scraping: Since the Palmarès (national exam rankings) are published on the official website of the Ministry of Education (MINEDUC-NC), I implemented a scraping routine to download all relevant PDF documents.
-    I created a Python file named downloader.py, which performs the following operations:
-        Extract card links from the main Palmarès page
-        Convert relative URLs to absolute URLs
-        Categorize links (PDF vs. HTML)
-        Generate clean filenames for downloaded PDFs
-        Identify all PDF file locations
-        Download and save all Palmarès PDFs locally
-    . PDF parsing :The aims of this step was to extract structured data from the downloaded Palmarès PDFs and convert it into JSON. To achieve this, I developed a script named pdf_parser, which performs the following tasks:
-        List PDF files in the designated directory
-        Extract header, body, and footer text from each PDF page
-        Identify and extract school-level data, including:
-            School name
-            School code
-            Number of participants
-            Number of successful candidates
-            Academic option
-            Province
-            Year
-        Identify and extract student-level data, including:
-            Student name
-            Gender
-            Percentage
-            Option
-            Year
-            School
-        Export extracted data into two structured JSON files:
-            school_data.json
-            student_data.json
-    . and then i created a database using Mysql since we have json's file we can use any kind of database we want and insert those data inside the database
-and from there we perform the database confirguration and connect it to the project using mysql.connector
-
-4. Run the application:
-   =======
-5. Run the application:
-
->>>>>>> ac75fdccc1a831f96def6cafce64a0627bf6d7a1
->>>>>>> python -m src.app.app
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>
->>
-
-## Usage
-
-    Once the application is running, access the dashboard via your web browser (typically localhost:5000) to:
-
-    Consult Rankings: View and sort schools based on historical performance.
-
-    Trend Analysis: Analyze how specific provinces or options have performed over time.
-
-    Search Excellence: Identify top-performing students across various academic options.
+- **Web scraping and downloading:** Finds palmarès links on the DRC education results website and downloads PDF files.
+- **PDF extraction:** Extracts school-level and student-level information from Exetat PDF palmarès documents and writes structured JSON output.
+- **MySQL data loading:** Organizes province, option, school, exam-session, student, and exam-result data in a relational database.
+- **National overview:** Summarizes schools, participants, successful candidates, and success rates.
+- **Province analysis:** Compares provincial results and shows rankings, maps, distributions, and changes between years.
+- **School and student rankings:** Supports school rankings and student result exploration within selected geographic and academic scopes.
+- **Trend analysis:** Examines province performance across years and filters results by year and educational option.
 
 ## Project Structure
 
-<<<<<<< HEAD
+```text
+Exetat/
+├── database/
+│   ├── db.py                 # MySQL connection configuration
+│   ├── create_db.py          # Database/schema creation
+│   ├── insert.py             # Data transformation and insertion helpers
+│   └── main.py               # JSON-to-MySQL loading pipeline
+├── pdf_parsing/
+│   ├── main.py               # Batch PDF processing entry point
+│   ├── pdf_parser.py         # PDF parsing logic
+│   ├── pdf_helper.py         # Header/body extraction helpers
+│   ├── files_utils.py        # File and processing utilities
+│   └── check_missing.py      # Missing-data checks
+├── exetat_dashboard/
+│   ├── app.py                # Dash application entry point
+│   ├── config.py             # Dashboard settings and constants
+│   ├── pages/                # Overview, province, and school pages
+│   ├── queries/              # Database queries and analytics
+│   ├── figures/              # Charts, maps, rankings, and trend figures
+│   ├── components/           # Reusable dashboard components
+│   ├── assets/               # CSS and static assets
+│   ├── data/                 # Province map GeoJSON data
+│   └── tests/                # Dashboard tests
+└── web-scraping/
+    └── downloader.py         # Palmarès PDF link discovery and download
+```
 
-=======
-├── main.py├── pyproject.toml├── README.md├── run.sh├── src
-│   ├── app│   │   ├── backend│   │   ├── queries.py│   │   ├── static│   │   └── templates│   ├── db│   ├── downloader.py│   └── exetat_pak└── uv.lock
+![Project workflow visual](src/image/image.png.png)
 
->>>>>>> ac75fdccc1a831f96def6cafce64a0627bf6d7a1
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>
->>
+## Technologies
+
+- [Python](https://www.python.org/) — application and data-processing code
+- [Dash](https://dash.plotly.com/) — interactive web dashboard
+- [Pandas](https://pandas.pydata.org/) — tabular data processing
+- [MySQL](https://www.mysql.com/) — relational database
+- [MySQL Connector/Python](https://dev.mysql.com/doc/connector-python/en/) — database connectivity
+- [pdfplumber](https://github.com/jsvine/pdfplumber) and [PyPDF2](https://pypdf2.readthedocs.io/) — PDF text extraction and document handling
+- [Requests](https://requests.readthedocs.io/) and [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) — web requests and HTML parsing
+- [pytest](https://pytest.org/) — automated tests
+
+## Installation
+
+Follow these steps to set up the Exetat Analysis project locally using [`uv`](https://docs.astral.sh/uv/), a fast Python package and project manager.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Yvesmurh/exetat_analysis.git
+cd exetat_analysis
+```
+
+### 2. Install uv
+
+Install `uv` using the appropriate command for your operating system.
+
+**Linux / macOS**
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**Windows PowerShell**
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Verify the installation:
+
+```bash
+uv --version
+```
+
+### 3. Create the virtual environment and install dependencies
+
+```bash
+uv sync --locked
+```
+
+This creates the `.venv` virtual environment and installs the project dependencies using the existing lockfile.
+
+If the project has a `pyproject.toml` but no `uv.lock` file yet, run:
+
+```bash
+uv sync
+```
+
+### 4. Activate the virtual environment (optional)
+
+Activation is optional when using `uv run`, but useful if you want to execute commands directly in the environment.
+
+**Linux / macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+**Windows PowerShell**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 5. Verify the setup
+
+Check that Python is available in the project environment:
+
+```bash
+uv run python --version
+```
+
+To run a Python script, use:
+
+```bash
+uv run python src/main.py
+```
+
+Replace `your_script.py` with the actual script you want to execute.
+
+## Configuration
+
+### MySQL database
+
+The database connection helper in `database/db.py` reads these environment variables:
+
+| Variable           | Purpose           | Default in the current code                     |
+| ------------------ | ----------------- | ----------------------------------------------- |
+| `MYSQL_HOST`     | MySQL server host | `127.0.0.1`                                   |
+| `MYSQL_USER`     | MySQL username    | `root`                                        |
+| `MYSQL_PASSWORD` | MySQL password    | A development fallback is present in the source |
+| `MYSQL_DATABASE` | Database name     | Your database_name                              |
+
+Set your own credentials before running the project. For example, on Linux or macOS:
+
+```bash
+export MYSQL_HOST="127.0.0.1"
+export MYSQL_USER="your_mysql_user"
+export MYSQL_PASSWORD="your_secure_password"
+export MYSQL_DATABASE="your_db_name"
+```
+
+On Windows PowerShell:
+
+```powershell
+$env:MYSQL_HOST = "127.0.0.1"
+$env:MYSQL_USER = "your_mysql_user"
+$env:MYSQL_PASSWORD = "your_secure_password"
+$env:MYSQL_DATABASE = "Big_db"
+```
+
+Make sure MySQL is running and the configured database and required tables exist. The database creation and insertion scripts are under `database/`
+
+## Execution / Usage
+
+Commands below assume your terminal is in the extracted `Exetat_analysis` directory.
+
+### Download palmarès PDFs
+
+The scraper is located at `web-scraping/downloader.py`. It requests public palmarès pages from the DRC education results website, discovers PDF links, and downloads PDFs into a `downloads/` directory relative to the current working directory. Inspect the script and comply with the source website's terms and access rules before running it.
+
+Once you get the Pdf_files you can get to the next section :
+
+### Parse PDF palmarès documents
+
+The PDF-processing entry point is:
+
+```bash
+python -m pdf_parsing.main
+```
+
+Review `pdf_parsing/main.py` before running: it currently points to an expected input directory under `pdf_parsing/test_pdf/style_3/large_pdf` and writes JSON files under `pdf_parsing/json/style_3`. Create or update these directories and place your source PDFs in the configured input folder.
+
+### Load parsed JSON data into MySQL
+
+The database loading script is:
+
+```bash
+python -m database.main
+```
+
+Before running, update the data directory in `database/main.py` to the location of your paired `*_schools_data.json` and `*_students_data.json` files. The current source contains a machine-specific absolute path, so it will not work on another computer without configuration changes. Ensure your database schema and credentials are correct before loading data.
+
+### Run the dashboard
+
+The dashboard uses package imports such as `exetat_dashboard.*`. Run it from the project directory so Python can resolve those imports:
+
+```bash
+python -m exetat_dashboard.app
+```
+
+Open the local URL printed by Dash in your terminal. The dashboard code includes Overview, Provinces, and Schools pages. A working MySQL connection and populated database are needed for meaningful results.
+
+![Exetat Analysis Dashboard](src/image/dashboard.png.png)
+
+## Data and privacy
+
+for this project i have used public available data . it contain people's names , please only use for research purposes. in the future i will anonymalize all the name.
 
 ## Future Enhancements
 
-    AI agent : developping a chatbot that for quick searching and user friendly conversation
-
-    Longitudinal Trends: Integration of multi-year performance trend visualizations.
-
-    Sector Comparison: Comparative analysis between province ,
-
-    Geospatial Mapping: Integration of interactive maps for school location analysis.
-
-    Parental Portal: Custom views tailored specifically for parent-school matching.
+- AI agent : developping a chatbot that for quick searching and user friendly conversation
+- Geospatial Mapping: Integration of interactive maps for school location analysis.
+- Parental Portal: Custom views tailored specifically for parent-school matching.
 
 ## Author
 

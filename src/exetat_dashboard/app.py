@@ -17,17 +17,32 @@ app = dash.Dash(
     __name__,
     use_pages=True,
     suppress_callback_exceptions=True,
-    title="Exetat National Results Dashboard",
+    title="EXETAT — DRC National Education Intelligence",
 )
 server = app.server
 
 app.layout = html.Div(
     [
         dcc.Location(id="app-location"),
+        html.Div(className="gov-flag-bar"),
         html.Nav(
             [
                 html.Div(
-                    [html.Span("EX", className="nav-monogram"), html.Div([html.Strong("EXETAT"), html.Small("DRC Education Intelligence")])],
+                    [
+                        html.Div(
+                            [
+                                html.Span("EX", className="nav-monogram-text"),
+                                html.Span("★", className="nav-monogram-star"),
+                            ],
+                            className="nav-monogram",
+                        ),
+                        html.Div(
+                            [
+                                html.Strong("EXETAT INTELLIGENCE"),
+                                html.Small("République Démocratique du Congo · Éducation"),
+                            ]
+                        ),
+                    ],
                     className="nav-brand",
                 ),
                 html.Div(
@@ -38,11 +53,35 @@ app.layout = html.Div(
                     ],
                     className="nav-links",
                 ),
-                html.Div([html.Span(className="system-dot"), "SYSTEM ONLINE"], className="system-status"),
+                html.Div(
+                    [
+                        html.Span(className="system-dot"),
+                        html.Span("SYSTÈME ANALYTIQUE EN LIGNE", className="system-status-text"),
+                    ],
+                    className="system-status",
+                ),
             ],
             className="navbar",
         ),
         html.Main(dash.page_container, className="page-content"),
+        html.Footer(
+            [
+                html.Div(
+                    [
+                        html.P(
+                            "EXETAT National Education Intelligence — Plateforme d'analyse et de visualisation des résultats éducatifs en RDC.",
+                            className="footer-text",
+                        ),
+                        html.P(
+                            "Données compilées à partir des archives publiques des examens d'État. Plateforme indépendante d'aide à la décision pour encadreurs, parents et chercheurs.",
+                            className="footer-disclaimer",
+                        ),
+                    ],
+                    className="footer-content",
+                ),
+            ],
+            className="app-footer",
+        ),
     ],
     className="app-shell",
 )

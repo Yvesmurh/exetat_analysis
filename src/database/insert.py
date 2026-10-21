@@ -149,7 +149,7 @@ def insert_provinces(cursor, province_set: set) -> Dict[str, int]:
     Returns:
         Dict[str, int]: Mapping of province name to ID.
     """
-    return insert_and_map(cursor, "educational_provinces", "name", province_set)
+    return insert_and_map(cursor, "educational_province", "name", province_set)
 
 
 

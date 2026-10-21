@@ -2,7 +2,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 from dash import html
-from exetat_dashboard.config import COLORS
+from exetat_dashboard.config import COLORS, FONT_FAMILY
 from exetat_dashboard.figures.overview_cards import (
     _kpi_card, _fmt_int, _ICON_SCHOOL, _ICON_USERS, _ICON_CHECK, _ICON_TARGET,
 )
@@ -91,8 +91,8 @@ def _base_figure():
     fig.update_layout(
         autosize=True, height=310, margin=dict(l=55, r=25, t=20, b=45),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Manrope, sans-serif", size=11, color=COLORS["text"]),
-        hoverlabel=dict(bgcolor=COLORS["card_bg"], bordercolor=COLORS["primary"], font=dict(color=COLORS["text"])),
+        font=dict(family=FONT_FAMILY, size=12, color=COLORS["text"]),
+        hoverlabel=dict(bgcolor="#FFFFFF", bordercolor=COLORS["primary"], font=dict(color=COLORS["text"], size=13, family=FONT_FAMILY)),
         showlegend=False,
     )
     return fig
@@ -102,7 +102,7 @@ def empty_figure(message=EMPTY_MESSAGE):
     fig = _base_figure()
     fig.update_layout(xaxis=dict(visible=False), yaxis=dict(visible=False),
                       annotations=[dict(text=message, x=.5, y=.5, xref="paper", yref="paper",
-                                        showarrow=False, font=dict(color=COLORS["muted"], size=12))])
+                                        showarrow=False, font=dict(color=COLORS["muted"], size=13, family=FONT_FAMILY))])
     return fig
 
 
@@ -114,15 +114,17 @@ def build_scope_trend(df):
     fig.add_trace(go.Scatter(
         x=TREND_YEARS, y=[None if pd.isna(v) else float(v) for v in series],
         mode="lines+markers", connectgaps=False,
-        line=dict(color=COLORS["primary_dark"], width=3),
-        marker=dict(size=7, color=COLORS["primary_dark"]),
+        line=dict(color=COLORS["primary"], width=3),
+        marker=dict(size=7, color=COLORS["primary"], line=dict(color="#FFFFFF", width=1.5)),
         hovertemplate="Year %{x}<br>Success rate: %{y:.2f}%<extra></extra>",
     ))
     fig.update_layout(
-        xaxis=dict(title="Year", dtick=1, range=[2014.75, 2023.25], showgrid=False,
-                   tickfont=dict(color=COLORS["muted"])),
-        yaxis=dict(title="Success Rate (%)", ticksuffix="%", rangemode="tozero",
-                   gridcolor=COLORS["border"], zeroline=False, tickfont=dict(color=COLORS["muted"])),
+        xaxis=dict(title=dict(text="Year", font=dict(color=COLORS["text"], size=12, family=FONT_FAMILY)),
+                   dtick=1, range=[2014.75, 2023.25], showgrid=False, linecolor="#E2E8F0",
+                   tickfont=dict(color=COLORS["text_secondary"], size=11, family=FONT_FAMILY)),
+        yaxis=dict(title=dict(text="Success Rate (%)", font=dict(color=COLORS["text"], size=12, family=FONT_FAMILY)),
+                   ticksuffix="%", rangemode="tozero",
+                   gridcolor="#F1F5F9", zeroline=False, tickfont=dict(color=COLORS["text_secondary"], size=11, family=FONT_FAMILY)),
         hovermode="x unified",
     )
     return fig
@@ -136,14 +138,17 @@ def build_range_distribution(df, school=False):
     fig = _base_figure()
     fig.add_trace(go.Bar(
         y=BAND_LABELS, x=[int(v) for v in counts], orientation="h",
-        marker_color=[COLORS["primary_dark"], COLORS["primary"], "#0284C7", "#075985", "#FFC857", COLORS["danger"]],
+        marker_color=["#007FFF", "#0284C7", "#38BDF8", "#071A33", "#F59E0B", "#CE1021"],
         text=[f"{int(v):,}" for v in counts], textposition="outside", cliponaxis=False,
+        textfont=dict(family=FONT_FAMILY, size=11, color=COLORS["text"]),
         hovertemplate=f"%{{y}}<br>%{{x:,}} {unit}<extra></extra>",
     ))
     fig.update_layout(
         margin=dict(l=88, r=48, t=20, b=45), bargap=.35,
-        xaxis=dict(title=f"Number of {unit}", rangemode="tozero", gridcolor=COLORS["border"],
-                   tickformat=",d", range=[0, max(1, float(counts.max()) * 1.2)]),
-        yaxis=dict(autorange="reversed", showgrid=False),
+        xaxis=dict(title=dict(text=f"Number of {unit}", font=dict(color=COLORS["text"], size=12, family=FONT_FAMILY)),
+                   rangemode="tozero", gridcolor="#F1F5F9", linecolor="#E2E8F0",
+                   tickformat=",d", range=[0, max(1, float(counts.max()) * 1.2)],
+                   tickfont=dict(color=COLORS["text_secondary"], size=11, family=FONT_FAMILY)),
+        yaxis=dict(autorange="reversed", showgrid=False, tickfont=dict(color=COLORS["text"], size=11.5, family=FONT_FAMILY)),
     )
     return fig

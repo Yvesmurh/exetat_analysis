@@ -6,12 +6,11 @@ Components for the top of the home page:
 
 from dash import html
 
-# Minimal inline icon set (stroke-based, currentColor) — avoids pulling in an
-# external icon font/library just for four glyphs.
-_ICON_SCHOOL = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/></svg>")
-_ICON_USERS = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>")
-_ICON_CHECK = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><path d='m22 4-10 10-3-3'/></svg>")
-_ICON_TARGET = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>")
+# Minimal inline icon set with government blue strokes
+_ICON_SCHOOL = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/></svg>", alt="School icon")
+_ICON_USERS = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>", alt="Users icon")
+_ICON_CHECK = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><path d='m22 4-10 10-3-3'/></svg>", alt="Check icon")
+_ICON_TARGET = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>", alt="Target icon")
 
 # How many student rows show before the "Show all" toggle is needed —
 # mirrors ranking.py's preview cap for the province ranking card.
@@ -42,7 +41,7 @@ def _delta_badge(delta):
 
     arrow = "▲" if delta > 0 else ("▼" if delta < 0 else "▬")
     css_class = "delta-up" if delta > 0 else ("delta-down" if delta < 0 else "delta-neutral")
-    return html.Span(f"{arrow} {abs(delta):.2f} pts vs 2022".replace("2022", "previous year"), className=f"delta-badge {css_class}")
+    return html.Span(f"{arrow} {abs(delta):.2f} pts vs previous year", className=f"delta-badge {css_class}")
 
 
 def _kpi_card(label: str, value: str, icon=None, extra=None):
@@ -77,7 +76,7 @@ def _overview_trend(overview: dict) -> html.Div:
                 [
                     html.Span("vs previous year", className="overview-trend-label"),
                     html.Span(
-                        f"{arrow} {abs(float(delta)):.2f}%",
+                        f"{arrow} {abs(float(delta)):.2f} pts",
                         className=f"overview-trend-delta {delta_class}",
                     ),
                 ],

@@ -50,7 +50,9 @@ def create_database():
             """
             CREATE TABLE IF NOT EXISTS educational_province (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL UNIQUE, 
+                name VARCHAR(255) NOT NULL UNIQUE,
+                province_before_id INT,
+                province_after_id INT, 
                 FOREIGN KEY (province_before_id) REFERENCES pr_before_reform11(id),
                 FOREIGN KEY (province_after_id) REFERENCES pr_after_reform26(id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -77,7 +79,7 @@ def create_database():
                 province_id INT NOT NULL,
                 INDEX school_name (school_name),
                 INDEX idx_province (province_id),
-                FOREIGN KEY (province_id) REFERENCES educational_provinces(id)
+                FOREIGN KEY (province_id) REFERENCES educational_province(id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
             """
         )

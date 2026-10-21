@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: exetat-analysis
+Version: 0.1.0
+Summary: Exetat performance Analysis
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.116.2
+Requires-Dist: uvicorn>=0.35.0
+Requires-Dist: pdfplumber==0.11.7
+Requires-Dist: pandas>=2.2
+Requires-Dist: mysql-connector-python>=9.0
+Requires-Dist: requests>=2.34.2
+Requires-Dist: dash[cloud]>=2.17
+Requires-Dist: plotly>=5.22
+Requires-Dist: python-dotenv>=1.0
+Requires-Dist: geopandas>=1.1.4
+Requires-Dist: matplotlib>=3.11.1
+Requires-Dist: d>=0.2.2
+Requires-Dist: shapely>=2.1.2

@@ -9,7 +9,10 @@ import sys
 from pathlib import Path
 
 import pytest
-import sqlglot
+try:
+    import sqlglot
+except ImportError:
+    sqlglot = None
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from exetat_dashboard.queries import helpers
@@ -32,7 +35,8 @@ class Cursor:
 
     def execute(self, query, params=()):
         assert query.count('%s') == len(params), (query, params)
-        sqlglot.parse_one(query.replace('%s', '?'), read='mysql')
+        if sqlglot is not None:
+            sqlglot.parse_one(query.replace('%s', '?'), read='mysql')
         self.statements.append((query, tuple(params)))
         self.raw.execute(query.replace('%s', '?'), params)
         return self
