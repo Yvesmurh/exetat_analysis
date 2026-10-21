@@ -39,7 +39,7 @@ The project's goal is to promote transparency in the DRC's education system by m
 - **Trend analysis:** Examines province performance across years and filters results by year and educational option.
 
 ## Project Structure
-
+![Project workflow visual](src/image/image.png)
 ```text
 Exetat/
 ├── database/
@@ -67,7 +67,6 @@ Exetat/
     └── downloader.py         # Palmarès PDF link discovery and download
 ```
 
-![Project workflow visual](src/image/image.png)
 
 ## Technologies
 
