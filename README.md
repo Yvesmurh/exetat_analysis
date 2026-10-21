@@ -10,9 +10,9 @@ EXETAT-analysis is an end-to-end data intelligence platform designed to improve 
 
 The project's goal is to promote transparency in the DRC's education system by making **EXETAT results** more accessible, structured, and easier to analyze for education stakeholders, researchers, and other interested users.
 
-> **Project status:** The archive contains the application code, but does not include a complete setup manifest or all source data. Installation and database configuration may require adjustment for your environment.
+![Exetat Analysis Dashboard](src/image/dashboard.png)
 
-## Table of Contents
+> **Project status:** This project is under active development. Some data files and environment-specific configurations are not included in the repository, so additional setup may be required to reproduce the complete pipeline.Table of Contents
 
 - [Features](#features)
 - [Project Structure](#project-structure)
@@ -67,7 +67,7 @@ Exetat/
     └── downloader.py         # Palmarès PDF link discovery and download
 ```
 
-![Project workflow visual](src/image/image.png.png)
+![Project workflow visual](src/image/image.png)
 
 ## Technologies
 
@@ -154,7 +154,7 @@ uv run python --version
 To run a Python script, use:
 
 ```bash
-uv run python src/main.py
+uv run python src/my_script.py
 ```
 
 Replace `your_script.py` with the actual script you want to execute.
@@ -192,6 +192,8 @@ $env:MYSQL_DATABASE = "Big_db"
 
 Make sure MySQL is running and the configured database and required tables exist. The database creation and insertion scripts are under `database/`
 
+![Database Diagram](src/database/my_schema.png)
+
 ## Execution / Usage
 
 Commands below assume your terminal is in the extracted `Exetat_analysis` directory.
@@ -207,7 +209,7 @@ Once you get the Pdf_files you can get to the next section :
 The PDF-processing entry point is:
 
 ```bash
-python -m pdf_parsing.main
+uv run python -m pdf_parsing.main
 ```
 
 Review `pdf_parsing/main.py` before running: it currently points to an expected input directory under `pdf_parsing/test_pdf/style_3/large_pdf` and writes JSON files under `pdf_parsing/json/style_3`. Create or update these directories and place your source PDFs in the configured input folder.
@@ -217,7 +219,7 @@ Review `pdf_parsing/main.py` before running: it currently points to an expected 
 The database loading script is:
 
 ```bash
-python -m database.main
+uv run python -m database.main
 ```
 
 Before running, update the data directory in `database/main.py` to the location of your paired `*_schools_data.json` and `*_students_data.json` files. The current source contains a machine-specific absolute path, so it will not work on another computer without configuration changes. Ensure your database schema and credentials are correct before loading data.
@@ -227,24 +229,22 @@ Before running, update the data directory in `database/main.py` to the location 
 The dashboard uses package imports such as `exetat_dashboard.*`. Run it from the project directory so Python can resolve those imports:
 
 ```bash
-python -m exetat_dashboard.app
+uv run python -m exetat_dashboard.app
 ```
 
 Open the local URL printed by Dash in your terminal. The dashboard code includes Overview, Provinces, and Schools pages. A working MySQL connection and populated database are needed for meaningful results.
-
-![Exetat Analysis Dashboard](src/image/dashboard.png.png)
 
 ## Data and privacy
 
 for this project i have used public available data . it contain people's names , please only use for research purposes. in the future i will anonymalize all the name.
 
+## Author
+
 ## Future Enhancements
 
-- AI agent : developping a chatbot that for quick searching and user friendly conversation
-- Geospatial Mapping: Integration of interactive maps for school location analysis.
-- Parental Portal: Custom views tailored specifically for parent-school matching.
-
-## Author
+- **Conversational AI assistant:** Develop a chatbot that allows users to explore examination statistics and retrieve insights through natural-language questions.
+- **Geospatial analysis:** Extend geographic visualizations to support school-location analysis and regional comparisons.
+- **Parent-oriented insights:** Explore privacy-conscious features that help parents understand school performance and make informed educational decisions.
 
 Yves Murhabazi
 
