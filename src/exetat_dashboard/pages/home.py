@@ -4,7 +4,7 @@ Home page — Exetat National Results Dashboard.
 Sections: global filters (year / province / educational option), national
 overview KPI cards, top performing students per option, province
 performance trend, DRC province choropleth map + dynamic legend, success
-rate distribution, and province ranking (top 5 with a "show all" toggle).
+rate distribution, and scrollable province ranking.
 
 Layout follows a 3-column dashboard grid (see assets/style.css
 `.dashboard-grid`):
@@ -16,7 +16,7 @@ Layout follows a 3-column dashboard grid (see assets/style.css
 
 import dash
 import pandas as pd
-from dash import Input, Output, State, dcc, html
+from dash import Input, Output, dcc, html
 
 from exetat_dashboard.config import (
     AVAILABLE_YEARS,
@@ -29,11 +29,20 @@ from exetat_dashboard.config import (
 )
 from exetat_dashboard.figures.distribution import build_distribution_figure
 from exetat_dashboard.figures.map import create_choropleth
-from exetat_dashboard.figures.overview_cards import build_overview_cards, build_top_students_table, top_students_toggle_label
-from exetat_dashboard.figures.ranking import build_ranking_table, toggle_button_label
+from exetat_dashboard.figures.overview_cards import (
+    build_overview_cards,
+    build_top_students_table,
+)
+from exetat_dashboard.figures.ranking import build_ranking_table
 from exetat_dashboard.figures.trend import build_trend_cards
-from exetat_dashboard.queries.overview import get_national_overview, get_top_students_by_option
-from exetat_dashboard.queries.province import get_province_stats, get_student_percentage_distribution
+from exetat_dashboard.queries.overview import (
+    get_national_overview,
+    get_top_students_by_option,
+)
+from exetat_dashboard.queries.province import (
+    get_province_stats,
+    get_student_percentage_distribution,
+)
 from exetat_dashboard.queries.trends import get_province_trends
 
 dash.register_page(__name__, path="/", name="Home")
@@ -204,18 +213,7 @@ layout = html.Div(
                             "2",
                             "Top Performing Students",
                             "Best score per educational option",
-                            html.Div(
-                                [
-                                    html.Div(id="top-students-container"),
-                                    html.Button(
-                                        "Show all students ▾",
-                                        id="students-toggle-btn",
-                                        n_clicks=0,
-                                        className="ranking-toggle-btn",
-                                    ),
-                                ],
-                                style={"display": "flex", "flexDirection": "column"},
-                            ),
+                            html.Div(id="top-students-container"),
                         ),
                     ],
                     className="area-left",
@@ -251,18 +249,7 @@ layout = html.Div(
                             "5",
                             "Province Ranking",
                             "By Success Rate",
-                            html.Div(
-                                [
-                                    html.Div(id="ranking-table-container"),
-                                    html.Button(
-                                        "Show all provinces ▾",
-                                        id="ranking-toggle-btn",
-                                        n_clicks=0,
-                                        className="ranking-toggle-btn",
-                                    ),
-                                ],
-                                style={"display": "flex", "flexDirection": "column"},
-                            ),
+                            html.Div(id="ranking-table-container"),
                         ),
                         _card(
                             "6",
@@ -289,8 +276,6 @@ layout = html.Div(
         ),
 
         dcc.Store(id="province-stats-store"),
-        dcc.Store(id="ranking-show-all-store", data=False),
-        dcc.Store(id="students-show-all-store", data=False),
     ],
     className="home-page",
 )
@@ -342,33 +327,17 @@ def _render_overview_cards(year, province, option, _n_clicks):
 
 
 @dash.callback(
-    Output("students-show-all-store", "data"),
-    Input("students-toggle-btn", "n_clicks"),
-    State("students-show-all-store", "data"),
-    prevent_initial_call=True,
-)
-def _toggle_students(n_clicks, show_all):
-    return not show_all
-
-
-@dash.callback(
     Output("top-students-container", "children"),
-    Output("students-toggle-btn", "children"),
-    Output("students-toggle-btn", "style"),
     Input("year-dropdown", "value"),
     Input("province-dropdown", "value"),
     Input("option-dropdown", "value"),
     Input("apply-filters-btn", "n_clicks"),
-    Input("students-show-all-store", "data"),
 )
-def _render_top_students(year, province, option, _n_clicks, show_all):
+def _render_top_students(year, province, option, _n_clicks):
     if year is None:
-        return build_top_students_table(pd.DataFrame()), "", {"display": "none"}
+        return build_top_students_table(pd.DataFrame())
     df = get_top_students_by_option(year, option, _clean(province, ALL_PROVINCES_LABEL))
-    table = build_top_students_table(df, show_all=show_all)
-    label = top_students_toggle_label(len(df), show_all)
-    style = {"display": "inline-block"} if label else {"display": "none"}
-    return table, label, style
+    return build_top_students_table(df)
 
 
 @dash.callback(
@@ -432,25 +401,9 @@ def _render_distribution(year, option, _n_clicks):
 
 
 @dash.callback(
-    Output("ranking-show-all-store", "data"),
-    Input("ranking-toggle-btn", "n_clicks"),
-    State("ranking-show-all-store", "data"),
-    prevent_initial_call=True,
-)
-def _toggle_ranking(n_clicks, show_all):
-    return not show_all
-
-
-@dash.callback(
     Output("ranking-table-container", "children"),
-    Output("ranking-toggle-btn", "children"),
-    Output("ranking-toggle-btn", "style"),
     Input("province-stats-store", "data"),
-    Input("ranking-show-all-store", "data"),
 )
-def _render_ranking(records, show_all):
+def _render_ranking(records):
     df = pd.DataFrame(records) if records else pd.DataFrame()
-    table = build_ranking_table(df, show_all=show_all)
-    label = toggle_button_label(len(df), show_all)
-    style = {"display": "inline-block"} if label else {"display": "none"}
-    return table, label, style
+    return build_ranking_table(df)

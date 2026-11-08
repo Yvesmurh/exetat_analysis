@@ -49,8 +49,8 @@
 
   /* Text & Contrast — WCAG AAA Compliant */
   --text-main: #071A33;
-  --text-secondary: #334155;
-  --text-muted: #475569;
+  --text-secondary: #29384A;
+  --text-muted: #3B4A5E;
   --text-subtle: #64748B;
 
   /* Borders & Dividers */
@@ -351,8 +351,8 @@ textarea {
   margin: 5px 0 0;
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 450;
+  font-size: 13.5px;
+  font-weight: 500;
   line-height: 1.45;
 }
 
@@ -438,7 +438,7 @@ textarea {
 .Select-input > input {
   color: var(--text-main) !important;
   font-family: var(--font-sans) !important;
-  font-size: 13px !important;
+  font-size: 13.5px !important;
   font-weight: 600 !important;
 }
 
@@ -471,7 +471,7 @@ textarea {
   color: var(--text-main);
   background: #FFFFFF;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   padding: 9px 12px;
 }
@@ -544,6 +544,8 @@ textarea {
 
 .area-map {
   grid-area: map;
+  display: flex;
+  align-self: stretch;
   min-width: 0;
 }
 
@@ -571,7 +573,7 @@ textarea {
 }
 
 .dash-card--map {
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -835,6 +837,33 @@ textarea {
 .row-list--scrollable {
   max-height: 440px;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+  scrollbar-color: #94A3B8 #F1F5F9;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.student-list-scrollable {
+  max-height: 300px;
+}
+
+.row-list--scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+.row-list--scrollable::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+.row-list--scrollable::-webkit-scrollbar-thumb {
+  border: 2px solid #F1F5F9;
+  border-radius: 999px;
+  background: #94A3B8;
+}
+
+.row-list--scrollable::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
 }
 
 .student-row {
@@ -1032,8 +1061,8 @@ textarea {
 .map-row {
   display: flex;
   flex-direction: column;
+  flex: 1;
   min-height: 580px;
-  height: 100%;
 }
 
 .map-graph {

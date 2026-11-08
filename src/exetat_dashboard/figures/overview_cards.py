@@ -12,11 +12,6 @@ _ICON_USERS = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.or
 _ICON_CHECK = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><path d='m22 4-10 10-3-3'/></svg>", alt="Check icon")
 _ICON_TARGET = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>", alt="Target icon")
 
-# How many student rows show before the "Show all" toggle is needed —
-# mirrors ranking.py's preview cap for the province ranking card.
-TOP_STUDENTS_PREVIEW_COUNT = 7
-
-
 def _fmt_int(value) -> str:
     try:
         return f"{int(value):,}".replace(",", " ")
@@ -142,34 +137,16 @@ def _initials(name: str) -> str:
 _MEDALS = ["🥇", "🥈", "🥉"]
 
 
-def top_students_toggle_label(total_rows: int, show_all: bool, preview_count: int = TOP_STUDENTS_PREVIEW_COUNT) -> str | None:
-    """Text for the show-more/show-less button, or None when there's
-    nothing to hide (fewer rows than the preview cap) — the caller should
-    hide the button entirely in that case, same convention as
-    ranking.toggle_button_label()."""
-    if total_rows <= preview_count:
-        return None
-    return "Show top students only ▴" if show_all else f"Show all {total_rows} students ▾"
-
-
-def build_top_students_table(df, show_all: bool = False, preview_count: int = TOP_STUDENTS_PREVIEW_COUNT) -> html.Div:
+def build_top_students_table(df) -> html.Div:
     """df: pandas.DataFrame from queries.overview.get_top_students_by_option()
     — one row per educational option (the option's top scorer this year).
-    Rendered as compact ranked rows rather than a grid table so it fits the
-    dashboard card alongside its rank badges and score deltas.
-
-    By default only the first `preview_count` rows are shown; pass
-    show_all=True (wired to a "Show all" toggle button in home.py, the
-    same pattern used for the province ranking card) to render every row
-    so the user can scroll through the full list instead of it growing
-    the card indefinitely."""
+    Rendered as compact ranked rows in a scrollable list so the full results
+    fit within the dashboard card alongside their rank badges and score deltas."""
     if df is None or df.empty:
         return html.Div("No student results available for this selection.", className="empty-state")
 
-    visible_df = df if show_all else df.head(preview_count)
-
     rows = []
-    for i, (_, row) in enumerate(visible_df.iterrows()):
+    for i, (_, row) in enumerate(df.iterrows()):
         name = row.get("top_student_current") or "—"
         option = row.get("option_name") or "—"
         pct = row.get("top_percentage_current")
@@ -182,9 +159,6 @@ def build_top_students_table(df, show_all: bool = False, preview_count: int = TO
             cls = "delta-up" if pts_change > 0 else ("delta-down" if pts_change < 0 else "delta-neutral")
             change_el = html.Span(f"{arrow} {pts_change:+.2f} pts", className=f"student-change {cls}")
 
-        # Medal/rank reflects this student's position in the FULL ranked
-        # list (df), not their position within the possibly-sliced
-        # visible_df, so ranks stay stable when the list is expanded.
         rank_marker = html.Span(_MEDALS[i], className="student-medal") if i < len(_MEDALS) else html.Span(
             f"{i + 1}", className="student-medal"
         )
@@ -213,5 +187,4 @@ def build_top_students_table(df, show_all: bool = False, preview_count: int = TO
             )
         )
 
-    container_class = "row-list row-list--scrollable" if show_all and len(visible_df) > preview_count else "row-list"
-    return html.Div(rows, className=container_class)
+    return html.Div(rows, className="row-list row-list--scrollable student-list-scrollable")

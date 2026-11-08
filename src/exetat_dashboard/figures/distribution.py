@@ -33,7 +33,7 @@ def build_distribution_figure(df) -> go.Figure:
             hole=0.64,
             marker=dict(colors=colors, line=dict(color="#FFFFFF", width=2.5)),
             textinfo="percent",
-            textfont=dict(color="#FFFFFF", size=11, family=FONT_FAMILY),
+            textfont=dict(color="#FFFFFF", size=12, family=FONT_FAMILY),
             hovertemplate="<b>%{label}</b><br>%{value:,} élèves (%{percent})<extra></extra>",
         )
     )
@@ -49,15 +49,15 @@ def build_distribution_figure(df) -> go.Figure:
             y=0.5,
             xanchor="left",
             x=1.02,
-            font=dict(size=11, family=FONT_FAMILY, color=COLORS["text_secondary"]),
+            font=dict(size=12, family=FONT_FAMILY, color=COLORS["text_secondary"]),
             bgcolor="rgba(0,0,0,0)",
         ),
         font=dict(family=FONT_FAMILY, color=COLORS["text"]),
         hoverlabel=dict(bgcolor="#FFFFFF", bordercolor=COLORS["primary"], font=dict(color=COLORS["text"], size=13, family=FONT_FAMILY)),
         annotations=[
             dict(
-                text=f"<b>{total:,}</b><br><span style='font-size:11px;color:{COLORS['muted']};font-weight:700;letter-spacing:0.06em;'>ÉLÈVES</span>",
-                x=0.5, y=0.5, showarrow=False, font=dict(size=24, color=COLORS["text"], family=FONT_FAMILY),
+                text=f"<b>{total:,}</b><br><span style='font-size:12px;color:{COLORS['muted']};font-weight:700;letter-spacing:0.06em;'>ÉLÈVES</span>",
+                x=0.5, y=0.5, showarrow=False, font=dict(size=25, color=COLORS["text"], family=FONT_FAMILY),
             )
         ],
     )

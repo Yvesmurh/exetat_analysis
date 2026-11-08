@@ -57,8 +57,8 @@ COLORS = {
     "danger": "#CE1021",          # Red
     "warning": "#F59E0B",         # Amber
     "text": "#071A33",            # Deep navy text (high contrast)
-    "text_secondary": "#334155",  # Slate-700 (high contrast WCAG AAA)
-    "muted": "#475569",           # Slate-600 (strong legible contrast)
+    "text_secondary": "#29384A",  # Deep slate for strong secondary-text contrast
+    "muted": "#3B4A5E",           # Muted text with clear contrast on light surfaces
     "bg": "#F3F6FA",              # Light executive background
     "card_bg": "#FFFFFF",         # Pure white cards
     "border": "#E2E8F0",          # Crisp light border

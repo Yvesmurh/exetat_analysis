@@ -267,11 +267,11 @@ def create_choropleth(
             marker_line_color=line_colors,
             marker_line_width=line_widths,
             colorbar=dict(
-                title=dict(text=colorbar_title or value_col, font=dict(color=COLORS["text"], size=11.5, family=FONT_FAMILY)),
+                title=dict(text=colorbar_title or value_col, font=dict(color=COLORS["text"], size=12, family=FONT_FAMILY)),
                 thickness=12,
                 len=0.65,
                 x=0.98,
-                tickfont=dict(color=COLORS["text_secondary"], size=10.5, family=FONT_FAMILY),
+                tickfont=dict(color=COLORS["text_secondary"], size=11.5, family=FONT_FAMILY),
                 outlinewidth=1,
                 outlinecolor="#E2E8F0",
                 bgcolor="rgba(255, 255, 255, 0.9)",

@@ -1,12 +1,7 @@
-"""
-Province ranking (highest success rate first). Home page shows the top 5 by
-default with a toggle to reveal the rest. Rendered as compact rows with a
-progress bar rather than a grid table, per the dashboard's card design.
-"""
+"""Province ranking (highest success rate first), rendered as compact,
+scrollable rows with a progress bar per province."""
 
 from dash import html
-
-TOP_N = 5
 
 
 def _delta_text(delta):
@@ -51,17 +46,12 @@ def _row(rank: int, province: str, success_rate: float, delta, max_rate: float) 
     )
 
 
-def build_ranking_table(df, show_all: bool = False) -> html.Div:
+def build_ranking_table(df) -> html.Div:
     """df: pandas.DataFrame from queries.province.get_province_stats(), already
-    sorted with a `rank` column (1 = highest success rate).
-
-    Returns just the rows (the show-all toggle button is a static element
-    owned by pages/home.py — its n_clicks state must survive re-renders of
-    this list, so it lives outside the container this function returns)."""
+    sorted with a `rank` column (1 = highest success rate)."""
     if df is None or df.empty:
         return html.Div("No province data available for this selection.", className="empty-state")
 
-    visible_df = df if show_all else df.head(TOP_N)
     max_rate = float(df["success_rate"].max()) if not df.empty else 0.0
 
     rows = [
@@ -72,13 +62,7 @@ def build_ranking_table(df, show_all: bool = False) -> html.Div:
             delta=_delta_text(row.get("delta_vs_prev_year")),
             max_rate=max_rate,
         )
-        for _, row in visible_df.iterrows()
+        for _, row in df.iterrows()
     ]
 
-    return html.Div(rows, className="row-list")
-
-
-def toggle_button_label(total_provinces: int, show_all: bool) -> str:
-    if total_provinces <= TOP_N:
-        return ""
-    return "Show top 5 only ▴" if show_all else f"Show all {total_provinces} provinces ▾"
+    return html.Div(rows, className="row-list row-list--scrollable")
