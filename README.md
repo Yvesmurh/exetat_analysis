@@ -10,7 +10,9 @@ EXETAT-analysis is an end-to-end data intelligence platform designed to improve 
 
 The project's goal is to promote transparency in the DRC's education system by making **EXETAT results** more accessible, structured, and easier to analyze for education stakeholders, researchers, and other interested users.
 
-![Exetat Analysis Dashboard](src/image/dashboard.png)
+![Exetat Analysis Dashboard](src/image/image1.png)
+![Exetat Analysis Dashboard](src/image/image2.png)
+
 
 > **Project status:** This project is under active development. Some data files and environment-specific configurations are not included in the repository, so additional setup may be required to reproduce the complete pipeline.Table of Contents
 
