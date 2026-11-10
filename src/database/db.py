@@ -1,29 +1,22 @@
 import os
+import mysql.connector
+from dotenv import load_dotenv
 
-try:
-    import mysql.connector
-except ImportError:  # pragma: no cover - optional dependency guard
-    mysql = None
-else:
-    mysql = mysql.connector
-
-DB_HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
-DB_USER = os.getenv("MYSQL_USER", "root")
-DB_PASS = os.getenv("MYSQL_PASSWORD", "***REMOVED***")
-DB_NAME = os.getenv("MYSQL_DATABASE", "Big_db")
-
+load_dotenv()
 
 def get_connection():
-    if mysql is None:
-        raise RuntimeError("mysql-connector-python is not installed")
-    return mysql.connect(
-        host=DB_HOST,
-        user=DB_USER,
-        password=DB_PASS,
-        database=DB_NAME,
-        charset="utf8mb4",
+    required_vars = ["DB_HOST", "DB_USER", "DB_PASSWORD", "DB_NAME"]
+
+    missing = [var for var in required_vars if not os.getenv(var)]
+
+    if missing:
+        raise EnvironmentError(
+            f"Missing database environment variables: {', '.join(missing)}"
+        )
+
+    return mysql.connector.connect(
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
-
-    
-
-
