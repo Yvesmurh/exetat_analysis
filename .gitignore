@@ -6,6 +6,8 @@
 .zprofile
 .gitconfig
 .ripgreprc
+*.zip
+
 
 # IDE and local tools
 .claude/
@@ -23,3 +25,16 @@ __pycache__/
 !.env.example
 
 /replacements.txt
+
+# Python build and packaging artifacts
+*.egg-info/
+build/
+dist/
+
+# Testing and linting
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+scp /home/yves-s-computer/Documents/sauti-irmwe-prototype.html aigle@192.227.214.150:/custom_pages/my_page.html

@@ -76,10 +76,10 @@ MAP_COLORSCALE = [
 # Buckets for the "Success Rate by Range" donut
 SUCCESS_RATE_BUCKETS = [
     {"label": "Excellent (≥ 0.31)", "min": 0.31, "max": 1.01, "color": "#007FFF"},
-    {"label": "Good (0.27 – 0.31)", "min": 0.27, "max": 0.31, "color": "#0284C7"},
-    {"label": "Average (0.23 – 0.27)", "min": 0.23, "max": 0.27, "color": "#38BDF8"},
-    {"label": "Low (0.19 – 0.23)", "min": 0.19, "max": 0.23, "color": "#F59E0B"},
-    {"label": "Very Low (≤ 0.19)", "min": 0.0, "max": 0.19, "color": "#CE1021"},
+    {"label": "Bon (0.27 – 0.31)", "min": 0.27, "max": 0.31, "color": "#0284C7"},
+    {"label": "Moyen (0.23 – 0.27)", "min": 0.23, "max": 0.27, "color": "#38BDF8"},
+    {"label": "Faible (0.19 – 0.23)", "min": 0.19, "max": 0.23, "color": "#F59E0B"},
+    {"label": "Très faible (≤ 0.19)", "min": 0.0, "max": 0.19, "color": "#CE1021"},
 ]
 
 STUDENT_PERCENTAGE_BUCKETS = [

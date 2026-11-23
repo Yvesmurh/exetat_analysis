@@ -324,8 +324,8 @@ if __name__ == "__main__":
         sample_df,
         location_col="province",
         value_col="pass_rate",
-        title="EXETAT Pass Rate by Province (sample data)",
-        colorbar_title="Pass rate (%)",
+        title="Taux de réussite EXETAT par province (données fictives)",
+        colorbar_title="Taux de réussite (%)",
     )
     test_fig.write_html(os.path.join(BASE_DIR, "map_smoke_test.html"))
     print("Smoke test OK -> map_smoke_test.html")

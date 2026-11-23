@@ -1,5 +1,0 @@
-database
-exetat_dashboard
-image
-pdf_parsing
-web-scraping

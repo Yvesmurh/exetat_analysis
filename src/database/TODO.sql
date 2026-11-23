@@ -202,10 +202,10 @@ Select SUM(participants) from exetat_entry where years = 2023;
 --What is the total number of successful students?
 Select SUM(reussites) FROM  exetat_entry where years = 2023;
 --trying to check if total student are total reussite 
- select Count(*) as total_student from students
+ select * from students
  join exam_results on exam_results.student_id = students.id 
  join exetat_entry on exetat_entry.id = exam_results.school_session_id
- where years = 2023 ;
+ where years = 2023 limit 5 ;
 --What is the national success rate?
 
 Select (SUM(reussites)/SUM(participants))*100 as Success_rate 

@@ -7,10 +7,10 @@ Components for the top of the home page:
 from dash import html
 
 # Minimal inline icon set with government blue strokes
-_ICON_SCHOOL = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/></svg>", alt="School icon")
-_ICON_USERS = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>", alt="Users icon")
-_ICON_CHECK = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><path d='m22 4-10 10-3-3'/></svg>", alt="Check icon")
-_ICON_TARGET = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>", alt="Target icon")
+_ICON_SCHOOL = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/></svg>", alt="Icône établissement")
+_ICON_USERS = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>", alt="Icône participants")
+_ICON_CHECK = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><path d='m22 4-10 10-3-3'/></svg>", alt="Icône réussite")
+_ICON_TARGET = html.Img(src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>", alt="Icône taux")
 
 def _fmt_int(value) -> str:
     try:
@@ -32,11 +32,11 @@ def _delta_badge(delta):
     """Small pill showing the YoY change, colored green/red/neutral. Uses an
     arrow glyph alongside color so the signal never relies on color alone."""
     if delta is None:
-        return html.Span("No prior-year data", className="delta-badge delta-neutral")
+        return html.Span("Aucune donnée de l'année précédente", className="delta-badge delta-neutral")
 
     arrow = "▲" if delta > 0 else ("▼" if delta < 0 else "▬")
     css_class = "delta-up" if delta > 0 else ("delta-down" if delta < 0 else "delta-neutral")
-    return html.Span(f"{arrow} {abs(delta):.2f} pts vs previous year", className=f"delta-badge {css_class}")
+    return html.Span(f"{arrow} {abs(delta):.2f} pts vs année précédente", className=f"delta-badge {css_class}")
 
 
 def _kpi_card(label: str, value: str, icon=None, extra=None):
@@ -55,13 +55,13 @@ def _overview_trend(overview: dict) -> html.Div:
     current = overview.get("success_rate")
     delta = overview.get("success_rate_delta_vs_prev_year")
     if current is None or delta is None:
-        return html.Div("No prior-year comparison available", className="overview-trend overview-trend--empty")
+        return html.Div("Aucune comparaison disponible avec l'année précédente", className="overview-trend overview-trend--empty")
 
     try:
         current_rate = float(current)
         previous_rate = current_rate - float(delta)
     except (TypeError, ValueError):
-        return html.Div("No prior-year comparison available", className="overview-trend overview-trend--empty")
+        return html.Div("Aucune comparaison disponible avec l'année précédente", className="overview-trend overview-trend--empty")
 
     delta_class = "delta-up" if delta > 0 else ("delta-down" if delta < 0 else "delta-neutral")
     arrow = "▲" if delta > 0 else ("▼" if delta < 0 else "▬")
@@ -69,7 +69,7 @@ def _overview_trend(overview: dict) -> html.Div:
         [
             html.Div(
                 [
-                    html.Span("vs previous year", className="overview-trend-label"),
+                    html.Span("vs année précédente", className="overview-trend-label"),
                     html.Span(
                         f"{arrow} {abs(float(delta)):.2f} pts",
                         className=f"overview-trend-delta {delta_class}",
@@ -82,7 +82,7 @@ def _overview_trend(overview: dict) -> html.Div:
                     html.Div(
                         [
                             html.Span(f"{previous_rate:.2f}%", className="overview-trend-value"),
-                            html.Span("previous", className="overview-trend-year"),
+                            html.Span("précédente", className="overview-trend-year"),
                         ],
                         className="overview-trend-point overview-trend-point--previous",
                     ),
@@ -90,7 +90,7 @@ def _overview_trend(overview: dict) -> html.Div:
                     html.Div(
                         [
                             html.Span(f"{current_rate:.2f}%", className="overview-trend-value"),
-                            html.Span("current", className="overview-trend-year"),
+                            html.Span("actuelle", className="overview-trend-year"),
                         ],
                         className="overview-trend-point overview-trend-point--current",
                     ),
@@ -107,15 +107,15 @@ def build_overview_cards(overview: dict) -> html.Div:
     overview = overview or {}
 
     if not overview or overview.get("total_participants") in (None, 0) and overview.get("total_schools") in (None, 0):
-        return html.Div("No overview data available for this selection.", className="empty-state")
+        return html.Div("Aucune donnée disponible pour cette sélection.", className="empty-state")
 
     return html.Div(
         [
-            _kpi_card("Total Schools", _fmt_int(overview.get("total_schools")), icon=_ICON_SCHOOL),
-            _kpi_card("Total Participants", _fmt_int(overview.get("total_participants")), icon=_ICON_USERS),
-            _kpi_card("Successful Students", _fmt_int(overview.get("total_successful")), icon=_ICON_CHECK),
+            _kpi_card("Établissements scolaires", _fmt_int(overview.get("total_schools")), icon=_ICON_SCHOOL),
+            _kpi_card("Total des participants", _fmt_int(overview.get("total_participants")), icon=_ICON_USERS),
+            _kpi_card("Élèves admis", _fmt_int(overview.get("total_successful")), icon=_ICON_CHECK),
             _kpi_card(
-                "National Success Rate",
+                "Taux de réussite national",
                 _fmt_pct(overview.get("success_rate")),
                 icon=_ICON_TARGET,
             ),
@@ -143,7 +143,7 @@ def build_top_students_table(df) -> html.Div:
     Rendered as compact ranked rows in a scrollable list so the full results
     fit within the dashboard card alongside their rank badges and score deltas."""
     if df is None or df.empty:
-        return html.Div("No student results available for this selection.", className="empty-state")
+        return html.Div("Aucun résultat disponible pour cette sélection.", className="empty-state")
 
     rows = []
     for i, (_, row) in enumerate(df.iterrows()):
@@ -153,7 +153,7 @@ def build_top_students_table(df) -> html.Div:
         pts_change = row.get("pts_change")
 
         if pts_change is None or pts_change != pts_change:
-            change_el = html.Span("No prior-year data", className="student-change delta-neutral")
+            change_el = html.Span("Aucune donnée de l'année précédente", className="student-change delta-neutral")
         else:
             arrow = "▲" if pts_change > 0 else ("▼" if pts_change < 0 else "▬")
             cls = "delta-up" if pts_change > 0 else ("delta-down" if pts_change < 0 else "delta-neutral")

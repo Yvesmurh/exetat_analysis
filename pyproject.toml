@@ -28,7 +28,7 @@ dev = [
     "ruff>=0.13.1"
 ]
 
-# in order to configuring the project i have to set the project's entry-point script 
+# in order to configuring the project i have to set the project's entry-point script
 # and this is it .
 [project.scripts]
 exetat-analysis = "exetat_dashboard.app:main"
@@ -46,4 +46,6 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
+
 exetat_dashboard = ["assets/*", "data/*"]
+

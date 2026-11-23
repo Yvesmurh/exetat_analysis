@@ -4,7 +4,7 @@ from exetat_dashboard.figures.analytics import empty_state, empty_figure, build_
 from exetat_dashboard.queries.helpers import QueryError
 
 logger = logging.getLogger(__name__)
-ERROR_MESSAGE = "Data is temporarily unavailable. Please try again."
+ERROR_MESSAGE = "Données temporairement indisponibles. Veuillez réessayer."
 
 
 def safe_render(loader, builder, figure=False):
@@ -12,10 +12,10 @@ def safe_render(loader, builder, figure=False):
     try:
         return builder(loader())
     except QueryError:
-        return empty_figure(ERROR_MESSAGE) if figure else empty_state(ERROR_MESSAGE)
+        return empty_figure(ERROR_MESSAGE) if figure else empty_state(ERROR_MESSAGE, title="temporarily unavailable")
     except Exception:
         logger.exception("Analytics component failed to render")
-        return empty_figure(ERROR_MESSAGE) if figure else empty_state(ERROR_MESSAGE)
+        return empty_figure(ERROR_MESSAGE) if figure else empty_state(ERROR_MESSAGE, title="temporarily unavailable")
 
 
 def next_paging_state(previous, selection, trigger, prefix):
@@ -43,8 +43,8 @@ def ranking_page(loader, previous, selection, trigger, prefix, valid, school=Fal
     state = next_paging_state(previous, selection, trigger, prefix)
     size = 50 if state["expanded"] else 10
     offset = state["page"] * size
-    unit = "students" if school else "schools"
-    label = "Show top 10 only" if state["expanded"] else f"Show all {unit}"
+    unit = "élèves" if school else "établissements"
+    label = "Afficher les 10 premiers uniquement" if state["expanded"] else f"Afficher tous les {unit}"
     hidden = {"display": "none"}
     if not valid:
         return empty_state(), label, hidden, hidden, True, True, "", state
@@ -60,9 +60,9 @@ def ranking_page(loader, previous, selection, trigger, prefix, valid, school=Fal
     except Exception as exc:
         if not isinstance(exc, QueryError):
             logger.exception("Analytics ranking failed")
-        return empty_state(ERROR_MESSAGE), label, hidden, hidden, True, True, "", state
+        return empty_state(ERROR_MESSAGE, title="temporarily unavailable"), label, hidden, hidden, True, True, "", state
     toggle_style = {} if state["expanded"] or state["has_next"] else hidden
     pager_style = {} if state["expanded"] and not visible.empty else hidden
-    status = f"Page {state['page'] + 1} · {offset + 1}–{offset + len(visible)} · up to 50 per page"
+    status = f"Page {state['page'] + 1} · {offset + 1}–{offset + len(visible)} · jusqu'à 50 par page"
     return (table, label, toggle_style, pager_style, state["page"] == 0,
             not state["has_next"], status, state)

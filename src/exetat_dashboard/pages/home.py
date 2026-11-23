@@ -45,16 +45,16 @@ from exetat_dashboard.queries.province import (
 )
 from exetat_dashboard.queries.trends import get_province_trends
 
-dash.register_page(__name__, path="/", name="Home")
+dash.register_page(__name__, path="/", name="Vue d'ensemble")
 
 ALL_PROVINCES_LABEL = "Toutes les provinces"
 TREND_YEARS = [2018, 2019, 2020, 2021, 2022, 2023]
 
 MAP_HOVER_COLS = ["schools", "participants", "delta_vs_prev_year"]
 MAP_HOVER_LABELS = {
-    "schools": "Schools",
+    "schools": "Établissements",
     "participants": "Participants",
-    "delta_vs_prev_year": "YoY change (pts)",
+    "delta_vs_prev_year": "Évolution / an (pts)",
 }
 
 
@@ -91,7 +91,7 @@ def _build_map_legend(df: pd.DataFrame, rate_col: str = "success_rate") -> html.
             html.Div(
                 [
                     html.Span(className="legend-swatch", style={"backgroundColor": bucket.get("color", "#ccc")}),
-                    html.Span(f"{bucket['label']}: {counts_by_label.get(bucket['label'], 0)} provinces"),
+                    html.Span(f"{bucket['label']} : {counts_by_label.get(bucket['label'], 0)} provinces"),
                 ],
                 className="legend-item",
             )
@@ -104,7 +104,7 @@ def _filters_row() -> html.Div:
         [
             html.Div(
                 [
-                    html.Label("Year", className="filter-label"),
+                    html.Label("Année", className="filter-label"),
                     dcc.Dropdown(
                         id="year-dropdown",
                         options=[{"label": str(y), "value": y} for y in AVAILABLE_YEARS],
@@ -129,7 +129,7 @@ def _filters_row() -> html.Div:
             ),
             html.Div(
                 [
-                    html.Label("Educational Option", className="filter-label"),
+                    html.Label("Option d'enseignement", className="filter-label"),
                     dcc.Dropdown(
                         id="option-dropdown",
                         options=[{"label": o, "value": o} for o in OPTIONS_LIST],
@@ -139,7 +139,7 @@ def _filters_row() -> html.Div:
                 ],
                 className="filter-item",
             ),
-            html.Button("Apply Filters", id="apply-filters-btn", n_clicks=0, className="apply-filters-btn"),
+            html.Button("Appliquer les filtres", id="apply-filters-btn", n_clicks=0, className="apply-filters-btn"),
         ],
         className="filters-row",
     )
@@ -153,7 +153,7 @@ def _header() -> html.Div:
             "<path d='M22 10 12 4 2 10l10 6 10-6Z'/><path d='M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5'/>"
             "<path d='M22 10v6'/></svg>"
         ),
-        alt="Education icon",
+        alt="Icône éducation",
     )
     return html.Div(
         [
@@ -162,9 +162,9 @@ def _header() -> html.Div:
                     html.Div(brand_icon, className="header-brand-icon"),
                     html.Div(
                         [
-                            html.Div("NATIONAL EDUCATION ANALYTICS", className="eyebrow"),
-                            html.H1("Exetat Performance Intelligence", className="page-title"),
-                            html.P("National examination outcomes, provincial signals and education performance", className="page-subtitle"),
+                            html.Div("ANALYSES DE L'ÉDUCATION NATIONALE", className="eyebrow"),
+                            html.H1("Performance & Analyses EXETAT", className="page-title"),
+                            html.P("Résultats des examens d'État, indicateurs provinciaux et performance éducative", className="page-subtitle"),
                         ],
                         className="header-titles",
                     ),
@@ -173,7 +173,7 @@ def _header() -> html.Div:
             ),
             html.Div(
                 [
-                    html.Div([html.Span("ACTIVE DATASET"), html.Strong(id="active-year-label")], className="active-dataset"),
+                    html.Div([html.Span("ANNÉE ACTIVE"), html.Strong(id="active-year-label")], className="active-dataset"),
                     _filters_row(),
                 ],
                 className="header-controls",
@@ -205,14 +205,14 @@ layout = html.Div(
                     [
                         _card(
                             "1",
-                            "National Overview",
-                            "Schools, participants & success rate",
+                            "Vue d'ensemble nationale",
+                            "Établissements, participants et taux de réussite",
                             html.Div(id="overview-cards"),
                         ),
                         _card(
                             "2",
-                            "Top Performing Students",
-                            "Best score per educational option",
+                            "Meilleurs lauréats par option",
+                            "Meilleur pourcentage par option d'enseignement",
                             html.Div(id="top-students-container"),
                         ),
                     ],
@@ -223,8 +223,8 @@ layout = html.Div(
                 html.Div(
                     _card(
                         "4",
-                        "Province Performance Map",
-                        "Success rate by province, vs. prior year",
+                        "Carte de performance des provinces",
+                        "Taux de réussite par province, comparé à l'année précédente",
                         html.Div(
                             [
                                 dcc.Graph(
@@ -247,14 +247,14 @@ layout = html.Div(
                     [
                         _card(
                             "5",
-                            "Province Ranking",
-                            "By Success Rate",
+                            "Classement des provinces",
+                            "Par taux de réussite",
                             html.Div(id="ranking-table-container"),
                         ),
                         _card(
                             "6",
-                            "Student Percentage by Range",
-                            "Students per percentage band",
+                            "Répartition des élèves par tranche",
+                            "Effectif d'élèves par tranche de pourcentage",
                             dcc.Graph(id="distribution-graph", config={"displayModeBar": False}),
                         ),
                     ],
@@ -265,8 +265,8 @@ layout = html.Div(
                 html.Div(
                     _card(
                         "3",
-                        "Province Performance Trend",
-                        "Success rate (%) by province — select a province to highlight it",
+                        "Évolution de la performance des provinces",
+                        "Taux de réussite (%) par province — sélectionnez une province pour la mettre en surbrillance",
                         html.Div(id="trend-cards-container"),
                     ),
                     className="area-trend",
@@ -379,7 +379,7 @@ def _render_map(records, province):
             hover_name_col="province",
             hover_cols=MAP_HOVER_COLS,
             hover_labels=MAP_HOVER_LABELS,
-            colorbar_title="Success rate (%)",
+            colorbar_title="Taux de réussite (%)",
             colorscale=MAP_COLORSCALE,
             selected_location=selected,
         )

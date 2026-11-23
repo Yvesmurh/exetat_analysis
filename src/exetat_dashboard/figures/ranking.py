@@ -15,7 +15,7 @@ def _row(rank: int, province: str, success_rate: float, delta, max_rate: float) 
     width_pct = 0 if max_rate <= 0 else min(100, round((success_rate / max_rate) * 100, 1))
 
     if delta is None:
-        change_el = html.Span("No prior-year data", className="delta-badge delta-neutral")
+        change_el = html.Span("Aucune donnée de l'année précédente", className="delta-badge delta-neutral")
     else:
         arrow = "▲" if delta > 0 else ("▼" if delta < 0 else "▬")
         cls = "delta-up" if delta > 0 else ("delta-down" if delta < 0 else "delta-neutral")
@@ -50,7 +50,7 @@ def build_ranking_table(df) -> html.Div:
     """df: pandas.DataFrame from queries.province.get_province_stats(), already
     sorted with a `rank` column (1 = highest success rate)."""
     if df is None or df.empty:
-        return html.Div("No province data available for this selection.", className="empty-state")
+        return html.Div("Aucune donnée provinciale disponible pour cette sélection.", className="empty-state")
 
     max_rate = float(df["success_rate"].max()) if not df.empty else 0.0
 

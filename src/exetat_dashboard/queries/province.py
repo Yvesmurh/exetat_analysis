@@ -126,10 +126,10 @@ def get_success_rate_distribution(year: int, option: str | None = None):
         SELECT
             CASE
                 WHEN success_rate >= 0.31 THEN 'Excellent (≥ 0.31)'
-                WHEN success_rate >= 0.27 THEN 'Good (0.27 – 0.31)'
-                WHEN success_rate >= 0.23 THEN 'Average (0.23 – 0.27)'
-                WHEN success_rate >= 0.19 THEN 'Low (0.19 – 0.23)'
-                ELSE 'Very Low (≤ 0.19)'
+                WHEN success_rate >= 0.27 THEN 'Bon (0.27 – 0.31)'
+                WHEN success_rate >= 0.23 THEN 'Moyen (0.23 – 0.27)'
+                WHEN success_rate >= 0.19 THEN 'Faible (0.19 – 0.23)'
+                ELSE 'Très faible (≤ 0.19)'
             END AS bucket_label,
             COUNT(*) AS province_count
         FROM province_rates

@@ -83,7 +83,7 @@ def build_trend_cards(df, highlight_province: str | None = None) -> html.Div:
     with the `--selected` card style; every card gets its own bigger
     figure rather than all provinces sharing a single combined chart."""
     if df is None or df.empty:
-        return html.Div("No trend data available for this selection.", className="empty-state")
+        return html.Div("Aucune donnée d'évolution disponible pour cette sélection.", className="empty-state")
 
     provinces = sorted(df["province"].unique())
     if highlight_province in provinces:
@@ -107,9 +107,9 @@ def build_trend_cards(df, highlight_province: str | None = None) -> html.Div:
                 delta_class, arrow = "delta-down", "↘"
             else:
                 delta_class, arrow = "delta-neutral", "→"
-            delta_text = f"{arrow} {delta:+.1f} pts since {int(prov_df['year'].iloc[0])}"
+            delta_text = f"{arrow} {delta:+.1f} pts depuis {int(prov_df['year'].iloc[0])}"
         else:
-            delta_class, delta_text = "delta-neutral", "Not enough data for a trend"
+            delta_class, delta_text = "delta-neutral", "Données insuffisantes pour établir une tendance"
 
         card = html.Div(
             [
@@ -143,7 +143,7 @@ def build_trend_table(df) -> html.Div:
     province, one column per year, plus a simple up/down trend arrow
     comparing the first and last available year."""
     if df is None or df.empty:
-        return html.Div("No trend data available for this selection.", className="empty-state")
+        return html.Div("Aucune donnée d'évolution disponible pour cette sélection.", className="empty-state")
 
     pivot = df.pivot_table(index="province", columns="year", values="success_rate", aggfunc="mean")
     years = sorted(pivot.columns.tolist())
@@ -165,7 +165,7 @@ def build_trend_table(df) -> html.Div:
 
     columns = [{"name": "Province", "id": "province"}]
     columns += [{"name": str(y), "id": str(y)} for y in years]
-    columns.append({"name": "Trend", "id": "trend"})
+    columns.append({"name": "Évolution", "id": "trend"})
 
     return html.Div(
         dash_table.DataTable(

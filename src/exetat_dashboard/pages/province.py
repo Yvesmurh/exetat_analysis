@@ -26,7 +26,7 @@ def layout(**kwargs):
 )
 def update_analytics(province, current_year, option):
     if not province or current_year is None:
-        return empty_state(), empty_state(), empty_figure(), "Select an available province and year."
+        return empty_state(), empty_state(), empty_figure(), "Sélectionnez une province et une année disponibles."
     return (
         safe_render(lambda: get_scope_overview(province, current_year, option),
                     lambda data: build_scope_overview(data, current_year)),

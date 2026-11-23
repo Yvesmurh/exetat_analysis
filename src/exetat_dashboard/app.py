@@ -10,14 +10,35 @@ codebase resolve correctly:
 
 import dash
 from dash import dcc, html
+from flask import send_from_directory
+from pathlib import Path
+
 
 from exetat_dashboard.config import COLORS
+from exetat_dashboard.translations import (
+    APP_TITLE,
+    FOOTER_DISCLAIMER,
+    FOOTER_TEXT,
+    NAV_BRAND_SUBTITLE,
+    NAV_OVERVIEW,
+    NAV_PROVINCES,
+    NAV_SCHOOLS,
+    NAV_SYSTEM_STATUS,
+)
+
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+CUSTOM_PAGES_DIR = BASE_DIR / "custom_pages"
+
+@server.route("/my-page")
+def my_page():
+    return send_from_directory(CUSTOM_PAGES_DIR, "my_page.html")
 
 app = dash.Dash(
     __name__,
     use_pages=True,
     suppress_callback_exceptions=True,
-    title="EXETAT — DRC National Education Intelligence",
+    title=APP_TITLE,
 )
 server = app.server
 
@@ -39,7 +60,7 @@ app.layout = html.Div(
                         html.Div(
                             [
                                 html.Strong("EXETAT INTELLIGENCE"),
-                                html.Small("République Démocratique du Congo · Éducation"),
+                                html.Small(NAV_BRAND_SUBTITLE),
                             ]
                         ),
                     ],
@@ -47,16 +68,16 @@ app.layout = html.Div(
                 ),
                 html.Div(
                     [
-                        dcc.Link("Overview", href="/", id="nav-overview", className="nav-link"),
-                        dcc.Link("Provinces", href="/provinces", id="nav-provinces", className="nav-link"),
-                        dcc.Link("Schools", href="/schools", id="nav-schools", className="nav-link"),
+                        dcc.Link(NAV_OVERVIEW, href="/", id="nav-overview", className="nav-link"),
+                        dcc.Link(NAV_PROVINCES, href="/provinces", id="nav-provinces", className="nav-link"),
+                        dcc.Link(NAV_SCHOOLS, href="/schools", id="nav-schools", className="nav-link"),
                     ],
                     className="nav-links",
                 ),
                 html.Div(
                     [
                         html.Span(className="system-dot"),
-                        html.Span("SYSTÈME ANALYTIQUE EN LIGNE", className="system-status-text"),
+                        html.Span(NAV_SYSTEM_STATUS, className="system-status-text"),
                     ],
                     className="system-status",
                 ),
@@ -69,11 +90,11 @@ app.layout = html.Div(
                 html.Div(
                     [
                         html.P(
-                            "EXETAT National Education Intelligence — Plateforme d'analyse et de visualisation des résultats éducatifs en RDC.",
+                            FOOTER_TEXT,
                             className="footer-text",
                         ),
                         html.P(
-                            "Données compilées à partir des archives publiques des examens d'État. Plateforme indépendante d'aide à la décision pour encadreurs, parents et chercheurs.",
+                            FOOTER_DISCLAIMER,
                             className="footer-disclaimer",
                         ),
                     ],
@@ -113,3 +134,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

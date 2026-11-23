@@ -8,11 +8,11 @@ from exetat_dashboard.figures.overview_cards import (
 )
 from exetat_dashboard.queries.analytics import BAND_LABELS, TREND_YEARS
 
-EMPTY_MESSAGE = "No data available for this selection."
+EMPTY_MESSAGE = "Aucune donnée disponible pour cette sélection."
 
 
-def empty_state(message=EMPTY_MESSAGE):
-    return html.Div(message, className="empty-state", role="status")
+def empty_state(message=EMPTY_MESSAGE, **kwargs):
+    return html.Div(message, className="empty-state", role="status", **kwargs)
 
 
 def percentage(value):
@@ -21,7 +21,7 @@ def percentage(value):
 
 def change_badge(value, suffix=""):
     if value is None or pd.isna(value):
-        return html.Span("No previous-year data", className="delta-badge delta-neutral")
+        return html.Span("Aucune donnée de l'année précédente", className="delta-badge delta-neutral")
     value = round(float(value), 2)
     direction, css = ("↑", "delta-up") if value > 0 else (("↓", "delta-down") if value < 0 else ("→", "delta-neutral"))
     return html.Span(f"{direction} {value:+.2f} pts{suffix}", className=f"delta-badge {css}")
@@ -32,7 +32,7 @@ def build_scope_overview(data, year, school=False):
         return empty_state()
     previous = data.get("previous_success_rate")
     rate = data.get("success_rate")
-    comparison = [html.Div(f"{year} · Current year", className="analytics-kpi-note")]
+    comparison = [html.Div(f"{year} · Année sélectionnée", className="analytics-kpi-note")]
     if previous is None:
         comparison.append(change_badge(None))
     else:
@@ -40,13 +40,13 @@ def build_scope_overview(data, year, school=False):
         if rate is not None:
             comparison.append(change_badge(data.get("success_rate_delta_vs_prev_year"), f" vs {int(year) - 1}"))
     if rate is None:
-        comparison.append(html.Div("Rate unavailable for this selection", className="analytics-kpi-note"))
+        comparison.append(html.Div("Taux indisponible pour cette sélection", className="analytics-kpi-note"))
     return html.Div([
-        _kpi_card("Total Options" if school else "Total Schools",
+        _kpi_card("Options d'enseignement" if school else "Établissements scolaires",
                   _fmt_int(data.get("total_options" if school else "total_schools")), icon=_ICON_SCHOOL),
-        _kpi_card("Total Participants", _fmt_int(data.get("total_participants")), icon=_ICON_USERS),
-        _kpi_card("Total Successful Students", _fmt_int(data.get("total_successful")), icon=_ICON_CHECK),
-        _kpi_card("School Success Rate" if school else "Province Success Rate", percentage(rate),
+        _kpi_card("Total des participants", _fmt_int(data.get("total_participants")), icon=_ICON_USERS),
+        _kpi_card("Élèves admis", _fmt_int(data.get("total_successful")), icon=_ICON_CHECK),
+        _kpi_card("Taux de réussite de l'établissement" if school else "Taux de réussite de la province", percentage(rate),
                   icon=_ICON_TARGET, extra=html.Div(comparison, className="analytics-comparison")),
     ], className="kpi-row analytics-kpis")
 
@@ -66,7 +66,7 @@ def build_option_leaders(df, year):
         html.Td(percentage(row.top_percentage_current), className="analytics-score"),
         html.Td(percentage(row.top_percentage_previous)), html.Td(change_badge(row.pts_change)),
     ]) for row in df.itertuples()]
-    return _table(["Option", "Student", f"{year} score", f"{int(year) - 1} best", "Change (pts)"], rows)
+    return _table(["Option", "Élève", f"Score {year}", f"Meilleur score {int(year) - 1}", "Variation (pts)"], rows)
 
 
 def build_detail_ranking(df, school=False):
@@ -81,8 +81,8 @@ def build_detail_ranking(df, school=False):
             values += [row.school_name, _fmt_int(row.participants), _fmt_int(row.successes), percentage(row.success_rate)]
         rows.append(html.Tr([html.Td(value, className="analytics-score" if i == len(values)-1 else "")
                              for i, value in enumerate(values)]))
-    headers = (["Rank", "Student", "Option", "Percentage"] if school else
-               ["Rank", "School", "Participants", "Successful", "Success Rate"])
+    headers = (["Rang", "Élève", "Option", "Pourcentage"] if school else
+               ["Rang", "Établissement", "Participants", "Réussites", "Taux de réussite"])
     return _table(headers, rows)
 
 
@@ -116,13 +116,13 @@ def build_scope_trend(df):
         mode="lines+markers", connectgaps=False,
         line=dict(color=COLORS["primary"], width=3),
         marker=dict(size=7, color=COLORS["primary"], line=dict(color="#FFFFFF", width=1.5)),
-        hovertemplate="Year %{x}<br>Success rate: %{y:.2f}%<extra></extra>",
+        hovertemplate="Année %{x}<br>Taux de réussite : %{y:.2f}%<extra></extra>",
     ))
     fig.update_layout(
-        xaxis=dict(title=dict(text="Year", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
+        xaxis=dict(title=dict(text="Année", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
                    dtick=1, range=[2014.75, 2023.25], showgrid=False, linecolor="#E2E8F0",
                    tickfont=dict(color=COLORS["text_secondary"], size=12, family=FONT_FAMILY)),
-        yaxis=dict(title=dict(text="Success Rate (%)", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
+        yaxis=dict(title=dict(text="Taux de réussite (%)", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
                    ticksuffix="%", rangemode="tozero",
                    gridcolor="#F1F5F9", zeroline=False, tickfont=dict(color=COLORS["text_secondary"], size=12, family=FONT_FAMILY)),
         hovermode="x unified",
@@ -134,18 +134,21 @@ def build_range_distribution(df, school=False):
     if df is None or df.empty or df["item_count"].sum() == 0:
         return empty_figure()
     counts = df.set_index("bucket_label")["item_count"].reindex(BAND_LABELS, fill_value=0)
-    unit = "students" if school else "schools"
+    unit = "élèves" if school else "établissements"
+    unit_title = "d'élèves" if school else "d'établissements"
+    band_display_map = {"Below 50%": "< 50%"}
+    y_labels = [band_display_map.get(lbl, lbl) for lbl in BAND_LABELS]
     fig = _base_figure()
     fig.add_trace(go.Bar(
-        y=BAND_LABELS, x=[int(v) for v in counts], orientation="h",
+        y=y_labels, x=[int(v) for v in counts], orientation="h",
         marker_color=["#007FFF", "#0284C7", "#38BDF8", "#071A33", "#F59E0B", "#CE1021"],
-        text=[f"{int(v):,}" for v in counts], textposition="outside", cliponaxis=False,
+        text=[f"{int(v):,}".replace(",", " ") for v in counts], textposition="outside", cliponaxis=False,
         textfont=dict(family=FONT_FAMILY, size=12, color=COLORS["text"]),
-        hovertemplate=f"%{{y}}<br>%{{x:,}} {unit}<extra></extra>",
+        hovertemplate=f"%{{y}}<br>%{{x}} {unit}<extra></extra>",
     ))
     fig.update_layout(
         margin=dict(l=88, r=48, t=20, b=45), bargap=.35,
-        xaxis=dict(title=dict(text=f"Number of {unit}", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
+        xaxis=dict(title=dict(text=f"Nombre {unit_title}", font=dict(color=COLORS["text"], size=12.5, family=FONT_FAMILY)),
                    rangemode="tozero", gridcolor="#F1F5F9", linecolor="#E2E8F0",
                    tickformat=",d", range=[0, max(1, float(counts.max()) * 1.2)],
                    tickfont=dict(color=COLORS["text_secondary"], size=12, family=FONT_FAMILY)),
