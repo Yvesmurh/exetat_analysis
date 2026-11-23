@@ -11,3 +11,4 @@ geopandas>=1.1.4
 matplotlib>=3.11.1
 d>=0.2.2
 shapely>=2.1.2
+gunicorn>=27.0.1

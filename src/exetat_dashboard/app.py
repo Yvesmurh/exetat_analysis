@@ -98,5 +98,18 @@ def _highlight_active_navigation(pathname):
     return tuple("nav-link nav-link--active" if index == active else "nav-link" for index in range(3))
 
 
+def main():
+    import os
+
+    host = os.getenv("HOST", "127.0.0.1")
+    port = int(os.getenv("PORT", "8050"))
+
+    app.run(
+        host=host,
+        port=port,
+        debug=False
+    )
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    main()

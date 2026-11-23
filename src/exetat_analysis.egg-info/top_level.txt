@@ -1,6 +1,5 @@
-__init__
 database
 exetat_dashboard
-main
+image
 pdf_parsing
 web-scraping
